@@ -1,0 +1,70 @@
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { Banknote, Clock, Heart, Home } from 'lucide-react';
+
+const rules = [
+  {
+    icon: Banknote,
+    text: 'Для підтвердження сесії потрібна передоплата за 24 години до її початку у розмірі 50% від вартості',
+  },
+  {
+    icon: Clock,
+    text: 'Скасування сесії можливе за 24 години до її початку. Сесія, скасована менш ніж за 24 години, вважається проведеною та оплачується у розмірі передоплати',
+  },
+  {
+    icon: Heart,
+    text: 'Якщо у вас стався форс-мажор або ви захворіли, напишіть мені — ми перенесемо сесію без жодних санкцій',
+  },
+  {
+    icon: Home,
+    text: 'Для проведення сесії вам необхідно комфортне безпечне місце та стабільний відео/аудіозв\'язок',
+  },
+];
+
+const RulesSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <section className="section-padding bg-primary" ref={ref}>
+      <div className="container-custom">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-16"
+        >
+          <span className="text-secondary-foreground/70 font-medium tracking-widest uppercase text-sm">
+            Важлива інформація
+          </span>
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mt-3">
+            Правила проведення консультації
+          </h2>
+        </motion.div>
+
+        {/* Rules Grid */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {rules.map((rule, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 text-center"
+            >
+              <div className="w-14 h-14 mx-auto mb-4 bg-primary-foreground/20 rounded-xl flex items-center justify-center">
+                <rule.icon className="w-7 h-7 text-primary-foreground" />
+              </div>
+              <p className="text-primary-foreground/90 text-sm leading-relaxed">
+                {rule.text}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default RulesSection;
