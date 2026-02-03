@@ -1,27 +1,34 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart } from 'lucide-react';
 
-const placeholderTests = [
+const tests = [
   {
     icon: Brain,
-    title: 'Тест на тривожність',
-    description: 'Визначте рівень вашої тривожності та отримайте рекомендації',
-    duration: '5-7 хв',
+    title: 'Шкала тривоги Бека (BAI)',
+    description: 'Оцініть рівень вашої тривожності за допомогою стандартизованого тесту з 21 питання',
+    duration: '~5 хвилин',
+    available: true,
+    link: '/tests/beck-anxiety',
   },
   {
     icon: Heart,
     title: 'Тест на депресію',
     description: 'Оцініть свій емоційний стан за шкалою Бека',
     duration: '10 хв',
+    available: false,
+    link: '#',
   },
   {
     icon: Target,
     title: 'Тест на стрес',
     description: 'Визначте рівень стресу у вашому житті',
     duration: '7 хв',
+    available: false,
+    link: '#',
   },
 ];
 
@@ -43,7 +50,7 @@ const Tests = () => {
               Психологічні тести
             </h1>
             <p className="text-xl text-primary-foreground/80">
-              Пройдіть безкоштовні тести для кращого розуміння себе та своїх потреб
+              Дізнайтеся більше про свій емоційний стан за допомогою науково обґрунтованих психологічних тестів
             </p>
           </motion.div>
         </div>
@@ -53,7 +60,7 @@ const Tests = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {placeholderTests.map((test, index) => (
+            {tests.map((test, index) => (
               <motion.div
                 key={test.title}
                 initial={{ opacity: 0, y: 30 }}
@@ -72,9 +79,15 @@ const Tests = () => {
                   <Clock size={16} />
                   {test.duration}
                 </div>
-                <Button variant="ctaOutline" className="w-full" disabled>
-                  Скоро доступно
-                </Button>
+                {test.available ? (
+                  <Button variant="cta" className="w-full" asChild>
+                    <Link to={test.link}>Пройти тест</Link>
+                  </Button>
+                ) : (
+                  <Button variant="ctaOutline" className="w-full" disabled>
+                    Скоро доступно
+                  </Button>
+                )}
               </motion.div>
             ))}
           </div>
@@ -87,10 +100,10 @@ const Tests = () => {
             className="mt-16 text-center bg-muted rounded-2xl p-8"
           >
             <h3 className="font-display text-2xl font-semibold text-foreground mb-3">
-              Тести вже незабаром!
+              Більше тестів незабаром!
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Ми готуємо якісні психологічні тести для вас. Результати можна буде отримати на email.
+              Ми готуємо якісні психологічні тести для вас. Пройдіть доступні тести вже зараз або запишіться на консультацію.
             </p>
             <Button variant="cta" size="lg" asChild>
               <a href="/#contact">Записатися на консультацію</a>
