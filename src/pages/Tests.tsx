@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna } from 'lucide-react';
 
 const tests = [
   {
@@ -13,6 +13,14 @@ const tests = [
     duration: '~5 хвилин',
     available: true,
     link: '/tests/beck-anxiety',
+  },
+  {
+    icon: Dna,
+    title: 'Тест Бровермана (Нейромедіатори)',
+    description: 'Оцініть баланс нейромедіаторів за допомогою комплексного тесту з 140 питань',
+    duration: '~15-20 хвилин',
+    available: true,
+    link: '/tests/broverman',
   },
   {
     icon: Heart,

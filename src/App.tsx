@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Courses from "./pages/Courses";
 import Tests from "./pages/Tests";
 import BeckAnxietyTest from "./pages/BeckAnxietyTest";
+import BrovermanTest from "./pages/BrovermanTest";
 import Resources from "./pages/Resources";
 import NotFound from "./pages/NotFound";
 
@@ -23,6 +24,7 @@ const App = () => (
           <Route path="/courses" element={<Courses />} />
           <Route path="/tests" element={<Tests />} />
           <Route path="/tests/beck-anxiety" element={<BeckAnxietyTest />} />
+          <Route path="/tests/broverman" element={<BrovermanTest />} />
           <Route path="/resources" element={<Resources />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
