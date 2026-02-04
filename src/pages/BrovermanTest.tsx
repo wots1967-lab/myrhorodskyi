@@ -584,6 +584,27 @@ const BrovermanTest = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  // Handle Enter key to go to next question
+  useEffect(() => {
+    if (stage !== 'test') return;
+    
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (globalQuestionIndex < TOTAL_QUESTIONS - 1) {
+          if (responses[globalQuestionIndex] !== null) {
+            goNext();
+          }
+        } else if (allAnswered) {
+          submitTest();
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [stage, globalQuestionIndex, responses, allAnswered]);
+
   const scores = calculateScores();
   const highestDeficitKey = Object.entries(scores).reduce((max, curr) => 
     curr[1] > max[1] ? curr : max
