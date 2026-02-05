@@ -1,24 +1,14 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { Check, Sparkles, Star } from 'lucide-react';
+import { Check, Star } from 'lucide-react';
 
 const services = [
-  {
-    badge: 'БЕЗКОШТОВНО',
-    badgeColor: 'bg-green-500',
-    title: 'Перша консультація безкоштовно',
-    description:
-      'Почніть свій психологічний шлях з впевненого кроку. Це вступна зустріч, під час якої ми визначимо ваші потреби та спільно окреслимо напрямок нашої роботи.',
-    price: '0$',
-    cta: 'Записатися',
-    featured: true,
-  },
   {
     title: 'Індивідуальна психологічна консультація',
     description:
       'Один з найефективніших методів впоратися з різноманітними психологічними запитами. Індивідуальна консультація допоможе зосередитися на ваших потребах та вирішити особисті питання з професійною підтримкою.',
-    price: '30$',
+    price: '50$',
     duration: '50 хвилин',
     cta: 'Обрати',
   },
@@ -38,17 +28,9 @@ const services = [
     title: 'Особисте наставництво',
     description:
       'З сесією особистого наставництва ви отримаєте мою повну увагу та підтримку на вашому шляху до особистісної трансформації, досягнення цілей та глибоких змін.',
-    price: '50$',
+    price: '70$',
     duration: '1 година',
     cta: 'Дізнатися більше',
-  },
-  {
-    title: 'Психолог з листування',
-    description:
-      'Не завжди зручно зустрічатися особисто — і це абсолютно нормально. З психологом з листування ви отримаєте професійну підтримку через віртуальний зв\'язок, заощаджуючи час і комфортно вирішуючи ваші питання.',
-    price: '25$',
-    duration: '50 хвилин',
-    cta: 'Почати листування',
   },
 ];
 
@@ -83,7 +65,7 @@ const ServicesSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className={`relative bg-card rounded-2xl p-8 card-hover shadow-sm ${
-                service.featured ? 'border-2 border-green-500/30' : 'border border-border'
+                'border border-border'
               }`}
             >
               {/* Badge */}
@@ -91,7 +73,7 @@ const ServicesSection = () => {
                 <div
                   className={`absolute -top-3 left-6 ${service.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1`}
                 >
-                  {service.featured ? <Sparkles size={12} /> : <Star size={12} />}
+                  <Star size={12} />
                   {service.badge}
                 </div>
               )}
@@ -139,7 +121,7 @@ const ServicesSection = () => {
                     </div>
                   )}
                   <Button
-                    variant={service.featured ? 'cta' : 'ctaOutline'}
+                    variant="ctaOutline"
                     size="lg"
                     className="w-full lg:w-auto"
                     asChild
