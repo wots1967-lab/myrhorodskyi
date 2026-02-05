@@ -56,10 +56,14 @@ const Header = () => {
             <Link to="/" className="flex items-center gap-3">
               <img src={logo} alt="Logo" className="h-10 w-10" />
               <div className="hidden sm:block">
-                <span className="font-display text-lg font-semibold text-foreground">
+                <span className={`font-display text-lg font-semibold transition-colors duration-300 ${
+                  isScrolled ? 'text-foreground' : 'text-cream'
+                }`}>
                   Сергій Миргородський
                 </span>
-                <span className="block text-xs text-muted-foreground">Психолог</span>
+                <span className={`block text-xs transition-colors duration-300 ${
+                  isScrolled ? 'text-muted-foreground' : 'text-cream/80'
+                }`}>Психолог</span>
               </div>
             </Link>
 
@@ -70,11 +74,16 @@ const Header = () => {
                   key={item.href}
                   to={item.href}
                   onClick={() => handleNavClick(item.href)}
-                  className={`text-sm font-medium transition-colors hover:text-secondary ${
-                    location.pathname === item.href || 
-                    (item.href === '/' && location.pathname === '/' && !location.hash)
-                      ? 'text-secondary'
-                      : 'text-foreground'
+                  className={`text-sm font-medium transition-colors duration-300 ${
+                    isScrolled
+                      ? (location.pathname === item.href || 
+                         (item.href === '/' && location.pathname === '/' && !location.hash)
+                          ? 'text-secondary hover:text-secondary'
+                          : 'text-foreground hover:text-secondary')
+                      : (location.pathname === item.href || 
+                         (item.href === '/' && location.pathname === '/' && !location.hash)
+                          ? 'text-cream hover:text-cream'
+                          : 'text-cream/90 hover:text-cream')
                   }`}
                 >
                   {item.label}
@@ -92,7 +101,9 @@ const Header = () => {
             {/* Mobile Menu Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="lg:hidden p-2 text-foreground"
+              className={`lg:hidden p-2 transition-colors duration-300 ${
+                isScrolled ? 'text-foreground' : 'text-cream'
+              }`}
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
