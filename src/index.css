@@ -147,18 +147,18 @@
   }
 
   .glass-card {
-    background: hsla(40, 33%, 97%, 0.45);
+    background: hsla(40, 33%, 97%, 0.82);
     backdrop-filter: blur(30px) saturate(2);
     -webkit-backdrop-filter: blur(30px) saturate(2);
-    border: 1px solid hsla(40, 33%, 100%, 0.35);
+    border: 1px solid hsla(40, 33%, 100%, 0.5);
     box-shadow: 
       0 8px 40px rgba(0, 0, 0, 0.04),
-      inset 0 1px 0 hsla(40, 33%, 100%, 0.5),
+      inset 0 1px 0 hsla(40, 33%, 100%, 0.6),
       inset 0 -1px 0 hsla(40, 33%, 90%, 0.2);
   }
 
   .glass-card-dark {
-    background: hsla(168, 56%, 20%, 0.55);
+    background: hsla(168, 56%, 18%, 0.8);
     backdrop-filter: blur(30px) saturate(2);
     -webkit-backdrop-filter: blur(30px) saturate(2);
     border: 1px solid hsla(168, 56%, 40%, 0.25);
