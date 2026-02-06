@@ -6,13 +6,8 @@ import logo from '@/assets/logo.png';
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${patternBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/20 to-primary/60" />
-      </div>
+      {/* Overlay for hero - pattern is now fixed in Index */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/40 via-primary/20 to-primary/60" />
 
       {/* Content */}
       <div className="relative z-10 container-custom section-padding text-center">

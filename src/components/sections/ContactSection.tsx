@@ -24,8 +24,8 @@ const ContactSection = () => {
   };
 
   return (
-    <section id="contact" className="section-padding bg-background" ref={ref}>
-      <div className="container-custom">
+    <section id="contact" className="section-padding relative z-10" ref={ref}>
+      <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
           {/* Left Side - Info */}
           <motion.div
