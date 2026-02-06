@@ -4,7 +4,7 @@ import logo from '@/assets/logo.png';
 
 const Footer = () => {
   return (
-    <footer className="relative z-10 bg-primary/95 backdrop-blur-md text-primary-foreground">
+    <footer className="relative z-10 glass-card-dark text-primary-foreground">
       <div className="container-custom section-padding py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand */}
