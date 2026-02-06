@@ -3,14 +3,15 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
+import psychologistPhoto from '@/assets/psychologist-photo.jpg';
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="section-padding bg-background" ref={ref}>
-      <div className="container-custom">
+    <section id="about" className="section-padding relative z-10" ref={ref}>
+      <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image Side */}
           <motion.div
@@ -19,19 +20,13 @@ const AboutSection = () => {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="aspect-[4/5] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-32 h-32 mx-auto mb-4 rounded-full bg-primary/20 flex items-center justify-center">
-                    <span className="font-display text-5xl text-primary">СМ</span>
-                  </div>
-                  <p className="text-muted-foreground text-sm">Фото психолога</p>
-                </div>
-              </div>
+            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+              <img
+                src={psychologistPhoto}
+                alt="Сергій Миргородський — психолог"
+                className="w-full h-full object-cover"
+              />
             </div>
-            {/* Decorative Element */}
-            <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-secondary/20 rounded-full blur-2xl" />
-            <div className="absolute -top-6 -left-6 w-32 h-32 bg-primary/10 rounded-full blur-3xl" />
           </motion.div>
 
           {/* Content Side */}
@@ -40,24 +35,24 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <span className="text-secondary font-medium tracking-widest uppercase text-sm">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Про мене
-            </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-6">
-              Консультації та особисте наставництво
             </h2>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p>
-                Я психолог з понад 3-річним досвідом у сфері консультування та особистого наставництва.
-                Моя місія — допомогти вам знайти гармонію в повсякденному житті, розкрити власний
-                потенціал і навчитися керувати емоціями для досягнення справжнього щастя та
-                внутрішнього задоволення.
+              <p className="text-lg font-medium text-foreground">
+                Я психолог з більш ніж 5-річним досвідом у сфері консультування та особистого наставництва.
               </p>
               <p>
-                Я працюю з інтеграцією найефективніших підходів: когнітивно-поведінкова терапія,
-                психодинамічна терапія, схема-терапія та інші сучасні методи. Також використовую
-                техніки медитації та візуалізації, щоб допомогти вам розслабитися, активувати
-                внутрішні ресурси та знайти власні рішення.
+                Моя місія - допомогти вам знаходити гармонію в буденному житті, розкривати власний
+                потенціал і керувати емоціями для досягнення щасливого життя в задоволення.
+              </p>
+              <p>
+                Мої навички включають використання інтегративного підходу (когнітивно-поведінкової
+                терапії, психодинамічної терапії, схема-терапії) та майндфулнес практик.
+              </p>
+              <p>
+                Також я застосовую техніки медитації та візуалізації, щоб допомогти клієнтам
+                розслабитися, опанувати внутрішні ресурси та знайти рішення.
               </p>
             </div>
             <motion.div
