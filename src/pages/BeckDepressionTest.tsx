@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, CloudRain, Shield, Phone, CheckCircle2, AlertTriangle, AlertCircle, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import usePageSEO from '@/hooks/usePageSEO';
+import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 
 interface Question {
   title: string;
@@ -361,6 +362,23 @@ const BeckDepressionTest = () => {
     setStage('test');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const handleKeyboardNext = useCallback(() => {
+    if (currentQuestion < questions.length - 1) {
+      goNext();
+    } else if (allAnswered) {
+      submitTest();
+    }
+  }, [currentQuestion, allAnswered, responses]);
+
+  useTestKeyboard({
+    isActive: stage === 'test',
+    optionsCount: 4,
+    currentValue: responses[currentQuestion],
+    onSelect: handleResponse,
+    onNext: handleKeyboardNext,
+    onPrev: goPrev,
+  });
 
   const currentQ = questions[currentQuestion];
 
