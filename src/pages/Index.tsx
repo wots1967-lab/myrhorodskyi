@@ -9,6 +9,7 @@ import patternBg from '@/assets/pattern-bg.jpg';
 const AboutSection = lazy(() => import('@/components/sections/AboutSection'));
 const HelpSection = lazy(() => import('@/components/sections/HelpSection'));
 const TherapyProcessSection = lazy(() => import('@/components/sections/TherapyProcessSection'));
+const TopicsSection = lazy(() => import('@/components/sections/TopicsSection'));
 const ServicesSection = lazy(() => import('@/components/sections/ServicesSection'));
 const RulesSection = lazy(() => import('@/components/sections/RulesSection'));
 const FAQSection = lazy(() => import('@/components/sections/FAQSection'));
@@ -52,6 +53,9 @@ const Index = () => {
           </Suspense>
           <Suspense fallback={<SectionFallback />}>
             <TherapyProcessSection />
+          </Suspense>
+          <Suspense fallback={<SectionFallback />}>
+            <TopicsSection />
           </Suspense>
           <Suspense fallback={<SectionFallback />}>
             <ServicesSection />
