@@ -33,11 +33,11 @@ const tests = [
   },
   {
     icon: Target,
-    title: 'Тест на стрес',
-    description: 'Визначте рівень стресу у вашому житті',
-    duration: '7 хв',
-    available: false,
-    link: '#',
+    title: 'Шкала сприйнятого стресу (PSS-10)',
+    description: 'Визначте рівень вашого стресового навантаження за останній місяць',
+    duration: '~3 хвилини',
+    available: true,
+    link: '/tests/pss10',
   },
 ];
 
