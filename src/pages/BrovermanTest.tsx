@@ -1103,7 +1103,7 @@ const BrovermanTest = () => {
                       та індивідуальний план покращення балансу нейромедіаторів.
                     </p>
                     <Button variant="cta" size="lg" asChild>
-                      <a href="/#contact">Записатися на консультацію</a>
+                      <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
                     </Button>
                   </CardContent>
                 </Card>

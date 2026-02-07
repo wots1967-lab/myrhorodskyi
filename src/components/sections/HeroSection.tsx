@@ -70,7 +70,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="#contact">Записатися на консультацію</a>
+              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#about">Дізнатися більше</a>

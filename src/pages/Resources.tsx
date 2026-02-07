@@ -123,7 +123,7 @@ const Resources = () => {
               Ми регулярно додаємо нові корисні матеріали. Підпишіться, щоб не пропустити.
             </p>
             <Button variant="cta" size="lg" asChild>
-              <a href="/#contact">Підписатися</a>
+              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Підписатися</a>
             </Button>
           </motion.div>
         </div>
