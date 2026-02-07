@@ -102,6 +102,7 @@
 
   html {
     scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -147,25 +148,29 @@
   }
 
   .glass-card {
-    background: hsla(40, 33%, 97%, 0.82);
-    backdrop-filter: blur(30px) saturate(2);
-    -webkit-backdrop-filter: blur(30px) saturate(2);
+    background: hsla(40, 33%, 97%, 0.88);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
     border: 1px solid hsla(40, 33%, 100%, 0.5);
     box-shadow: 
       0 8px 40px rgba(0, 0, 0, 0.04),
       inset 0 1px 0 hsla(40, 33%, 100%, 0.6),
       inset 0 -1px 0 hsla(40, 33%, 90%, 0.2);
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .glass-card-dark {
-    background: hsla(168, 56%, 18%, 0.8);
-    backdrop-filter: blur(30px) saturate(2);
-    -webkit-backdrop-filter: blur(30px) saturate(2);
+    background: hsla(168, 56%, 18%, 0.88);
+    backdrop-filter: blur(16px) saturate(1.5);
+    -webkit-backdrop-filter: blur(16px) saturate(1.5);
     border: 1px solid hsla(168, 56%, 40%, 0.25);
     box-shadow: 
       0 8px 40px rgba(0, 0, 0, 0.08),
       inset 0 1px 0 hsla(168, 56%, 50%, 0.2),
       inset 0 -1px 0 hsla(168, 56%, 15%, 0.3);
+    will-change: transform;
+    transform: translateZ(0);
   }
 }
 
