@@ -97,7 +97,7 @@ const TopicsSection = () => {
                 key={topic}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.3, delay: 0.05 * Math.min(index, 15) }}
+                transition={{ duration: 0.3, delay: 0.05 * Math.min(index, 15), scale: { duration: 0.1 } }}
                 onClick={() => toggleTopic(topic)}
                 className={`px-4 py-2.5 rounded-full text-sm font-medium cursor-pointer select-none border transition-colors duration-150 ${
                   isSelected
