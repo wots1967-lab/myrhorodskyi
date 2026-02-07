@@ -99,12 +99,12 @@ const TopicsSection = () => {
                 animate={isInView ? { opacity: 1, scale: 1 } : {}}
                 transition={{ duration: 0.3, delay: 0.05 * Math.min(index, 15) }}
                 onClick={() => toggleTopic(topic)}
-                className={`px-4 py-2.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer select-none border ${
+                className={`px-4 py-2.5 rounded-full text-sm font-medium cursor-pointer select-none border ${
                   isSelected
-                    ? 'bg-secondary text-secondary-foreground border-secondary shadow-md scale-105'
-                    : 'bg-card/80 text-foreground border-border hover:bg-secondary/15 hover:border-secondary/50 hover:shadow-sm'
+                    ? 'bg-secondary text-secondary-foreground border-secondary shadow-md'
+                    : 'bg-card/80 text-foreground border-border'
                 }`}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
                 {topic}
