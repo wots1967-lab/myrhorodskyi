@@ -25,11 +25,11 @@ const tests = [
   },
   {
     icon: Heart,
-    title: 'Тест на депресію',
-    description: 'Оцініть свій емоційний стан за шкалою Бека',
-    duration: '10 хв',
-    available: false,
-    link: '#',
+    title: 'Шкала депресії Бека (BDI)',
+    description: 'Оцініть наявність та ступінь депресивних симптомів за допомогою визнаного у світі тесту',
+    duration: '~5-10 хвилин',
+    available: true,
+    link: '/tests/beck-depression',
   },
   {
     icon: Target,

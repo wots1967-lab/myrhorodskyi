@@ -11,6 +11,7 @@ const Courses = lazy(() => import("./pages/Courses"));
 const Tests = lazy(() => import("./pages/Tests"));
 const BeckAnxietyTest = lazy(() => import("./pages/BeckAnxietyTest"));
 const BrovermanTest = lazy(() => import("./pages/BrovermanTest"));
+const BeckDepressionTest = lazy(() => import("./pages/BeckDepressionTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -35,6 +36,7 @@ const App = () => (
             <Route path="/tests" element={<Tests />} />
             <Route path="/tests/beck-anxiety" element={<BeckAnxietyTest />} />
             <Route path="/tests/broverman" element={<BrovermanTest />} />
+            <Route path="/tests/beck-depression" element={<BeckDepressionTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
