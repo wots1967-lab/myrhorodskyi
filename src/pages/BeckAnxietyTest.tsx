@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Brain, Shield, Phone, CheckCircle2, AlertTriangle, AlertCircle, XCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import usePageSEO from '@/hooks/usePageSEO';
 
 const questions = [
   "Відчуття оніміння та поколювання в тілі",
@@ -126,6 +127,12 @@ const getInterpretation = (score: number): AnxietyLevel => {
 };
 
 const BeckAnxietyTest = () => {
+  usePageSEO({
+    title: 'Шкала тривоги Бека (BAI) — Тест онлайн',
+    description: 'Пройдіть тест на тривожність за шкалою Бека (BAI) онлайн. 21 питання для оцінки рівня тривоги.',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/beck-anxiety',
+    keywords: 'шкала тривоги Бека, BAI тест, тест тривожності онлайн, рівень тривоги',
+  });
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(21).fill(null));

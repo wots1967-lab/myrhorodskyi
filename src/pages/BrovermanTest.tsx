@@ -11,6 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Dna, Shield, Phone, CheckCircle2, AlertTriangle, AlertCircle, XCircle, Battery, Brain, Leaf, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import usePageSEO from '@/hooks/usePageSEO';
 
 // Question categories
 const categories = [
@@ -461,6 +462,12 @@ const interpretations: Record<string, NeurotransmitterInterpretation> = {
 };
 
 const BrovermanTest = () => {
+  usePageSEO({
+    title: 'Тест нейромедіаторів Бровермана — Тест онлайн',
+    description: 'Оцініть баланс нейромедіаторів (дофамін, ацетилхолін, ГАМК, серотонін) за тестом Бровермана. 140 питань онлайн.',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/broverman',
+    keywords: 'тест нейромедіаторів, тест Бровермана, дофамін, серотонін, ГАМК, ацетилхолін, баланс нейромедіаторів',
+  });
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const [currentQuestionInCategory, setCurrentQuestionInCategory] = useState(0);
