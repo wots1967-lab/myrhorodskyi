@@ -25,6 +25,8 @@ const AboutSection = () => {
                 src={psychologistPhoto}
                 alt="Сергій Миргородський — психолог"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </motion.div>

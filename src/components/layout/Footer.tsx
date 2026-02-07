@@ -69,7 +69,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-lg mb-4">Контакти</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
-                <img src={telegramIcon} alt="Telegram" className="w-5 h-5 rounded" />
+                <img src={telegramIcon} alt="Telegram" className="w-5 h-5 rounded" loading="lazy" decoding="async" />
                 <a
                   href="https://t.me/sigurdpsy"
                   target="_blank"
@@ -80,7 +80,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <img src={instagramIcon} alt="Instagram" className="w-5 h-5 rounded" />
+                <img src={instagramIcon} alt="Instagram" className="w-5 h-5 rounded" loading="lazy" decoding="async" />
                 <a
                   href="https://www.instagram.com/sigurd.psy/"
                   target="_blank"
