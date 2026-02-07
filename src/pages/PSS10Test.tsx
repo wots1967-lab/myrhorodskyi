@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
@@ -132,6 +132,33 @@ const PSS10Test = () => {
   const [responses, setResponses] = useState<(number | null)[]>(new Array(10).fill(null));
   const [showValidation, setShowValidation] = useState(false);
 
+  // Load saved progress
+  useEffect(() => {
+    const saved = sessionStorage.getItem('pss10-progress');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        if (data.responses && data.responses.length === 10) {
+          setResponses(data.responses);
+          setCurrentQuestion(data.currentQuestion || 0);
+          if (data.responses.some((r: number | null) => r !== null)) {
+            setStage('test');
+          }
+        }
+      } catch (e) { /* ignore */ }
+    }
+  }, []);
+
+  // Save progress
+  useEffect(() => {
+    if (stage === 'test') {
+      sessionStorage.setItem('pss10-progress', JSON.stringify({
+        responses,
+        currentQuestion,
+      }));
+    }
+  }, [responses, currentQuestion, stage]);
+
   const progress = ((responses.filter(r => r !== null).length) / questions.length) * 100;
   const allAnswered = responses.every(r => r !== null);
   const totalScore = calculateScore(responses);
@@ -172,10 +199,12 @@ const PSS10Test = () => {
       return;
     }
     setStage('results');
+    sessionStorage.removeItem('pss10-progress');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const resetTest = () => {
+    sessionStorage.removeItem('pss10-progress');
     setStage('intro');
     setCurrentQuestion(0);
     setResponses(new Array(10).fill(null));

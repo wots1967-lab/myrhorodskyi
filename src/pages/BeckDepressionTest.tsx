@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
@@ -308,6 +308,33 @@ const BeckDepressionTest = () => {
   const [responses, setResponses] = useState<(number | null)[]>(new Array(21).fill(null));
   const [showValidation, setShowValidation] = useState(false);
 
+  // Load saved progress
+  useEffect(() => {
+    const saved = sessionStorage.getItem('beck-depression-progress');
+    if (saved) {
+      try {
+        const data = JSON.parse(saved);
+        if (data.responses && data.responses.length === 21) {
+          setResponses(data.responses);
+          setCurrentQuestion(data.currentQuestion || 0);
+          if (data.responses.some((r: number | null) => r !== null)) {
+            setStage('test');
+          }
+        }
+      } catch (e) { /* ignore */ }
+    }
+  }, []);
+
+  // Save progress
+  useEffect(() => {
+    if (stage === 'test') {
+      sessionStorage.setItem('beck-depression-progress', JSON.stringify({
+        responses,
+        currentQuestion,
+      }));
+    }
+  }, [responses, currentQuestion, stage]);
+
   const progress = ((responses.filter(r => r !== null).length) / questions.length) * 100;
   const allAnswered = responses.every(r => r !== null);
   const totalScore = responses.reduce((sum: number, val) => sum + (val ?? 0), 0);
@@ -347,10 +374,12 @@ const BeckDepressionTest = () => {
       return;
     }
     setStage('results');
+    sessionStorage.removeItem('beck-depression-progress');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const resetTest = () => {
+    sessionStorage.removeItem('beck-depression-progress');
     setStage('intro');
     setCurrentQuestion(0);
     setResponses(new Array(21).fill(null));
