@@ -6,7 +6,7 @@ const services = [{
   title: 'Індивідуальна психологічна консультація',
   description: 'Один з найефективніших методів впоратися з різноманітними психологічними запитами. Індивідуальна консультація допоможе зосередитися на ваших потребах та вирішити особисті питання з професійною підтримкою.',
   price: '50$',
-  duration: '50 хвилин',
+  
   cta: 'Обрати'
 }, {
   badge: 'ПОПУЛЯРНО',
@@ -101,7 +101,7 @@ const ServicesSection = () => {
                       <span className="font-display text-3xl font-bold text-secondary">
                         {service.price}
                       </span>
-                      {service.duration}
+                      
                     </div>}
                   <Button variant="ctaOutline" size="lg" className="w-full lg:w-auto" asChild>
                     <a href="#contact">{service.cta}</a>
