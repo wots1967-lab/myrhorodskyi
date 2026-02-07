@@ -4,6 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart, Dna } from 'lucide-react';
+import usePageSEO from '@/hooks/usePageSEO';
 
 const tests = [
   {
@@ -41,6 +42,13 @@ const tests = [
 ];
 
 const Tests = () => {
+  usePageSEO({
+    title: 'Психологічні тести онлайн — Психолог Сергій Миргородський',
+    description: 'Безкоштовні психологічні тести онлайн: шкала тривоги Бека, тест нейромедіаторів Бровермана. Перевірте свій емоційний стан.',
+    canonical: 'https://myrhorodskyi.lovable.app/tests',
+    keywords: 'психологічні тести онлайн, тест тривожності, шкала Бека, тест нейромедіаторів, психологічна діагностика',
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

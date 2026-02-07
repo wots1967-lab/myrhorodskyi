@@ -2,6 +2,7 @@ import { lazy, Suspense } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
+import usePageSEO from '@/hooks/usePageSEO';
 import patternBg from '@/assets/pattern-bg.jpg';
 
 // Lazy load below-fold sections
@@ -24,6 +25,13 @@ const SectionFallback = () => (
 );
 
 const Index = () => {
+  usePageSEO({
+    title: 'Сергій Миргородський — Психолог | Консультації онлайн',
+    description: 'Психолог Сергій Миргородський — індивідуальні консультації, психотерапія, КПТ, схема-терапія. Запишіться на онлайн-консультацію.',
+    canonical: 'https://myrhorodskyi.lovable.app/',
+    keywords: 'психолог, Миргородський Сергій, психотерапія, знайти психолога, онлайн психолог, консультація психолога, КПТ, когнітивно-поведінкова терапія, схема-терапія, тривожність, стрес',
+  });
+
   return (
     <div className="min-h-screen relative">
       {/* Fixed parallax background */}

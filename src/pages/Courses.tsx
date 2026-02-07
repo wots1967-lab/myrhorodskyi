@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Clock, Users } from 'lucide-react';
+import usePageSEO from '@/hooks/usePageSEO';
 
 const placeholderCourses = [
   {
@@ -29,6 +30,13 @@ const placeholderCourses = [
 ];
 
 const Courses = () => {
+  usePageSEO({
+    title: 'Курси та програми — Психолог Сергій Миргородський',
+    description: 'Навчальні курси з психології: управління стресом, емоційний інтелект, здорові відносини. Психолог Сергій Миргородський.',
+    canonical: 'https://myrhorodskyi.lovable.app/courses',
+    keywords: 'курси психології, управління стресом, емоційний інтелект, психолог курси онлайн',
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Header />

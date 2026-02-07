@@ -12,3 +12,7 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /tests/beck-anxiety
+Disallow: /tests/broverman
+
+Sitemap: https://myrhorodskyi.lovable.app/sitemap.xml

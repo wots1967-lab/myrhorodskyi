@@ -3,6 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { FileText, Video, BookOpen, Download } from 'lucide-react';
+import usePageSEO from '@/hooks/usePageSEO';
 
 const categories = [
   { id: 'articles', label: 'Статті', icon: FileText },
@@ -38,6 +39,13 @@ const placeholderResources = [
 ];
 
 const Resources = () => {
+  usePageSEO({
+    title: 'Корисні матеріали — Психолог Сергій Миргородський',
+    description: 'Статті, відео та гайди з психології. Корисні матеріали для вашого психологічного здоров\'я від психолога Сергія Миргородського.',
+    canonical: 'https://myrhorodskyi.lovable.app/resources',
+    keywords: 'статті психологія, гайди психолога, психологічне здоровʼя, поради психолога',
+  });
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
