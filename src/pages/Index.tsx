@@ -34,20 +34,17 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-[100dvh] relative">
-      {/* Background rendered as a fixed-size viewport layer via CSS */}
-      <div
-        className="fixed left-0 top-0 w-full z-0"
-        aria-hidden="true"
-        style={{
-          height: '100lvh',
-          backgroundImage: `url(${patternBg})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      />
-      <div className="relative z-10">
+    <div
+      className="min-h-[100dvh]"
+      style={{
+        backgroundImage: `url(${patternBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'scroll',
+      }}
+    >
+      <div>
         <Header />
         <main>
           <HeroSection />
