@@ -4,7 +4,7 @@ import logo from '@/assets/logo.png';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
       {/* Overlay for hero - smooth fade to transparent at bottom */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/15 via-black/8 to-transparent" />
 
