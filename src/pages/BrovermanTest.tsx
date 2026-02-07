@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
@@ -12,6 +12,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Dna, Shield, Phone, CheckCircle2, AlertTriangle, AlertCircle, XCircle, Battery, Brain, Leaf, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import usePageSEO from '@/hooks/usePageSEO';
+import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 
 // Question categories
 const categories = [
@@ -599,26 +600,22 @@ const BrovermanTest = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Handle Enter key to go to next question
-  useEffect(() => {
-    if (stage !== 'test') return;
-    
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        if (globalQuestionIndex < TOTAL_QUESTIONS - 1) {
-          if (responses[globalQuestionIndex] !== null) {
-            goNext();
-          }
-        } else if (allAnswered) {
-          submitTest();
-        }
-      }
-    };
+  const handleKeyboardNext = useCallback(() => {
+    if (globalQuestionIndex < TOTAL_QUESTIONS - 1) {
+      goNext();
+    } else if (allAnswered) {
+      submitTest();
+    }
+  }, [globalQuestionIndex, allAnswered, responses]);
 
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [stage, globalQuestionIndex, responses, allAnswered]);
+  useTestKeyboard({
+    isActive: stage === 'test',
+    optionsCount: responseOptions.length,
+    currentValue: responses[globalQuestionIndex],
+    onSelect: handleResponse,
+    onNext: handleKeyboardNext,
+    onPrev: goPrev,
+  });
 
   const scores = calculateScores();
   const highestDeficitKey = Object.entries(scores).reduce((max, curr) => 
