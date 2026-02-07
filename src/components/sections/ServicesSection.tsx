@@ -40,11 +40,9 @@ const ServicesSection = () => {
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         {/* Header */}
         <motion.div initial={{
-        opacity: 0,
-        y: 30
+        opacity: 0
       }} animate={isInView ? {
-        opacity: 1,
-        y: 0
+        opacity: 1
       } : {}} transition={{
         duration: 0.6
       }} className="text-center mb-16">
@@ -59,11 +57,9 @@ const ServicesSection = () => {
         {/* Services List */}
         <div className="space-y-6 max-w-4xl mx-auto">
           {services.map((service, index) => <motion.div key={service.title} initial={{
-          opacity: 0,
-          y: 30
+          opacity: 0
         }} animate={isInView ? {
-          opacity: 1,
-          y: 0
+          opacity: 1
         } : {}} transition={{
           duration: 0.6,
           delay: index * 0.1

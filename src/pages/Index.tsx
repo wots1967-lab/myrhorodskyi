@@ -34,13 +34,16 @@ const Index = () => {
   });
 
   return (
-    <div className="min-h-[100dvh] relative">
-      {/* Fixed parallax background */}
-      <div
-        className="fixed inset-0 bg-cover bg-center bg-no-repeat z-0"
-        style={{ backgroundImage: `url(${patternBg})` }}
-      />
-
+    <div
+      className="min-h-[100dvh] relative"
+      style={{
+        backgroundImage: `url(${patternBg})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'scroll',
+      }}
+    >
       <div className="relative z-10">
         <Header />
         <main>

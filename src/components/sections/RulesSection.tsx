@@ -24,11 +24,9 @@ const RulesSection = () => {
       <div className="container-custom glass-card-dark rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg">
         {/* Header */}
         <motion.div initial={{
-        opacity: 0,
-        y: 30
+        opacity: 0
       }} animate={isInView ? {
-        opacity: 1,
-        y: 0
+        opacity: 1
       } : {}} transition={{
         duration: 0.6
       }} className="text-center mb-16">
@@ -43,11 +41,9 @@ const RulesSection = () => {
         {/* Rules Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {rules.map((rule, index) => <motion.div key={index} initial={{
-          opacity: 0,
-          y: 30
+          opacity: 0
         }} animate={isInView ? {
-          opacity: 1,
-          y: 0
+          opacity: 1
         } : {}} transition={{
           duration: 0.6,
           delay: index * 0.1

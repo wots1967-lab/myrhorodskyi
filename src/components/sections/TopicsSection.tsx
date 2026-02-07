@@ -74,8 +74,8 @@ const TopicsSection = () => {
     <section className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-8"
         >
@@ -85,8 +85,8 @@ const TopicsSection = () => {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto"
         >
@@ -115,8 +115,8 @@ const TopicsSection = () => {
 
         {selected.size > 0 && (
           <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             className="text-center mt-8"
           >
             <a

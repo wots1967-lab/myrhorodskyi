@@ -32,8 +32,8 @@ const HelpSection = () => {
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         {/* Header */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -47,8 +47,8 @@ const HelpSection = () => {
           {helpItems.map((item, index) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="text-center"
             >
