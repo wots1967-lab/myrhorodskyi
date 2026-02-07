@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import patternBg from '@/assets/pattern-bg.jpg';
 import logo from '@/assets/logo.png';
 
 const HeroSection = () => {
