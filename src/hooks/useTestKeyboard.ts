@@ -67,7 +67,8 @@ export function useTestKeyboard({
         case '1':
         case '2':
         case '3':
-        case '4': {
+        case '4':
+        case '5': {
           const num = parseInt(e.key) - 1;
           if (num < optionsCount) {
             e.preventDefault();
