@@ -34,16 +34,20 @@ const Index = () => {
   });
 
   return (
-    <div
-      className="min-h-[100dvh] relative"
-      style={{
-        backgroundImage: `url(${patternBg})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'scroll',
-      }}
-    >
+    <div className="min-h-[100dvh] relative">
+      {/* Background rendered as a fixed-size viewport layer via CSS */}
+      <div
+        className="fixed inset-0 z-0 will-change-auto"
+        aria-hidden="true"
+        style={{
+          backgroundImage: `url(${patternBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          transform: 'translateZ(0)',
+          WebkitTransform: 'translateZ(0)',
+        }}
+      />
       <div className="relative z-10">
         <Header />
         <main>
