@@ -37,15 +37,14 @@ const Index = () => {
     <div className="min-h-[100dvh] relative">
       {/* Background rendered as a fixed-size viewport layer via CSS */}
       <div
-        className="fixed inset-0 z-0 will-change-auto"
+        className="fixed left-0 top-0 w-full z-0"
         aria-hidden="true"
         style={{
+          height: '100lvh',
           backgroundImage: `url(${patternBg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-          transform: 'translateZ(0)',
-          WebkitTransform: 'translateZ(0)',
         }}
       />
       <div className="relative z-10">
