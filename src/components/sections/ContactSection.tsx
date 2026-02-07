@@ -13,9 +13,9 @@ const ContactSection = () => {
     <section id="contact" className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={isInView ? { opacity: 1 } : {}}
+          transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto"
         >
           <span className="text-secondary font-medium tracking-widest uppercase text-sm">
