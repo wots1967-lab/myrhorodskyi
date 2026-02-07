@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
 import { MessageCircle, Instagram } from 'lucide-react';
 import logo from '@/assets/logo.png';
+import telegramIcon from '@/assets/telegram-icon.png';
+import instagramIcon from '@/assets/instagram-icon.png';
 
 const Footer = () => {
   return (
@@ -67,7 +69,7 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-lg mb-4">Контакти</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
-                <MessageCircle size={18} className="opacity-80" />
+                <img src={telegramIcon} alt="Telegram" className="w-5 h-5 rounded" />
                 <a
                   href="https://t.me/sigurdpsy"
                   target="_blank"
@@ -78,7 +80,7 @@ const Footer = () => {
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Instagram size={18} className="opacity-80" />
+                <img src={instagramIcon} alt="Instagram" className="w-5 h-5 rounded" />
                 <a
                   href="https://www.instagram.com/sigurd.psy/"
                   target="_blank"

@@ -1,7 +1,9 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
-import { MessageCircle, Instagram, Send } from 'lucide-react';
+import { Send } from 'lucide-react';
+import telegramIcon from '@/assets/telegram-icon.png';
+import instagramIcon from '@/assets/instagram-icon.png';
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -46,9 +48,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-4 bg-muted rounded-xl hover:bg-muted/70 transition-colors"
             >
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <MessageCircle className="w-5 h-5 text-primary" />
-              </div>
+              <img src={telegramIcon} alt="Telegram" className="w-8 h-8 rounded" />
               <div className="text-left">
                 <p className="text-xs text-muted-foreground">Telegram</p>
                 <p className="font-medium text-foreground text-sm">@sigurdpsy</p>
@@ -61,9 +61,7 @@ const ContactSection = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-3 p-4 bg-muted rounded-xl hover:bg-muted/70 transition-colors"
             >
-              <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                <Instagram className="w-5 h-5 text-primary" />
-              </div>
+              <img src={instagramIcon} alt="Instagram" className="w-8 h-8 rounded" />
               <div className="text-left">
                 <p className="text-xs text-muted-foreground">Instagram</p>
                 <p className="font-medium text-foreground text-sm">@sigurd.psy</p>
