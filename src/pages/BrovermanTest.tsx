@@ -467,10 +467,10 @@ const BrovermanTest = () => {
   const [responses, setResponses] = useState<(number | null)[]>(new Array(TOTAL_QUESTIONS).fill(null));
   const [showValidation, setShowValidation] = useState(false);
 
-  // Save progress to localStorage
+  // Save progress to sessionStorage (auto-clears on browser close)
   useEffect(() => {
     if (stage === 'test') {
-      localStorage.setItem('broverman-progress', JSON.stringify({
+      sessionStorage.setItem('broverman-progress', JSON.stringify({
         responses,
         currentCategoryIndex,
         currentQuestionInCategory,
@@ -480,7 +480,7 @@ const BrovermanTest = () => {
 
   // Load saved progress
   useEffect(() => {
-    const saved = localStorage.getItem('broverman-progress');
+    const saved = sessionStorage.getItem('broverman-progress');
     if (saved) {
       try {
         const data = JSON.parse(saved);
@@ -494,6 +494,14 @@ const BrovermanTest = () => {
       }
     }
   }, []);
+
+  const clearSavedData = () => {
+    sessionStorage.removeItem('broverman-progress');
+    setResponses(new Array(TOTAL_QUESTIONS).fill(null));
+    setCurrentCategoryIndex(0);
+    setCurrentQuestionInCategory(0);
+    setShowValidation(false);
+  };
 
   const currentCategory = categories[currentCategoryIndex];
   const globalQuestionIndex = currentCategoryIndex * QUESTIONS_PER_CATEGORY + currentQuestionInCategory;
@@ -564,13 +572,13 @@ const BrovermanTest = () => {
       }
       return;
     }
-    localStorage.removeItem('broverman-progress');
+    sessionStorage.removeItem('broverman-progress');
     setStage('results');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   const resetTest = () => {
-    localStorage.removeItem('broverman-progress');
+    sessionStorage.removeItem('broverman-progress');
     setStage('intro');
     setCurrentCategoryIndex(0);
     setCurrentQuestionInCategory(0);
@@ -682,6 +690,27 @@ const BrovermanTest = () => {
                           <strong>Важливо:</strong> Цей тест є інформаційним інструментом і не замінює професійної діагностики. 
                           Для точної оцінки вашого стану рекомендується консультація з психологом або лікарем.
                         </p>
+                      </div>
+                    </div>
+
+                    <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+                      <div className="flex items-start gap-3">
+                        <Shield className="w-5 h-5 text-blue-600 mt-0.5 shrink-0" />
+                        <div>
+                          <p className="text-blue-800 text-sm">
+                            <strong>Конфіденційність:</strong> Ваш прогрес зберігається тимчасово лише на цьому пристрої і автоматично видаляється при закритті браузера. Жодні дані не передаються на сервер. Не використовуйте на спільних або публічних комп'ютерах.
+                          </p>
+                          {responses.some(r => r !== null) && (
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              className="mt-2 text-blue-700 hover:text-blue-900 hover:bg-blue-100 p-0 h-auto text-sm underline"
+                              onClick={clearSavedData}
+                            >
+                              Очистити збережені дані
+                            </Button>
+                          )}
+                        </div>
                       </div>
                     </div>
 
