@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { MessageCircle, Instagram } from 'lucide-react';
 import logo from '@/assets/logo.png';
 
 const Footer = () => {
@@ -67,26 +67,26 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-lg mb-4">Контакти</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-3">
-                <Mail size={18} className="opacity-80" />
+                <MessageCircle size={18} className="opacity-80" />
                 <a
-                  href="mailto:contact@myrhorodskyi.com"
+                  href="https://t.me/sigurdpsy"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  contact@myrhorodskyi.com
+                  @sigurdpsy
                 </a>
               </li>
               <li className="flex items-center gap-3">
-                <Phone size={18} className="opacity-80" />
+                <Instagram size={18} className="opacity-80" />
                 <a
-                  href="tel:+380000000000"
+                  href="https://www.instagram.com/sigurd.psy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-sm opacity-80 hover:opacity-100 transition-opacity"
                 >
-                  +380 (00) 000-00-00
+                  @sigurd.psy
                 </a>
-              </li>
-              <li className="flex items-start gap-3">
-                <MapPin size={18} className="opacity-80 mt-0.5" />
-                <span className="text-sm opacity-80">Онлайн консультації</span>
               </li>
             </ul>
           </div>

@@ -94,7 +94,7 @@ const Header = () => {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button variant="cta" size="default" asChild>
-                <a href="#contact">Записатися</a>
+                <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися</a>
               </Button>
             </div>
 
@@ -156,7 +156,7 @@ const Header = () => {
                   className="mt-6"
                 >
                   <Button variant="cta" size="lg" className="w-full" asChild>
-                    <a href="#contact">Записатися на консультацію</a>
+                    <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
                   </Button>
                 </motion.div>
               </div>

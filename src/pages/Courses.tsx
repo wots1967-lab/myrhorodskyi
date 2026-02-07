@@ -107,7 +107,7 @@ const Courses = () => {
               Ми працюємо над новими навчальними програмами. Залиште свій email, щоб дізнатися першими про запуск.
             </p>
             <Button variant="cta" size="lg" asChild>
-              <a href="/#contact">Отримати сповіщення</a>
+              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Отримати сповіщення</a>
             </Button>
           </motion.div>
         </div>

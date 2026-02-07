@@ -126,7 +126,7 @@ const ServicesSection = () => {
                     className="w-full lg:w-auto"
                     asChild
                   >
-                    <a href="#contact">{service.cta}</a>
+                    <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">{service.cta}</a>
                   </Button>
                 </div>
               </div>

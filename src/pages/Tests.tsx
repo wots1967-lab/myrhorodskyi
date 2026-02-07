@@ -114,7 +114,7 @@ const Tests = () => {
               Ми готуємо якісні психологічні тести для вас. Пройдіть доступні тести вже зараз або запишіться на консультацію.
             </p>
             <Button variant="cta" size="lg" asChild>
-              <a href="/#contact">Записатися на консультацію</a>
+              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
             </Button>
           </motion.div>
         </div>
