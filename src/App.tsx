@@ -14,6 +14,7 @@ const BrovermanTest = lazy(() => import("./pages/BrovermanTest"));
 const BeckDepressionTest = lazy(() => import("./pages/BeckDepressionTest"));
 const PSS10Test = lazy(() => import("./pages/PSS10Test"));
 const DarkTriadTest = lazy(() => import("./pages/DarkTriadTest"));
+const TemperamentTest = lazy(() => import("./pages/TemperamentTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -41,6 +42,7 @@ const App = () => (
             <Route path="/tests/beck-depression" element={<BeckDepressionTest />} />
             <Route path="/tests/pss10" element={<PSS10Test />} />
             <Route path="/tests/dark-triad" element={<DarkTriadTest />} />
+            <Route path="/tests/temperament" element={<TemperamentTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
