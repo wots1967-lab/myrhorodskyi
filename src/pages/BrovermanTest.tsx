@@ -466,7 +466,7 @@ const BrovermanTest = () => {
   usePageSEO({
     title: 'Тест нейромедіаторів Бровермана — Тест онлайн',
     description: 'Оцініть баланс нейромедіаторів (дофамін, ацетилхолін, ГАМК, серотонін) за тестом Бровермана. 140 питань онлайн.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/broverman',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/test-neiromediatoriv-brovermana',
     keywords: 'тест нейромедіаторів, тест Бровермана, дофамін, серотонін, ГАМК, ацетилхолін, баланс нейромедіаторів',
   });
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');

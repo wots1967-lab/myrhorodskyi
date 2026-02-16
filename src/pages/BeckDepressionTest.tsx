@@ -299,7 +299,7 @@ const BeckDepressionTest = () => {
   usePageSEO({
     title: 'Шкала депресії Бека (BDI) — Тест онлайн',
     description: 'Пройдіть тест на депресію за шкалою Бека (BDI) онлайн. 21 питання для оцінки ступеня депресивних симптомів.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/beck-depression',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-depresii-beka',
     keywords: 'шкала депресії Бека, BDI тест, тест депресії онлайн, рівень депресії',
   });
 
