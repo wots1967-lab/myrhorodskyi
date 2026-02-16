@@ -37,12 +37,12 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/tests" element={<Tests />} />
-            <Route path="/tests/beck-anxiety" element={<BeckAnxietyTest />} />
-            <Route path="/tests/broverman" element={<BrovermanTest />} />
-            <Route path="/tests/beck-depression" element={<BeckDepressionTest />} />
-            <Route path="/tests/pss10" element={<PSS10Test />} />
-            <Route path="/tests/dark-triad" element={<DarkTriadTest />} />
-            <Route path="/tests/temperament" element={<TemperamentTest />} />
+            <Route path="/tests/shkala-tryvohy-beka" element={<BeckAnxietyTest />} />
+            <Route path="/tests/test-neiromediatoriv-brovermana" element={<BrovermanTest />} />
+            <Route path="/tests/shkala-depresii-beka" element={<BeckDepressionTest />} />
+            <Route path="/tests/shkala-stresu-pss10" element={<PSS10Test />} />
+            <Route path="/tests/temna-triada" element={<DarkTriadTest />} />
+            <Route path="/tests/temperament-aizenka" element={<TemperamentTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />

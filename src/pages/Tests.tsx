@@ -13,7 +13,7 @@ const tests = [
     description: 'Оцініть рівень вашої тривожності за допомогою стандартизованого тесту з 21 питання',
     duration: '~5 хвилин',
     available: true,
-    link: '/tests/beck-anxiety',
+    link: '/tests/shkala-tryvohy-beka',
   },
   {
     icon: Dna,
@@ -21,7 +21,7 @@ const tests = [
     description: 'Оцініть баланс нейромедіаторів за допомогою комплексного тесту з 140 питань',
     duration: '~15-20 хвилин',
     available: true,
-    link: '/tests/broverman',
+    link: '/tests/test-neiromediatoriv-brovermana',
   },
   {
     icon: Heart,
@@ -29,7 +29,7 @@ const tests = [
     description: 'Оцініть наявність та ступінь депресивних симптомів за допомогою визнаного у світі тесту',
     duration: '~5-10 хвилин',
     available: true,
-    link: '/tests/beck-depression',
+    link: '/tests/shkala-depresii-beka',
   },
   {
     icon: Target,
@@ -37,7 +37,7 @@ const tests = [
     description: 'Визначте рівень вашого стресового навантаження за останній місяць',
     duration: '~3 хвилини',
     available: true,
-    link: '/tests/pss10',
+    link: '/tests/shkala-stresu-pss10',
   },
   {
     icon: Drama,
@@ -45,7 +45,7 @@ const tests = [
     description: 'Оцініть рівень трьох рис особистості: Макіавеллізму, Нарцисизму та Психопатії',
     duration: '~5 хвилин',
     available: true,
-    link: '/tests/dark-triad',
+    link: '/tests/temna-triada',
   },
   {
     icon: Puzzle,
@@ -53,7 +53,7 @@ const tests = [
     description: 'Визначте свій тип темпераменту та особливості нервової системи за методикою Ганса Айзенка',
     duration: '~10-15 хвилин',
     available: true,
-    link: '/tests/temperament',
+    link: '/tests/temperament-aizenka',
   },
 ];
 

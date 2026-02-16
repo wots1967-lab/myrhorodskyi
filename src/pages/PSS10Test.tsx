@@ -123,7 +123,7 @@ const PSS10Test = () => {
   usePageSEO({
     title: 'Шкала сприйнятого стресу (PSS-10) — Тест онлайн',
     description: 'Пройдіть тест на стрес PSS-10 онлайн. 10 питань для визначення рівня вашого стресового навантаження за останній місяць.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/pss10',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-stresu-pss10',
     keywords: 'шкала стресу PSS-10, тест на стрес, рівень стресу онлайн, сприйнятий стрес',
   });
 

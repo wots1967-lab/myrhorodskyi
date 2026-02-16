@@ -125,7 +125,7 @@ const DarkTriadTest = () => {
   usePageSEO({
     title: 'Темна Тріада (SD3) — Тест онлайн',
     description: 'Пройдіть тест Коротка Темна Тріада (SD3) онлайн. 27 питань для оцінки Макіавеллізму, Нарцисизму та Психопатії.',
-    canonical: 'https://myrhorodskyi.com/tests/dark-triad',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/temna-triada',
     keywords: 'темна тріада тест, макіавеллізм, нарцисизм, психопатія, SD3 тест онлайн',
   });
 
