@@ -49,12 +49,12 @@ const Footer = () => {
 
           {/* Services */}
           <div>
-            <h4 className="font-display font-semibold text-lg mb-4">Послуги</h4>
+            <h4 className="font-display font-semibold text-lg mb-4">Корисне</h4>
             <ul className="space-y-2">
               {[
-                { label: 'Індивідуальні консультації', href: '/#services' },
-                { label: 'Особисте наставництво', href: '/#services' },
-                { label: 'Пакети консультацій', href: '/#services' },
+                { label: 'Тести', href: '/tests' },
+                { label: 'Матеріали', href: '/resources' },
+                { label: 'Пакети консультацій', href: '/#packages' },
                 { label: 'Курси та програми', href: '/courses' },
               ].map((item) => (
                 <li key={item.label}>
