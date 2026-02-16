@@ -52,13 +52,18 @@ const Footer = () => {
             <h4 className="font-display font-semibold text-lg mb-4">Послуги</h4>
             <ul className="space-y-2">
               {[
-                'Індивідуальні консультації',
-                'Особисте наставництво',
-                'Пакети консультацій',
-                'Курси та програми',
+                { label: 'Індивідуальні консультації', href: '/#services' },
+                { label: 'Особисте наставництво', href: '/#services' },
+                { label: 'Пакети консультацій', href: '/#services' },
+                { label: 'Курси та програми', href: '/courses' },
               ].map((item) => (
-                <li key={item}>
-                  <span className="text-sm opacity-80">{item}</span>
+                <li key={item.label}>
+                  <Link
+                    to={item.href}
+                    className="text-sm opacity-80 hover:opacity-100 transition-opacity"
+                  >
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
