@@ -269,6 +269,10 @@ const TemperamentTest = () => {
           e.preventDefault(); handleResponse(true); break;
         case '2': case 'n': case 'N': case 'н': case 'Н':
           e.preventDefault(); handleResponse(false); break;
+        case 'ArrowLeft':
+          e.preventDefault(); handleResponse(true); break;
+        case 'ArrowRight':
+          e.preventDefault(); handleResponse(false); break;
         case 'Enter':
           e.preventDefault();
           if (currentQuestion < questions.length - 1) goNext();
