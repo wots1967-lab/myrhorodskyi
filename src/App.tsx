@@ -3,7 +3,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 
 // Lazy load non-critical route pages
@@ -44,6 +44,13 @@ const App = () => (
             <Route path="/tests/temna-triada" element={<DarkTriadTest />} />
             <Route path="/tests/temperament-aizenka" element={<TemperamentTest />} />
             <Route path="/resources" element={<Resources />} />
+            {/* Old URL redirects */}
+            <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
+            <Route path="/tests/broverman" element={<Navigate to="/tests/test-neiromediatoriv-brovermana" replace />} />
+            <Route path="/tests/beck-depression" element={<Navigate to="/tests/shkala-depresii-beka" replace />} />
+            <Route path="/tests/pss10" element={<Navigate to="/tests/shkala-stresu-pss10" replace />} />
+            <Route path="/tests/dark-triad" element={<Navigate to="/tests/temna-triada" replace />} />
+            <Route path="/tests/temperament" element={<Navigate to="/tests/temperament-aizenka" replace />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
