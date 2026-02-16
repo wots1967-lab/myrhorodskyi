@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
 
 const tests = [
@@ -38,6 +38,14 @@ const tests = [
     duration: '~3 хвилини',
     available: true,
     link: '/tests/pss10',
+  },
+  {
+    icon: Drama,
+    title: 'Темна Тріада (SD3)',
+    description: 'Оцініть рівень трьох рис особистості: Макіавеллізму, Нарцисизму та Психопатії',
+    duration: '~5 хвилин',
+    available: true,
+    link: '/tests/dark-triad',
   },
 ];
 
