@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
 
 const tests = [
@@ -46,6 +46,14 @@ const tests = [
     duration: '~5 хвилин',
     available: true,
     link: '/tests/dark-triad',
+  },
+  {
+    icon: Puzzle,
+    title: 'Тест на темперамент (EPI)',
+    description: 'Визначте свій тип темпераменту та особливості нервової системи за методикою Ганса Айзенка',
+    duration: '~10-15 хвилин',
+    available: true,
+    link: '/tests/temperament',
   },
 ];
 
