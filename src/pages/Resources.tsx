@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { FileText, Video, BookOpen, Download } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
+import PageWrapper from '@/components/layout/PageWrapper';
 
 const categories = [
   { id: 'articles', label: 'Статті', icon: FileText },
@@ -47,7 +48,7 @@ const Resources = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageWrapper>
       <Header />
       
       {/* Hero */}
@@ -138,7 +139,7 @@ const Resources = () => {
       </section>
 
       <Footer />
-    </div>
+    </PageWrapper>
   );
 };
 

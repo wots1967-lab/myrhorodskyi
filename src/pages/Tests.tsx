@@ -5,6 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
+import PageWrapper from '@/components/layout/PageWrapper';
 
 const tests = [
   {
@@ -66,7 +67,7 @@ const Tests = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageWrapper>
       <Header />
       
       {/* Hero */}
@@ -145,7 +146,7 @@ const Tests = () => {
       </section>
 
       <Footer />
-    </div>
+    </PageWrapper>
   );
 };
 

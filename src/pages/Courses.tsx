@@ -4,6 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Clock, Users } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
+import PageWrapper from '@/components/layout/PageWrapper';
 
 const placeholderCourses = [
   {
@@ -38,7 +39,7 @@ const Courses = () => {
   });
 
   return (
-    <div className="min-h-screen bg-background">
+    <PageWrapper>
       <Header />
       
       {/* Hero */}
@@ -122,7 +123,7 @@ const Courses = () => {
       </section>
 
       <Footer />
-    </div>
+    </PageWrapper>
   );
 };
 
