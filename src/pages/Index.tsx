@@ -3,7 +3,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import usePageSEO from '@/hooks/usePageSEO';
-import PageWrapper from '@/components/layout/PageWrapper';
+import patternBg from '@/assets/pattern-bg.jpg';
 
 // Lazy load below-fold sections
 const AboutSection = lazy(() => import('@/components/sections/AboutSection'));
@@ -34,7 +34,16 @@ const Index = () => {
   });
 
   return (
-    <PageWrapper>
+    <div
+      className="min-h-[100dvh]"
+      style={{
+        backgroundImage: `url(${patternBg})`,
+        backgroundSize: '100% auto',
+        backgroundPosition: 'center top',
+        backgroundRepeat: 'repeat-y',
+        backgroundAttachment: 'scroll',
+      }}
+    >
       <div>
         <Header />
         <main>
@@ -52,7 +61,7 @@ const Index = () => {
         </main>
         <Footer />
       </div>
-    </PageWrapper>
+    </div>
   );
 };
 
