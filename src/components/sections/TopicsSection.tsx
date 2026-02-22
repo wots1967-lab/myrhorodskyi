@@ -40,7 +40,7 @@ const TopicsSection = () => {
       } : {}} transition={{
         duration: 0.6,
         delay: 0.2
-      }} className="flex flex-wrap justify-center gap-2.5 max-w-4xl mx-auto">
+      }} className="flex flex-wrap justify-center gap-2 md:gap-2.5">
           {topics.map((topic, index) => {
           const isSelected = selected.has(topic);
           return <motion.button key={topic} initial={{
