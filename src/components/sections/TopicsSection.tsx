@@ -3,51 +3,6 @@ import { useRef, useState } from 'react';
 
 const topics = ['Віднайти мотивацію', 'Міграція, переїзд', 'Пережити зраду', 'Досягти змін у житті', 'Впоратись з розставанням', 'Відновити здатність радіти', 'Підвищити лібідо', 'Підвищити самооцінку', 'Баланс між життям і роботою', 'Вийти з аб\'юзивних стосунків', 'Позбутися травматичного досвіду', 'Вийти з кризи', 'Вийти зі співзалежних відносин', 'Покращити якість життя', 'Позбутися вигорання', 'Подолати панічні атаки', 'Побороти апатію', 'Навчитися радіти життю', 'Позбутись психосоматичних розладів', 'Прибрати фінансові блоки', 'Покращити сексуальне життя', 'Усвідомити свої бажання', 'Налагодити бізнес стосунки', 'Знайти нові сенси', 'Позбутися безсоння', 'Розвинути емоційний інтелект', 'Стати продуктивніше', 'Знайти нові цілі', 'Особистісне зростання', 'Відбудувати особисті кордони', 'Налагодити стосунки з батьками', 'Досліджувати себе', 'Зменшити стрес', 'Налагодити режим сну', 'Адаптуватися в новій країні', 'Позбутись нав\'язливих думок', 'Видихнути втому', 'Побудувати здорові стосунки', 'Емоційно відновитись', 'Побороти комплекси', 'Стосунки та конфлікти на роботі', 'Краще розуміти свої емоції', 'Прийняти і полюбити себе', 'Навчитися самоконтролю', 'Вийти з депресії', 'Пережити втрату', 'Позбутися тривоги', 'Реалізувати себе в професії', 'Пройти сепарацію'];
 
-// Split topics into rows for marquee effect
-const rows = [
-  topics.slice(0, 10),
-  topics.slice(10, 20),
-  topics.slice(20, 30),
-  topics.slice(30, 40),
-  topics.slice(40, 49),
-];
-
-const MarqueeRow = ({ items, duration, reverse, selected, onToggle }: {
-  items: string[];
-  duration: number;
-  reverse?: boolean;
-  selected: Set<string>;
-  onToggle: (t: string) => void;
-}) => {
-  const doubled = [...items, ...items];
-  return (
-    <div className="overflow-hidden w-full">
-      <motion.div
-        className="flex gap-3 w-max"
-        animate={{ x: reverse ? ['0%', '-50%'] : ['-50%', '0%'] }}
-        transition={{ duration, repeat: Infinity, ease: 'linear' }}
-      >
-        {doubled.map((topic, i) => {
-          const isSelected = selected.has(topic);
-          return (
-            <button
-              key={`${topic}-${i}`}
-              onClick={() => onToggle(topic)}
-              className={`px-5 py-3 rounded-full text-sm md:text-base font-medium cursor-pointer select-none border whitespace-nowrap transition-colors duration-150 ${
-                isSelected
-                  ? 'bg-secondary text-secondary-foreground border-secondary shadow-md'
-                  : 'bg-card/90 text-foreground border-border hover:bg-secondary/15 hover:border-secondary/50 hover:text-secondary'
-              }`}
-            >
-              {topic}
-            </button>
-          );
-        })}
-      </motion.div>
-    </div>
-  );
-};
-
 const TopicsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
@@ -64,7 +19,7 @@ const TopicsSection = () => {
 
   return (
     <section className="section-padding relative z-10" ref={ref}>
-      <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16 overflow-hidden">
+      <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <motion.div
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
@@ -80,18 +35,33 @@ const TopicsSection = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-col gap-3"
+          className="flex flex-wrap justify-center gap-2 md:gap-3"
         >
-          {rows.map((row, i) => (
-            <MarqueeRow
-              key={i}
-              items={row}
-              duration={30 + i * 5}
-              reverse={i % 2 === 1}
-              selected={selected}
-              onToggle={toggleTopic}
-            />
-          ))}
+          {topics.map((topic, index) => {
+            const isSelected = selected.has(topic);
+            return (
+              <motion.button
+                key={topic}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                transition={{
+                  duration: 0.3,
+                  delay: 0.05 * Math.min(index, 15),
+                  scale: { duration: 0.1 },
+                }}
+                onClick={() => toggleTopic(topic)}
+                className={`px-4 py-2.5 rounded-full text-sm font-medium cursor-pointer select-none border transition-colors duration-150 ${
+                  isSelected
+                    ? 'bg-secondary text-secondary-foreground border-secondary shadow-md'
+                    : 'bg-card/80 text-foreground border-border hover:bg-secondary/15 hover:border-secondary/50 hover:text-secondary'
+                }`}
+                whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
+                whileTap={{ scale: 0.95, transition: { duration: 0.05 } }}
+              >
+                {topic}
+              </motion.button>
+            );
+          })}
         </motion.div>
 
         {selected.size > 0 && (
