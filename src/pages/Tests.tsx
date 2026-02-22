@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
-import PageWrapper from '@/components/layout/PageWrapper';
+import patternBg from '@/assets/pattern-bg.jpg';
 
 const tests = [
   {
@@ -67,12 +67,20 @@ const Tests = () => {
   });
 
   return (
-    <PageWrapper>
+    <div className="min-h-screen bg-background">
       <Header />
       
-      {/* Hero */}
-      <section className="pt-32 pb-16 bg-primary">
-        <div className="container-custom section-padding py-16">
+      {/* Hero with pattern */}
+      <section
+        className="pt-32 pb-16 bg-primary relative overflow-hidden"
+        style={{
+          backgroundImage: `url(${patternBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+        }}
+      >
+        <div className="absolute inset-0 bg-primary/85" />
+        <div className="container-custom section-padding py-16 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -146,7 +154,7 @@ const Tests = () => {
       </section>
 
       <Footer />
-    </PageWrapper>
+    </div>
   );
 };
 
