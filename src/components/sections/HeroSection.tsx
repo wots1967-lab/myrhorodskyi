@@ -86,11 +86,32 @@ const HeroSection = () => {
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
         <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-6 h-10 border-2 border-cream/50 rounded-full flex justify-center pt-2"
+          animate={{ y: [0, 8, 0] }}
+          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <div className="w-1.5 h-3 bg-cream/70 rounded-full" />
+          <svg
+            width="32"
+            height="32"
+            viewBox="0 0 32 32"
+            fill="none"
+            className="opacity-60"
+          >
+            {/* Leaf-like double chevron pointing down */}
+            <path
+              d="M8 10C12 16 14 18 16 20C18 18 20 16 24 10"
+              stroke="hsl(40, 33%, 95%)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              fill="none"
+            />
+            <path
+              d="M10 16C13 21 15 23 16 25C17 23 19 21 22 16"
+              stroke="hsl(40, 33%, 95%)"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              fill="none"
+            />
+          </svg>
         </motion.div>
       </motion.div>
     </section>
