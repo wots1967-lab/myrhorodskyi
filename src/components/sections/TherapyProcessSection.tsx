@@ -1,37 +1,5 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Search, Target, RefreshCw, Award } from 'lucide-react';
-
-const steps = [
-  {
-    icon: Search,
-    number: '01',
-    title: 'Діагностична сесія',
-    description:
-      'Ми знайомимось, прояснюємо ваш запит, я розповідаю про можливі шляхи вирішення. Ми визначаємо, чи підходимо ми один одному для спільної роботи.',
-  },
-  {
-    icon: Target,
-    number: '02',
-    title: 'Формування цілей та стратегії',
-    description:
-      'Ми ставимо чіткі цілі терапії. Ви отримуєте розуміння того, як саме працює ваша психіка у контексті вашого запиту.',
-  },
-  {
-    icon: RefreshCw,
-    number: '03',
-    title: 'Глибинна робота (Процес терапії)',
-    description:
-      'Регулярні зустрічі (зазвичай 1 раз на тиждень по 50 хвилин). Робота не закінчується в кабінеті — ви отримуватимете завдання для закріплення нових патернів поведінки.',
-  },
-  {
-    icon: Award,
-    number: '04',
-    title: 'Завершення та автономність',
-    description:
-      'Моя кінцева мета — зробити так, щоб ви більше мене не потребували. Ви стаєте власним терапевтом.',
-  },
-];
 
 const TherapyProcessSection = () => {
   const ref = useRef(null);
@@ -44,35 +12,27 @@ const TherapyProcessSection = () => {
           initial={{ opacity: 0 }}
           animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="max-w-3xl mx-auto"
         >
-          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-            Як буде побудована наша робота
+          <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-10">
+            Як проходить терапія зі мною
           </h2>
-        </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {steps.map((step, index) => (
-            <motion.div
-              key={step.number}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              className="text-center"
-            >
-              <div className="w-14 h-14 mx-auto mb-4 bg-secondary/15 rounded-xl flex items-center justify-center">
-                <step.icon className="w-7 h-7 text-secondary" strokeWidth={1.5} />
-              </div>
-              <span className="text-secondary font-display text-sm font-bold tracking-wider">
-                {step.number}
-              </span>
-              <h3 className="font-display text-lg font-semibold text-foreground mt-2 mb-3">
-                {step.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
-            </motion.div>
-          ))}
-        </div>
+          <div className="space-y-6 text-muted-foreground leading-relaxed">
+            <p>
+              Якщо ви ніколи раніше не працювали з психологом, це абсолютно нормально. Терапія — це безпечний простір, де ви можете бути собою, висловлювати свої думки, почуття та переживання без страху бути засудженим. Моє завдання — створити атмосферу довіри та відкритості, де ви зможете досліджувати себе і свої внутрішні процеси.
+            </p>
+            <p>
+              На першій зустрічі ми знайомимося, обговорюємо ваші запити та очікування від терапії. Я пояснюю, як працює мій підхід, які методи застосовую, і ми визначаємо формат нашої співпраці. Це можливість для вас зрозуміти, чи комфортно вам зі мною працювати, і чи підходить мій стиль роботи вам. Ми також окреслюємо перші кроки, над якими будемо працювати.
+            </p>
+            <p>
+              Оптимальна частота зустрічей — раз на тиждень, хоча в деяких випадках можливий інший ритм, що адаптується під ваші потреби. Кількість сеансів залежить від глибини запиту — іноді достатньо кількох зустрічей для конкретної проблеми, а іноді потрібно більш тривале дослідження себе.
+            </p>
+            <p>
+              Важлива частина мого підходу — інтеграція нових знань у повсякденне життя. Тому я можу пропонувати вам певні рефлексивні практики, книги або вправи для самостійного опрацювання між сесіями. Це допомагає закріпити зміни та краще розуміти себе.
+            </p>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
