@@ -30,7 +30,11 @@ const Header = () => {
 
   const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    if (href.includes('#')) {
+    if (href === '/') {
+      if (location.pathname === '/') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    } else if (href.includes('#')) {
       const sectionId = href.split('#')[1];
       const element = document.getElementById(sectionId);
       if (element) {
