@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { ShieldOff, Clock, Pill, CalendarClock, HelpCircle, LucideIcon } from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -7,10 +8,10 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 
-const faqs = [
+const faqs: { question: string; icon: LucideIcon; answer: string }[] = [
   {
     question: 'З чим я не працюю?',
-    icon: '❌',
+    icon: ShieldOff,
     answer: `• Шизофренія
 • Залежності
 • Тяжкі форми ПТСР
@@ -19,25 +20,25 @@ const faqs = [
   },
   {
     question: 'Скільки триває терапія?',
-    icon: '⏰',
+    icon: Clock,
     answer:
       'Буває достатньо 2-5 сесій. Планування тривалості терапії та частоти зустрічей здійснюється індивідуально, враховуючи потреби та цілі кожного клієнта. Зазвичай клієнти без виражених розладів проходять від 8 до 10 сесій терапії в середньому.',
   },
   {
     question: 'Чи можу я виписувати рецепти на медикаменти?',
-    icon: '💊',
+    icon: Pill,
     answer:
       'Ні, я не є медичним працівником із профілем у галузі психіатрії чи неврології. Мої терапевтичні методи спрямовані на підтримку психічного здоров\'я і не включають призначення медикаментів. Однак я регулярно працюю під наглядом психіатра і в деяких випадках можу направити клієнтів до відповідного спеціаліста.',
   },
   {
     question: 'Як часто потрібно проводити терапевтичні сесії?',
-    icon: '⏳',
+    icon: CalendarClock,
     answer:
       'Частота проведення сесій залежить від індивідуальних потреб кожного клієнта. Як правило, стандартна частота — одна сесія на тиждень. Якщо в терапії проявляється позитивна динаміка, частота може бути плавно зменшена за згодою клієнта. Моє головне завдання — допомогти мінімізувати втручання у ваше життя та навчити навичок самостійної терапії.',
   },
   {
     question: 'Що робити, якщо я не знайшов свій запит у списку?',
-    icon: '❓',
+    icon: HelpCircle,
     answer:
       'Якщо ви не знайшли свій запит у переліку вище — не турбуйтеся, це цілком нормально. Можливо, ваша ситуація надто складна, щоб самостійно визначити корінь проблеми. Моя робота включає допомогу у формулюванні питання, яке необхідно вирішити.',
   },
@@ -81,7 +82,7 @@ const FAQSection = () => {
               >
                 <AccordionTrigger className="text-left hover:no-underline py-5">
                   <span className="flex items-center gap-3 font-display text-lg font-semibold text-foreground">
-                    <span className="text-xl">{faq.icon}</span>
+                    <faq.icon className="w-5 h-5 text-secondary shrink-0" strokeWidth={2} />
                     {faq.question}
                   </span>
                 </AccordionTrigger>
