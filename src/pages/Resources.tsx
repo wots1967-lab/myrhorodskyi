@@ -21,6 +21,13 @@ const placeholderResources = [
     link: 'https://time-dove-276.notion.site/310d5bd7dec0801da501f7e9e7dae8f7',
   },
   {
+    category: 'guides',
+    title: 'Програма створення майбутнього (Future Authoring)',
+    description: 'Вправа для побудови чіткого бачення свого життя на 3-5 років та розробки покрокового плану його втілення.',
+    type: 'Методика',
+    link: 'https://time-dove-276.notion.site/Future-Authoring-310d5bd7dec080248753d422bcfa90fb',
+  },
+  {
     category: 'articles',
     title: '5 способів справитися зі стресом',
     description: 'Практичні поради для щоденного використання',
