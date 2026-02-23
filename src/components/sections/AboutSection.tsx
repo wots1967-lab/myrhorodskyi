@@ -37,24 +37,36 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
           >
-            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Про мене
+            <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-2">
+              Сергій Миргородський.
             </h2>
+            <p className="text-secondary font-medium text-lg mb-6">Психолог, психотерапевт.</p>
             <div className="space-y-4 text-muted-foreground leading-relaxed">
-              <p className="text-lg font-medium text-foreground">
-                Я психолог з більш ніж 5-річним досвідом у сфері консультування та особистого наставництва.
+              <p>
+                Я не вірю у швидкі поради або поверхневі розмови "про життя". Моя мета як терапевта — надати вам інструменти для роботи з власною свідомістю та допомогти розібрати механізми, які роками гальмували ваш розвиток.
               </p>
               <p>
-                Моя місія - допомогти вам знаходити гармонію в буденному житті, розкривати власний
-                потенціал і керувати емоціями для досягнення щасливого життя в задоволення.
+                У своїй практиці я використовую інтегративний підхід з акцентом на Когнітивно-поведінкову терапію (КПТ) та Схема-терапію. Це методи з найвищим рівнем доказової ефективності у світі.
               </p>
-              <p>
-                Мої навички включають використання інтегративного підходу (когнітивно-поведінкової
-                терапії, психодинамічної терапії, схема-терапії) та майндфулнес практик.
+              <p className="text-lg font-medium text-foreground mt-6 mb-2">
+                Чому обирають роботу зі мною:
               </p>
-              <p>
-                Також я застосовую техніки медитації та візуалізації, щоб допомогти клієнтам
-                розслабитися, опанувати внутрішні ресурси та знайти рішення.
+              <ul className="space-y-3">
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary font-bold mt-0.5">·</span>
+                  <span><strong className="text-foreground">Глибина та структурність:</strong> Ми не хапаємося за симптоми, ми шукаємо ядро проблеми.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary font-bold mt-0.5">·</span>
+                  <span><strong className="text-foreground">Чіткий контракт:</strong> Ви розумієте, що ми робимо, навіщо, і які результати очікувати.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-secondary font-bold mt-0.5">·</span>
+                  <span><strong className="text-foreground">Абсолютна конфіденційність:</strong> Я працюю з підприємцями, топменеджерами та публічними особами. Ваша безпека — базовий принцип моєї практики.</span>
+                </li>
+              </ul>
+              <p className="text-foreground font-medium mt-4">
+                Більше 5 років практики та понад 3000 годин консультацій.
               </p>
             </div>
             <motion.div
