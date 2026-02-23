@@ -14,6 +14,13 @@ const categories = [
 
 const placeholderResources = [
   {
+    category: 'guides',
+    title: 'Анкета Глибинного Опрацювання Образу',
+    description: 'Інструмент на базі КПТ та Радикального Прийняття для роботи з образами — від позиції "жертви" до позиції "Мудрого Дорослого".',
+    type: 'Методика',
+    link: 'https://time-dove-276.notion.site/310d5bd7dec0801da501f7e9e7dae8f7',
+  },
+  {
     category: 'articles',
     title: '5 способів справитися зі стресом',
     description: 'Практичні поради для щоденного використання',
@@ -118,10 +125,19 @@ const Resources = () => {
                   {resource.title}
                 </h3>
                 <p className="text-muted-foreground mb-4">{resource.description}</p>
-                <Button variant="ghost" className="text-secondary" disabled>
-                  <Download size={16} className="mr-2" />
-                  Скоро
-                </Button>
+                {resource.link ? (
+                  <Button variant="ghost" className="text-secondary" asChild>
+                    <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                      <BookOpen size={16} className="mr-2" />
+                      Переглянути
+                    </a>
+                  </Button>
+                ) : (
+                  <Button variant="ghost" className="text-secondary" disabled>
+                    <Download size={16} className="mr-2" />
+                    Скоро
+                  </Button>
+                )}
               </motion.div>
             ))}
           </div>
