@@ -18,16 +18,16 @@ const AboutSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="relative"
-          >
+            className="relative">
+
             <div className="aspect-[4/5] rounded-2xl overflow-hidden">
               <img
-                src={psychologistPhoto}
+
                 alt="Сергій Миргородський — психолог"
                 className="w-full h-full object-cover"
                 loading="lazy"
-                decoding="async"
-              />
+                decoding="async" src="/lovable-uploads/5637bbb0-fc0f-4823-8a63-e500150bea81.png" />
+
             </div>
           </motion.div>
 
@@ -35,8 +35,8 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
+            transition={{ duration: 0.6, delay: 0.15 }}>
+
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Про мене
             </h2>
@@ -61,8 +61,8 @@ const AboutSection = () => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8"
-            >
+              className="mt-8">
+
               <Button variant="cta" size="lg" asChild>
                 <a href="#help" className="inline-flex items-center gap-2">
                   Більше
@@ -73,8 +73,8 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AboutSection;
