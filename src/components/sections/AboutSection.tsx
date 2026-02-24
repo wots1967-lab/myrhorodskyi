@@ -20,13 +20,13 @@ const AboutSection = () => {
             transition={{ duration: 0.6 }}
             className="relative">
 
-            <div className="aspect-[4/5] rounded-2xl overflow-hidden">
+            <div className="aspect-[4/5] overflow-hidden px-0 pr-0 pb-0 mx-0 my-0 rounded-none">
               <img
 
                 alt="Сергій Миргородський — психолог"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover opacity-100 rounded-none shadow-none border-0"
                 loading="lazy"
-                decoding="async" src="/lovable-uploads/5637bbb0-fc0f-4823-8a63-e500150bea81.png" />
+                decoding="async" src="/lovable-uploads/3cd2fbf2-617e-4ead-97b7-b30fc753c354.jpg" />
 
             </div>
           </motion.div>
