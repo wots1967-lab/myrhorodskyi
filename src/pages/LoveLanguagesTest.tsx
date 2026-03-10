@@ -93,6 +93,8 @@ const LoveLanguagesTest = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({ A: 0, B: 0, C: 0, D: 0, E: 0 });
   const [direction, setDirection] = useState(1);
+  const [selectedOption, setSelectedOption] = useState<1 | 2 | null>(null);
+  const [answerHistory, setAnswerHistory] = useState<string[]>([]);
 
   usePageSEO({
     title: 'Тест: 5 Мов Любові — тест Ґері Чепмена онлайн безкоштовно',
@@ -110,7 +112,9 @@ const LoveLanguagesTest = () => {
 
   const handleAnswer = useCallback((category: string) => {
     setScores(prev => ({ ...prev, [category]: prev[category] + 1 }));
+    setAnswerHistory(prev => [...prev, category]);
     setDirection(1);
+    setSelectedOption(null);
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
@@ -118,6 +122,19 @@ const LoveLanguagesTest = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentQuestion]);
+
+  const goBack = useCallback(() => {
+    if (currentQuestion > 0) {
+      const lastCategory = answerHistory[answerHistory.length - 1];
+      if (lastCategory) {
+        setScores(prev => ({ ...prev, [lastCategory]: prev[lastCategory] - 1 }));
+        setAnswerHistory(prev => prev.slice(0, -1));
+      }
+      setDirection(-1);
+      setSelectedOption(null);
+      setCurrentQuestion(prev => prev - 1);
+    }
+  }, [currentQuestion, answerHistory]);
 
   // Keyboard navigation
   useEffect(() => {
@@ -129,16 +146,32 @@ const LoveLanguagesTest = () => {
 
       const q = questions[currentQuestion];
       switch (e.key) {
-        case '1':
-        case 'ArrowUp': {
+        case 'ArrowUp':
+        case 'ArrowLeft':
+        case '1': {
           e.preventDefault();
-          handleAnswer(q.option1.category);
+          setSelectedOption(1);
           break;
         }
-        case '2':
-        case 'ArrowDown': {
+        case 'ArrowDown':
+        case 'ArrowRight':
+        case '2': {
           e.preventDefault();
-          handleAnswer(q.option2.category);
+          setSelectedOption(2);
+          break;
+        }
+        case 'Enter': {
+          e.preventDefault();
+          if (selectedOption === 1) {
+            handleAnswer(q.option1.category);
+          } else if (selectedOption === 2) {
+            handleAnswer(q.option2.category);
+          }
+          break;
+        }
+        case 'Backspace': {
+          e.preventDefault();
+          goBack();
           break;
         }
       }
@@ -146,12 +179,14 @@ const LoveLanguagesTest = () => {
 
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [screen, currentQuestion, handleAnswer]);
+  }, [screen, currentQuestion, selectedOption, handleAnswer, goBack]);
 
   const resetTest = useCallback(() => {
     setScreen('intro');
     setCurrentQuestion(0);
     setScores({ A: 0, B: 0, C: 0, D: 0, E: 0 });
+    setSelectedOption(null);
+    setAnswerHistory([]);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
@@ -186,6 +221,7 @@ const LoveLanguagesTest = () => {
             totalQuestions={questions.length}
             progressPercent={progressPercent}
             direction={direction}
+            selectedOption={selectedOption}
             onAnswer={handleAnswer}
           />
         )}
@@ -262,10 +298,11 @@ interface QuizScreenProps {
   totalQuestions: number;
   progressPercent: number;
   direction: number;
+  selectedOption: 1 | 2 | null;
   onAnswer: (category: string) => void;
 }
 
-const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, direction, onAnswer }: QuizScreenProps) => (
+const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, direction, selectedOption, onAnswer }: QuizScreenProps) => (
   <motion.section
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -304,6 +341,7 @@ const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, 
           <OptionCard
             text={question.option1.text}
             label="А"
+            isSelected={selectedOption === 1}
             onClick={() => onAnswer(question.option1.category)}
           />
 
@@ -316,6 +354,7 @@ const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, 
           <OptionCard
             text={question.option2.text}
             label="Б"
+            isSelected={selectedOption === 2}
             onClick={() => onAnswer(question.option2.category)}
           />
         </motion.div>
@@ -324,23 +363,28 @@ const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, 
   </motion.section>
 );
 
-const OptionCard = ({ text, label, onClick }: { text: string; label: string; onClick: () => void }) => (
+const OptionCard = ({ text, label, isSelected, onClick }: { text: string; label: string; isSelected?: boolean; onClick: () => void }) => (
   <button
     onClick={onClick}
     className={cn(
-      "w-full text-left p-6 rounded-xl border-2 border-border bg-card",
+      "w-full text-left p-6 rounded-xl border-2 bg-card",
       "transition-all duration-200 ease-out",
       "hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5",
       "active:translate-y-0 active:shadow-md",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      "group cursor-pointer"
+      "group cursor-pointer",
+      isSelected
+        ? "border-primary shadow-lg shadow-primary/10 -translate-y-0.5"
+        : "border-border"
     )}
   >
     <div className="flex items-start gap-4">
       <span className={cn(
         "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold",
-        "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground",
-        "transition-colors duration-200"
+        "transition-colors duration-200",
+        isSelected
+          ? "bg-primary text-primary-foreground"
+          : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
       )}>
         {label}
       </span>
