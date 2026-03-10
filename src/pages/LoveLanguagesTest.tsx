@@ -7,7 +7,7 @@ import { Progress } from '@/components/ui/progress';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, RotateCcw, Heart, MessageCircle, Gift, HandHelping, Clock, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import {
   BarChart,
   Bar,
