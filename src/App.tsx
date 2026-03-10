@@ -15,6 +15,7 @@ const BeckDepressionTest = lazy(() => import("./pages/BeckDepressionTest"));
 const PSS10Test = lazy(() => import("./pages/PSS10Test"));
 const DarkTriadTest = lazy(() => import("./pages/DarkTriadTest"));
 const TemperamentTest = lazy(() => import("./pages/TemperamentTest"));
+const EgoStatesTest = lazy(() => import("./pages/EgoStatesTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
