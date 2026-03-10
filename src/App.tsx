@@ -44,6 +44,7 @@ const App = () => (
             <Route path="/tests/shkala-stresu-pss10" element={<PSS10Test />} />
             <Route path="/tests/temna-triada" element={<DarkTriadTest />} />
             <Route path="/tests/temperament-aizenka" element={<TemperamentTest />} />
+            <Route path="/tests/profil-ego-staniv" element={<EgoStatesTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* Old URL redirects */}
             <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
