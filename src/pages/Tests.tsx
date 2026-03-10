@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
 import patternBg from '@/assets/pattern-bg.jpg';
 
@@ -55,6 +55,14 @@ const tests = [
     duration: '~10-15 хвилин',
     available: true,
     link: '/tests/temperament-aizenka',
+  },
+  {
+    icon: Users,
+    title: 'Профіль Его-станів',
+    description: 'Визначте свій унікальний профіль п\'яти функціональних Его-станів за методикою Джулі Хей (транзакційний аналіз)',
+    duration: '~7 хвилин',
+    available: true,
+    link: '/tests/profil-ego-staniv',
   },
 ];
 
