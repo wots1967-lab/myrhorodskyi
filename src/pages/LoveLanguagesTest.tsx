@@ -354,6 +354,7 @@ const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, 
           <OptionCard
             text={question.option2.text}
             label="Б"
+            isSelected={selectedOption === 2}
             onClick={() => onAnswer(question.option2.category)}
           />
         </motion.div>
@@ -362,23 +363,28 @@ const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, 
   </motion.section>
 );
 
-const OptionCard = ({ text, label, onClick }: { text: string; label: string; onClick: () => void }) => (
+const OptionCard = ({ text, label, isSelected, onClick }: { text: string; label: string; isSelected?: boolean; onClick: () => void }) => (
   <button
     onClick={onClick}
     className={cn(
-      "w-full text-left p-6 rounded-xl border-2 border-border bg-card",
+      "w-full text-left p-6 rounded-xl border-2 bg-card",
       "transition-all duration-200 ease-out",
       "hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 hover:-translate-y-0.5",
       "active:translate-y-0 active:shadow-md",
       "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2",
-      "group cursor-pointer"
+      "group cursor-pointer",
+      isSelected
+        ? "border-primary shadow-lg shadow-primary/10 -translate-y-0.5"
+        : "border-border"
     )}
   >
     <div className="flex items-start gap-4">
       <span className={cn(
         "flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold",
-        "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground",
-        "transition-colors duration-200"
+        "transition-colors duration-200",
+        isSelected
+          ? "bg-primary text-primary-foreground"
+          : "bg-primary/10 text-primary group-hover:bg-primary group-hover:text-primary-foreground"
       )}>
         {label}
       </span>
