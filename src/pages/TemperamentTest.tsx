@@ -532,6 +532,7 @@ const TemperamentTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_YES_NO} />}
     </div>
   );
 };

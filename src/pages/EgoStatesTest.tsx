@@ -680,6 +680,7 @@ const EgoStatesTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_EGO_STATES} />}
     </div>
   );
 };

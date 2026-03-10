@@ -237,6 +237,7 @@ const LoveLanguagesTest = () => {
       </AnimatePresence>
 
       <Footer />
+      {screen === 'quiz' && <KeyboardHints hints={HINTS_TWO_OPTIONS} />}
     </div>
   );
 };
