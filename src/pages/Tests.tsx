@@ -131,7 +131,7 @@ const Tests = () => {
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">
                   {test.title}
                 </h3>
-                <p className="text-muted-foreground mb-4">{test.description}</p>
+                <p className="text-muted-foreground mb-4 flex-1">{test.description}</p>
                 <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
                   <Clock size={16} />
                   {test.duration}
