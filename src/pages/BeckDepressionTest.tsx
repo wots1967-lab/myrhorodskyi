@@ -806,6 +806,7 @@ const BeckDepressionTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(4)} />}
     </div>
   );
 };

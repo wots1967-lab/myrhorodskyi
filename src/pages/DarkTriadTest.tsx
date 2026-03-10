@@ -478,6 +478,7 @@ const DarkTriadTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(5)} />}
     </div>
   );
 };

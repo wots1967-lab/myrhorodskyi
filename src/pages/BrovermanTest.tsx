@@ -1169,6 +1169,7 @@ const BrovermanTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(7)} />}
     </div>
   );
 };
