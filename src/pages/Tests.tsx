@@ -4,7 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake } from 'lucide-react';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import patternBg from '@/assets/pattern-bg.jpg';
 
 const tests = [
