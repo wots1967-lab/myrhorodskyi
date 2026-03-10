@@ -181,10 +181,17 @@ const EysenckGraph = ({ e, n }: { e: number; n: number }) => {
 
 const TemperamentTest = () => {
   usePageSEO({
-    title: 'Тест на темперамент Айзенка (EPI) — Тест онлайн',
-    description: 'Визначте свій тип темпераменту за методикою Ганса Айзенка. 57 питань для оцінки екстраверсії та нейротизму.',
+    title: 'Тест Айзенка на темперамент (EPI) — онлайн безкоштовно',
+    description: 'Визначте свій тип темпераменту за методикою Ганса Айзенка онлайн безкоштовно. 57 питань для оцінки екстраверсії та нейротизму. Сангвінік, холерик, флегматик чи меланхолік?',
     canonical: 'https://myrhorodskyi.lovable.app/tests/temperament-aizenka',
-    keywords: 'тест Айзенка, темперамент тест, сангвінік холерик флегматик меланхолік, EPI тест онлайн',
+    keywords: 'тест Айзенка онлайн, тест на темперамент безкоштовно, сангвінік холерик флегматик меланхолік, EPI тест українською, тип темпераменту тест',
+    jsonLd: createTestJsonLd({
+      name: 'Тест на темперамент Айзенка (EPI)',
+      description: 'Визначте свій тип темпераменту за методикою Ганса Айзенка.',
+      url: 'https://myrhorodskyi.lovable.app/tests/temperament-aizenka',
+      questionCount: 57,
+      duration: 'PT15M',
+    }),
   });
 
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');

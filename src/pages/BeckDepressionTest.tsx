@@ -297,10 +297,17 @@ const SUICIDAL_QUESTION_INDEX = 8;
 
 const BeckDepressionTest = () => {
   usePageSEO({
-    title: 'Шкала депресії Бека (BDI) — Тест онлайн',
-    description: 'Пройдіть тест на депресію за шкалою Бека (BDI) онлайн. 21 питання для оцінки ступеня депресивних симптомів.',
+    title: 'Шкала депресії Бека (BDI) — Тест на депресію онлайн безкоштовно',
+    description: 'Пройдіть тест на депресію за шкалою Бека (BDI) онлайн безкоштовно. 21 питання для оцінки ступеня депресивних симптомів з миттєвою інтерпретацією.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-depresii-beka',
-    keywords: 'шкала депресії Бека, BDI тест, тест депресії онлайн, рівень депресії',
+    keywords: 'шкала депресії Бека, BDI тест, тест на депресію онлайн, тест депресії безкоштовно, рівень депресії, тест Бека депресія українською',
+    jsonLd: createTestJsonLd({
+      name: 'Шкала депресії Бека (BDI)',
+      description: 'Стандартизований тест на депресію за шкалою Бека з 21 питання.',
+      url: 'https://myrhorodskyi.lovable.app/tests/shkala-depresii-beka',
+      questionCount: 21,
+      duration: 'PT10M',
+    }),
   });
 
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');

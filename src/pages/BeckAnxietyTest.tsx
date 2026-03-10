@@ -129,10 +129,17 @@ const getInterpretation = (score: number): AnxietyLevel => {
 
 const BeckAnxietyTest = () => {
   usePageSEO({
-    title: 'Шкала тривоги Бека (BAI) — Тест онлайн',
-    description: 'Пройдіть тест на тривожність за шкалою Бека (BAI) онлайн. 21 питання для оцінки рівня тривоги.',
+    title: 'Шкала тривоги Бека (BAI) — Тест на тривожність онлайн безкоштовно',
+    description: 'Пройдіть тест на тривожність за шкалою Бека (BAI) онлайн безкоштовно. 21 питання для оцінки рівня тривоги з миттєвим результатом та інтерпретацією.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-tryvohy-beka',
-    keywords: 'шкала тривоги Бека, BAI тест, тест тривожності онлайн, рівень тривоги',
+    keywords: 'шкала тривоги Бека, BAI тест, тест тривожності онлайн, тест на тривогу безкоштовно, рівень тривоги, тест Бека тривога українською',
+    jsonLd: createTestJsonLd({
+      name: 'Шкала тривоги Бека (BAI)',
+      description: 'Стандартизований тест на тривожність за шкалою Бека з 21 питання.',
+      url: 'https://myrhorodskyi.lovable.app/tests/shkala-tryvohy-beka',
+      questionCount: 21,
+      duration: 'PT5M',
+    }),
   });
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
