@@ -96,10 +96,97 @@ const LoveLanguagesTest = () => {
   const [selectedOption, setSelectedOption] = useState<1 | 2 | null>(null);
   const [answerHistory, setAnswerHistory] = useState<string[]>([]);
 
+  usePageSEO({
+    title: 'Тест: 5 Мов Любові — тест Ґері Чепмена онлайн безкоштовно',
+    description: 'Дізнайтеся свою мову любові за методикою Ґері Чепмена. 30 питань онлайн безкоштовно: слова заохочення, якісний час, подарунки, акти служіння, фізичний дотик.',
+    canonical: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
+    keywords: '5 мов любові тест, тест мови любові онлайн, Ґері Чепмен тест українською, яка моя мова любові, тест мови любові безкоштовно',
+    jsonLd: createTestJsonLd({
+      name: 'Тест: 5 Мов Любові',
+      description: 'Визначте свою мову любові за методикою Ґері Чепмена.',
+      url: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
+      questionCount: 30,
+      duration: 'PT7M',
+    }),
+  });
+
+  const handleAnswer = useCallback((category: string) => {
+    setScores(prev => ({ ...prev, [category]: prev[category] + 1 }));
+    setAnswerHistory(prev => [...prev, category]);
+    setDirection(1);
+    setSelectedOption(null);
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+    } else {
+      setScreen('results');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }, [currentQuestion]);
+
+  const goBack = useCallback(() => {
+    if (currentQuestion > 0) {
+      const lastCategory = answerHistory[answerHistory.length - 1];
+      if (lastCategory) {
+        setScores(prev => ({ ...prev, [lastCategory]: prev[lastCategory] - 1 }));
+        setAnswerHistory(prev => prev.slice(0, -1));
+      }
+      setDirection(-1);
+      setSelectedOption(null);
+      setCurrentQuestion(prev => prev - 1);
+    }
+  }, [currentQuestion, answerHistory]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (screen !== 'quiz') return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+
+      const q = questions[currentQuestion];
+      switch (e.key) {
+        case 'ArrowUp':
+        case 'ArrowLeft':
+        case '1': {
+          e.preventDefault();
+          setSelectedOption(1);
+          break;
+        }
+        case 'ArrowDown':
+        case 'ArrowRight':
+        case '2': {
+          e.preventDefault();
+          setSelectedOption(2);
+          break;
+        }
+        case 'Enter': {
+          e.preventDefault();
+          if (selectedOption === 1) {
+            handleAnswer(q.option1.category);
+          } else if (selectedOption === 2) {
+            handleAnswer(q.option2.category);
+          }
+          break;
+        }
+        case 'Backspace': {
+          e.preventDefault();
+          goBack();
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [screen, currentQuestion, selectedOption, handleAnswer, goBack]);
+
   const resetTest = useCallback(() => {
     setScreen('intro');
     setCurrentQuestion(0);
     setScores({ A: 0, B: 0, C: 0, D: 0, E: 0 });
+    setSelectedOption(null);
+    setAnswerHistory([]);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
@@ -134,6 +221,7 @@ const LoveLanguagesTest = () => {
             totalQuestions={questions.length}
             progressPercent={progressPercent}
             direction={direction}
+            selectedOption={selectedOption}
             onAnswer={handleAnswer}
           />
         )}
