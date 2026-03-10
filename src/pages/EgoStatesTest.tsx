@@ -8,7 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { ArrowRight, RotateCcw, Users, Shield, Heart, Brain, Sparkles, Baby } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import {
   RadarChart,
   PolarGrid,
