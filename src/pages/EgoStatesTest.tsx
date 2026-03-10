@@ -9,6 +9,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { ArrowRight, RotateCcw, Users, Shield, Heart, Brain, Sparkles, Baby } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
+import KeyboardHints, { HINTS_EGO_STATES } from '@/components/KeyboardHints';
 import {
   RadarChart,
   PolarGrid,
