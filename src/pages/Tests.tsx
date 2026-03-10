@@ -123,7 +123,7 @@ const Tests = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover text-center"
+                className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover text-center flex flex-col"
               >
                 <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center">
                   <test.icon className="w-8 h-8 text-primary" />
