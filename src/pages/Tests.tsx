@@ -123,7 +123,7 @@ const Tests = () => {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover text-center"
+                className="bg-card rounded-2xl p-8 shadow-sm border border-border card-hover text-center flex flex-col"
               >
                 <div className="w-16 h-16 mx-auto mb-6 bg-primary/10 rounded-2xl flex items-center justify-center">
                   <test.icon className="w-8 h-8 text-primary" />
@@ -131,7 +131,7 @@ const Tests = () => {
                 <h3 className="font-display text-xl font-semibold text-foreground mb-3">
                   {test.title}
                 </h3>
-                <p className="text-muted-foreground mb-4">{test.description}</p>
+                <p className="text-muted-foreground mb-4 flex-1">{test.description}</p>
                 <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mb-6">
                   <Clock size={16} />
                   {test.duration}
