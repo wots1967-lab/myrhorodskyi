@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Shield, AlertTriangle, Drama } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 
 const questions = [
@@ -123,10 +123,17 @@ const STORAGE_KEY = 'dark-triad-progress';
 
 const DarkTriadTest = () => {
   usePageSEO({
-    title: 'Темна Тріада (SD3) — Тест онлайн',
-    description: 'Пройдіть тест Коротка Темна Тріада (SD3) онлайн. 27 питань для оцінки Макіавеллізму, Нарцисизму та Психопатії.',
+    title: 'Темна Тріада (SD3) — Тест на макіавеллізм, нарцисизм онлайн',
+    description: 'Пройдіть тест Коротка Темна Тріада (SD3) онлайн безкоштовно. 27 питань для оцінки Макіавеллізму, Нарцисизму та Психопатії з детальною інтерпретацією.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/temna-triada',
-    keywords: 'темна тріада тест, макіавеллізм, нарцисизм, психопатія, SD3 тест онлайн',
+    keywords: 'темна тріада тест, тест на нарцисизм онлайн, макіавеллізм тест, психопатія тест, SD3 тест українською, темна тріада безкоштовно',
+    jsonLd: createTestJsonLd({
+      name: 'Коротка Темна Тріада (SD3)',
+      description: 'Тест для оцінки трьох рис особистості: Макіавеллізму, Нарцисизму та Психопатії.',
+      url: 'https://myrhorodskyi.lovable.app/tests/temna-triada',
+      questionCount: 27,
+      duration: 'PT5M',
+    }),
   });
 
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');

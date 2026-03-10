@@ -4,7 +4,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake } from 'lucide-react';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import patternBg from '@/assets/pattern-bg.jpg';
 
 const tests = [
@@ -76,10 +76,10 @@ const tests = [
 
 const Tests = () => {
   usePageSEO({
-    title: 'Психологічні тести онлайн — Психолог Сергій Миргородський',
-    description: 'Безкоштовні психологічні тести онлайн: шкала тривоги Бека, тест нейромедіаторів Бровермана. Перевірте свій емоційний стан.',
+    title: 'Психологічні тести онлайн безкоштовно — Пройти тест українською',
+    description: 'Безкоштовні психологічні тести онлайн українською: тест тривожності Бека, депресії, стресу, темпераменту Айзенка, темна тріада, его-стани, 5 мов любові. Миттєві результати.',
     canonical: 'https://myrhorodskyi.lovable.app/tests',
-    keywords: 'психологічні тести онлайн, тест тривожності, шкала Бека, тест нейромедіаторів, психологічна діагностика',
+    keywords: 'психологічні тести онлайн безкоштовно, тест тривожності, тест депресії, тест на стрес, тест Айзенка, темна тріада, тест его-станів, 5 мов любові, психологічний тест українською',
   });
 
   return (

@@ -7,7 +7,7 @@ import { Progress } from '@/components/ui/progress';
 import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, RotateCcw, Heart, MessageCircle, Gift, HandHelping, Clock, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import {
   BarChart,
   Bar,
@@ -95,10 +95,17 @@ const LoveLanguagesTest = () => {
   const [direction, setDirection] = useState(1);
 
   usePageSEO({
-    title: 'Тест: 5 Мов Любові — Психолог Сергій Миргородський',
-    description: 'Дізнайтеся, як ви найкраще сприймаєте та виражаєте любов у стосунках за методикою Ґері Чепмена. Безкоштовний тест онлайн.',
+    title: 'Тест: 5 Мов Любові — тест Ґері Чепмена онлайн безкоштовно',
+    description: 'Дізнайтеся свою мову любові за методикою Ґері Чепмена. 30 питань онлайн безкоштовно: слова заохочення, якісний час, подарунки, акти служіння, фізичний дотик.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
-    keywords: '5 мов любові, тест мови любові, Ґері Чепмен, психологічний тест, стосунки',
+    keywords: '5 мов любові тест, тест мови любові онлайн, Ґері Чепмен тест українською, яка моя мова любові, тест мови любові безкоштовно',
+    jsonLd: createTestJsonLd({
+      name: 'Тест: 5 Мов Любові',
+      description: 'Визначте свою мову любові за методикою Ґері Чепмена.',
+      url: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
+      questionCount: 30,
+      duration: 'PT7M',
+    }),
   });
 
   const handleAnswer = useCallback((category: string) => {

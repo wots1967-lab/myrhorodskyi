@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Shield, Phone, CheckCircle2, AlertTriangle, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 
 const questions = [
@@ -121,10 +121,17 @@ const calculateScore = (responses: (number | null)[]): number => {
 
 const PSS10Test = () => {
   usePageSEO({
-    title: 'Шкала сприйнятого стресу (PSS-10) — Тест онлайн',
-    description: 'Пройдіть тест на стрес PSS-10 онлайн. 10 питань для визначення рівня вашого стресового навантаження за останній місяць.',
+    title: 'Шкала стресу PSS-10 — Тест на стрес онлайн безкоштовно',
+    description: 'Пройдіть тест на стрес PSS-10 онлайн безкоштовно. 10 питань для визначення рівня вашого стресового навантаження за останній місяць з миттєвим результатом.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-stresu-pss10',
-    keywords: 'шкала стресу PSS-10, тест на стрес, рівень стресу онлайн, сприйнятий стрес',
+    keywords: 'тест на стрес онлайн, шкала стресу PSS-10, рівень стресу тест безкоштовно, сприйнятий стрес, PSS-10 українською',
+    jsonLd: createTestJsonLd({
+      name: 'Шкала сприйнятого стресу (PSS-10)',
+      description: 'Тест на стрес PSS-10 для визначення рівня стресового навантаження.',
+      url: 'https://myrhorodskyi.lovable.app/tests/shkala-stresu-pss10',
+      questionCount: 10,
+      duration: 'PT3M',
+    }),
   });
 
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');

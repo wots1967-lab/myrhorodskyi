@@ -11,7 +11,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Dna, Shield, Phone, CheckCircle2, AlertTriangle, AlertCircle, XCircle, Battery, Brain, Leaf, Sun } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 
 // Question categories
@@ -464,10 +464,17 @@ const interpretations: Record<string, NeurotransmitterInterpretation> = {
 
 const BrovermanTest = () => {
   usePageSEO({
-    title: 'Тест нейромедіаторів Бровермана — Тест онлайн',
-    description: 'Оцініть баланс нейромедіаторів (дофамін, ацетилхолін, ГАМК, серотонін) за тестом Бровермана. 140 питань онлайн.',
+    title: 'Тест Бровермана — Тест нейромедіаторів онлайн безкоштовно',
+    description: 'Пройдіть тест нейромедіаторів Бровермана онлайн безкоштовно. 140 питань для оцінки балансу дофаміну, ацетилхоліну, ГАМК та серотоніну з детальним результатом.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/test-neiromediatoriv-brovermana',
-    keywords: 'тест нейромедіаторів, тест Бровермана, дофамін, серотонін, ГАМК, ацетилхолін, баланс нейромедіаторів',
+    keywords: 'тест Бровермана, тест нейромедіаторів онлайн, дофамін серотонін ГАМК ацетилхолін тест, баланс нейромедіаторів безкоштовно, тест Бровермана українською',
+    jsonLd: createTestJsonLd({
+      name: 'Тест нейромедіаторів Бровермана',
+      description: 'Комплексний тест для оцінки балансу нейромедіаторів за методикою Бровермана.',
+      url: 'https://myrhorodskyi.lovable.app/tests/test-neiromediatoriv-brovermana',
+      questionCount: 140,
+      duration: 'PT20M',
+    }),
   });
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
