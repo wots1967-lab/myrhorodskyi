@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
 import patternBg from '@/assets/pattern-bg.jpg';
 
@@ -63,6 +63,14 @@ const tests = [
     duration: '~7 хвилин',
     available: true,
     link: '/tests/profil-ego-staniv',
+  },
+  {
+    icon: HeartHandshake,
+    title: '5 Мов Любові',
+    description: 'Дізнайтеся, як ви найкраще сприймаєте та виражаєте любов у стосунках за методикою Ґері Чепмена',
+    duration: '~7 хвилин',
+    available: true,
+    link: '/tests/5-mov-lyubovi',
   },
 ];
 

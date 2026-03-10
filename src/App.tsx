@@ -16,6 +16,7 @@ const PSS10Test = lazy(() => import("./pages/PSS10Test"));
 const DarkTriadTest = lazy(() => import("./pages/DarkTriadTest"));
 const TemperamentTest = lazy(() => import("./pages/TemperamentTest"));
 const EgoStatesTest = lazy(() => import("./pages/EgoStatesTest"));
+const LoveLanguagesTest = lazy(() => import("./pages/LoveLanguagesTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -45,6 +46,7 @@ const App = () => (
             <Route path="/tests/temna-triada" element={<DarkTriadTest />} />
             <Route path="/tests/temperament-aizenka" element={<TemperamentTest />} />
             <Route path="/tests/profil-ego-staniv" element={<EgoStatesTest />} />
+            <Route path="/tests/5-mov-lyubovi" element={<LoveLanguagesTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* Old URL redirects */}
             <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
