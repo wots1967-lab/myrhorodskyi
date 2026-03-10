@@ -298,10 +298,11 @@ interface QuizScreenProps {
   totalQuestions: number;
   progressPercent: number;
   direction: number;
+  selectedOption: 1 | 2 | null;
   onAnswer: (category: string) => void;
 }
 
-const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, direction, onAnswer }: QuizScreenProps) => (
+const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, direction, selectedOption, onAnswer }: QuizScreenProps) => (
   <motion.section
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
@@ -340,6 +341,7 @@ const QuizScreen = ({ question, questionIndex, totalQuestions, progressPercent, 
           <OptionCard
             text={question.option1.text}
             label="А"
+            isSelected={selectedOption === 1}
             onClick={() => onAnswer(question.option1.category)}
           />
 
