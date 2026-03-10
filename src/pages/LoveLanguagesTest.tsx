@@ -112,6 +112,35 @@ const LoveLanguagesTest = () => {
     }
   }, [currentQuestion]);
 
+  // Keyboard navigation
+  useEffect(() => {
+    if (screen !== 'quiz') return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+
+      const q = questions[currentQuestion];
+      switch (e.key) {
+        case '1':
+        case 'ArrowUp': {
+          e.preventDefault();
+          handleAnswer(q.option1.category);
+          break;
+        }
+        case '2':
+        case 'ArrowDown': {
+          e.preventDefault();
+          handleAnswer(q.option2.category);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [screen, currentQuestion, handleAnswer]);
+
   const resetTest = useCallback(() => {
     setScreen('intro');
     setCurrentQuestion(0);
