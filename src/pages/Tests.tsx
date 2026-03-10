@@ -64,6 +64,14 @@ const tests = [
     available: true,
     link: '/tests/profil-ego-staniv',
   },
+  {
+    icon: HeartHandshake,
+    title: '5 Мов Любові',
+    description: 'Дізнайтеся, як ви найкраще сприймаєте та виражаєте любов у стосунках за методикою Ґері Чепмена',
+    duration: '~7 хвилин',
+    available: true,
+    link: '/tests/5-mov-lyubovi',
+  },
 ];
 
 const Tests = () => {
