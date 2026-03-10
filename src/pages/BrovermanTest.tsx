@@ -13,6 +13,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, Dna, Shield, Phone, CheckCircle2, Ale
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
+import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
 
 // Question categories
 const categories = [
@@ -1168,6 +1169,7 @@ const BrovermanTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(7)} />}
     </div>
   );
 };

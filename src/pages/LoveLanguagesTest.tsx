@@ -8,6 +8,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { ArrowRight, RotateCcw, Heart, MessageCircle, Gift, HandHelping, Clock, Sparkles } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
+import KeyboardHints, { HINTS_TWO_OPTIONS } from '@/components/KeyboardHints';
 import {
   BarChart,
   Bar,
@@ -236,6 +237,7 @@ const LoveLanguagesTest = () => {
       </AnimatePresence>
 
       <Footer />
+      {screen === 'quiz' && <KeyboardHints hints={HINTS_TWO_OPTIONS} />}
     </div>
   );
 };

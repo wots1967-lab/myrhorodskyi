@@ -13,6 +13,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, CloudRain, Shield, Phone, CheckCircle
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
+import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
 
 interface Question {
   title: string;
@@ -805,6 +806,7 @@ const BeckDepressionTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(4)} />}
     </div>
   );
 };

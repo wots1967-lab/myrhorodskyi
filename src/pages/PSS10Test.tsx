@@ -13,6 +13,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, Shield, Phone, CheckCircle2, AlertTri
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
+import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
 
 const questions = [
   "Як часто за останній місяць ви були засмучені через те, що сталося щось несподіване?",
@@ -594,6 +595,7 @@ const PSS10Test = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(5)} />}
     </div>
   );
 };

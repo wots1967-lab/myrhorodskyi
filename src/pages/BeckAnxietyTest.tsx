@@ -13,6 +13,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, Brain, Shield, Phone, CheckCircle2, A
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
+import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
 
 const questions = [
   "Відчуття оніміння та поколювання в тілі",
@@ -623,6 +624,7 @@ const BeckAnxietyTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(4)} />}
     </div>
   );
 };

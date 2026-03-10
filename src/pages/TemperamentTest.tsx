@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { ArrowLeft, ArrowRight, RotateCcw, Shield, AlertTriangle, Puzzle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
+import KeyboardHints, { HINTS_YES_NO } from '@/components/KeyboardHints';
 
 const questions = [
   "Чи часто Ви відчуваєте потяг до нових вражень, щоб струсити з себе апатію, відчути збудження?",
@@ -531,6 +532,7 @@ const TemperamentTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_YES_NO} />}
     </div>
   );
 };

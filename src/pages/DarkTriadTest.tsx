@@ -13,6 +13,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, Shield, AlertTriangle, Drama } from '
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
+import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
 
 const questions = [
   // Machiavellianism (1-9)
@@ -477,6 +478,7 @@ const DarkTriadTest = () => {
       </section>
 
       <Footer />
+      {stage === 'test' && <KeyboardHints hints={HINTS_SCALE(5)} />}
     </div>
   );
 };
