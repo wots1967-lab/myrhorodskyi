@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -193,6 +193,58 @@ const EgoStatesTest = () => {
     setResponses(new Array(40).fill(null));
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (stage !== 'test') return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+
+      switch (e.key) {
+        case '0':
+        case '1':
+        case '2':
+        case '3': {
+          e.preventDefault();
+          handleResponse(parseInt(e.key));
+          break;
+        }
+        case 'Enter': {
+          e.preventDefault();
+          if (currentQuestion === questions.length - 1) {
+            submitTest();
+          } else {
+            setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1));
+          }
+          break;
+        }
+        case 'Backspace': {
+          e.preventDefault();
+          setCurrentQuestion(prev => Math.max(0, prev - 1));
+          break;
+        }
+        case 'ArrowRight':
+        case 'ArrowDown': {
+          e.preventDefault();
+          const nextVal = responses[currentQuestion] === null ? 0 : Math.min((responses[currentQuestion] as number) + 1, 3);
+          handleResponse(nextVal);
+          break;
+        }
+        case 'ArrowLeft':
+        case 'ArrowUp': {
+          e.preventDefault();
+          const prevVal = responses[currentQuestion] === null ? 3 : Math.max((responses[currentQuestion] as number) - 1, 0);
+          handleResponse(prevVal);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [stage, currentQuestion, responses, handleResponse]);
 
   const scores = calculateScores();
   const maxScore = 24; // 8 questions × 3

@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -111,6 +111,35 @@ const LoveLanguagesTest = () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentQuestion]);
+
+  // Keyboard navigation
+  useEffect(() => {
+    if (screen !== 'quiz') return;
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const target = e.target as HTMLElement;
+      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
+
+      const q = questions[currentQuestion];
+      switch (e.key) {
+        case '1':
+        case 'ArrowUp': {
+          e.preventDefault();
+          handleAnswer(q.option1.category);
+          break;
+        }
+        case '2':
+        case 'ArrowDown': {
+          e.preventDefault();
+          handleAnswer(q.option2.category);
+          break;
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [screen, currentQuestion, handleAnswer]);
 
   const resetTest = useCallback(() => {
     setScreen('intro');
