@@ -93,60 +93,8 @@ const LoveLanguagesTest = () => {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({ A: 0, B: 0, C: 0, D: 0, E: 0 });
   const [direction, setDirection] = useState(1);
-
-  usePageSEO({
-    title: 'Тест: 5 Мов Любові — тест Ґері Чепмена онлайн безкоштовно',
-    description: 'Дізнайтеся свою мову любові за методикою Ґері Чепмена. 30 питань онлайн безкоштовно: слова заохочення, якісний час, подарунки, акти служіння, фізичний дотик.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
-    keywords: '5 мов любові тест, тест мови любові онлайн, Ґері Чепмен тест українською, яка моя мова любові, тест мови любові безкоштовно',
-    jsonLd: createTestJsonLd({
-      name: 'Тест: 5 Мов Любові',
-      description: 'Визначте свою мову любові за методикою Ґері Чепмена.',
-      url: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
-      questionCount: 30,
-      duration: 'PT7M',
-    }),
-  });
-
-  const handleAnswer = useCallback((category: string) => {
-    setScores(prev => ({ ...prev, [category]: prev[category] + 1 }));
-    setDirection(1);
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(prev => prev + 1);
-    } else {
-      setScreen('results');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  }, [currentQuestion]);
-
-  // Keyboard navigation
-  useEffect(() => {
-    if (screen !== 'quiz') return;
-
-    const handleKeyDown = (e: KeyboardEvent) => {
-      const target = e.target as HTMLElement;
-      if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return;
-
-      const q = questions[currentQuestion];
-      switch (e.key) {
-        case '1':
-        case 'ArrowUp': {
-          e.preventDefault();
-          handleAnswer(q.option1.category);
-          break;
-        }
-        case '2':
-        case 'ArrowDown': {
-          e.preventDefault();
-          handleAnswer(q.option2.category);
-          break;
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [screen, currentQuestion, handleAnswer]);
+  const [selectedOption, setSelectedOption] = useState<1 | 2 | null>(null);
+  const [answerHistory, setAnswerHistory] = useState<string[]>([]);
 
   const resetTest = useCallback(() => {
     setScreen('intro');
