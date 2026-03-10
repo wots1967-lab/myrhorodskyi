@@ -72,6 +72,14 @@ const tests = [
     available: true,
     link: '/tests/5-mov-lyubovi',
   },
+  {
+    icon: Flame,
+    title: 'Розширений Профіль Его-станів (6 станів)',
+    description: 'Глибинний аналіз особистості з 6 его-станами: окреме вимірювання Слухняної та Бунтуючої Дитини для точнішого профілю',
+    duration: '~10 хвилин',
+    available: true,
+    link: '/tests/rozshyrenyi-profil-ego-staniv',
+  },
 ];
 
 const Tests = () => {
