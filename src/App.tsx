@@ -18,6 +18,7 @@ const TemperamentTest = lazy(() => import("./pages/TemperamentTest"));
 const EgoStatesTest = lazy(() => import("./pages/EgoStatesTest"));
 const ExpandedEgoStatesTest = lazy(() => import("./pages/ExpandedEgoStatesTest"));
 const LoveLanguagesTest = lazy(() => import("./pages/LoveLanguagesTest"));
+const YSQTest = lazy(() => import("./pages/YSQTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
