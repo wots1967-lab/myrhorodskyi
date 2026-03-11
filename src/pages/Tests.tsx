@@ -62,6 +62,7 @@ const tests = [
     description: 'Визначте свій унікальний профіль п\'яти функціональних Его-станів за методикою Джулі Хей (транзакційний аналіз)',
     duration: '~7 хвилин',
     available: true,
+    hidden: true,
     link: '/tests/profil-ego-staniv',
   },
   {
@@ -94,6 +95,7 @@ const tests = [
     description: 'Оцінка рівня доступу до 8 якостей Самості (Self-Leadership) за моделлю Внутрішніх Сімейних Систем. Радарна діаграма профілю',
     duration: '~5 хвилин',
     available: true,
+    hidden: true,
     link: '/tests/diagnostyka-samosti-ifs',
   },
   {
@@ -157,7 +159,7 @@ const Tests = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tests.map((test, index) => (
+            {tests.filter(t => !t.hidden).map((test, index) => (
               <motion.div
                 key={test.title}
                 initial={{ opacity: 0, y: 30 }}

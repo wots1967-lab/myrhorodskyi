@@ -673,13 +673,13 @@ const IFSScaleTest = () => {
                       <p className="text-muted-foreground leading-relaxed mb-6 max-w-xl mx-auto">
                         Терапія IFS допоможе вам повернути керування Самістю, побудувати довіру між частинами та зцілити вразливих Вигнанців. Запишіться на професійну консультацію.
                       </p>
-                      <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                        <Button variant="cta" size="lg" className="w-full sm:w-auto whitespace-normal" asChild>
+                      <div className="flex flex-col gap-3">
+                        <Button variant="cta" size="lg" className="w-full whitespace-normal h-auto py-4" asChild>
                           <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">
                             Записатися на консультацію
                           </a>
                         </Button>
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2" onClick={resetTest}>
+                        <Button variant="outline" size="lg" className="w-full gap-2" onClick={resetTest}>
                           <RotateCcw className="w-4 h-4" />
                           Пройти ще раз
                         </Button>
