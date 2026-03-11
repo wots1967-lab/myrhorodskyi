@@ -132,7 +132,7 @@ const BeckAnxietyTest = () => {
   usePageSEO({
     title: 'Шкала тривоги Бека (BAI) — Тест на тривожність онлайн безкоштовно',
     description: 'Пройдіть тест на тривожність за шкалою Бека (BAI) онлайн безкоштовно. 21 питання для оцінки рівня тривоги з миттєвим результатом та інтерпретацією.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-tryvohy-beka',
+    canonical: 'https://myrhorodskyi.com/tests/shkala-tryvohy-beka',
     keywords: 'шкала тривоги Бека, BAI тест, тест тривожності онлайн, тест на тривогу безкоштовно, рівень тривоги, тест Бека тривога українською',
     jsonLd: createTestJsonLd({
       name: 'Шкала тривоги Бека (BAI)',
