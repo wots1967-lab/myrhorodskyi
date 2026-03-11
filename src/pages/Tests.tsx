@@ -95,6 +95,7 @@ const tests = [
     description: 'Оцінка рівня доступу до 8 якостей Самості (Self-Leadership) за моделлю Внутрішніх Сімейних Систем. Радарна діаграма профілю',
     duration: '~5 хвилин',
     available: true,
+    hidden: true,
     link: '/tests/diagnostyka-samosti-ifs',
   },
   {
