@@ -187,6 +187,7 @@ const ExpandedEgoStatesTest = () => {
         }
         case 'Enter': {
           e.preventDefault();
+          if (responses[currentQuestion] === null) break;
           if (currentQuestion === questions.length - 1) submitTest();
           else setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1));
           break;

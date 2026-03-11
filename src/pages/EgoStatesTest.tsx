@@ -221,6 +221,7 @@ const EgoStatesTest = () => {
         }
         case 'Enter': {
           e.preventDefault();
+          if (responses[currentQuestion] === null) break;
           if (currentQuestion === questions.length - 1) {
             submitTest();
           } else {
