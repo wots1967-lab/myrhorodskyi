@@ -3,7 +3,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import HeroSection from '@/components/sections/HeroSection';
 import usePageSEO from '@/hooks/usePageSEO';
-import patternBg from '@/assets/pattern-bg.jpg';
 
 // Lazy load below-fold sections
 const AboutSection = lazy(() => import('@/components/sections/AboutSection'));
