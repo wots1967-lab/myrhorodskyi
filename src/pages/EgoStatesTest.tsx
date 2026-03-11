@@ -463,6 +463,7 @@ const EgoStatesTest = () => {
                         <Button
                           variant="outline"
                           onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))}
+                          disabled={responses[currentQuestion] === null}
                         >
                           Далі →
                         </Button>
