@@ -321,7 +321,7 @@ const YSQTest = () => {
         case 'Enter': {
           e.preventDefault();
           if (currentQuestion === questions.length - 1 && responses[currentQuestion] !== null) submitTest();
-          else if (responses[currentQuestion] !== null) setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1));
+          else goNext();
           break;
         }
         case 'Backspace': {
