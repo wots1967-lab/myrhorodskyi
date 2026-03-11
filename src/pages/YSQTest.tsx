@@ -602,7 +602,7 @@ const YSQTest = () => {
                   <Card className="border-border shadow-md">
                     <CardContent className="p-4 md:p-6">
                       <h3 className="font-display text-lg font-semibold text-foreground mb-4 text-center">
-                        Профіль маладаптивних схем
+                        Профіль дезадаптивних схем
                       </h3>
                       <div className="w-full" style={{ height: Math.max(500, results.length * 32) }}>
                         <ResponsiveContainer width="100%" height="100%">
