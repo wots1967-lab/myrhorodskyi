@@ -349,7 +349,7 @@ const YSQTest = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [stage, currentQuestion, responses, handleResponse]);
+  }, [stage, currentQuestion, responses, handleResponse, goNext]);
 
   const results = calculateResults();
   const top3 = results.slice(0, 3);
