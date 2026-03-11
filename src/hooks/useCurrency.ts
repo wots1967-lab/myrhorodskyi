@@ -8,12 +8,12 @@ interface PriceMap {
 }
 
 const PRICES = {
-  consultation: { USD: '50$', EUR: '45€' },
-  mentorship: { USD: '70$', EUR: '65€' },
-  pack5: { USD: '230$', EUR: '210€' },
+  consultation: { USD: '50$', EUR: '50€' },
+  mentorship: { USD: '70$', EUR: '70€' },
+  pack5: { USD: '230$', EUR: '230€' },
   pack5saving: { USD: '20$', EUR: '20€' },
-  pack10: { USD: '450$', EUR: '410€' },
-  pack10saving: { USD: '50$', EUR: '45€' },
+  pack10: { USD: '450$', EUR: '450€' },
+  pack10saving: { USD: '50$', EUR: '50€' },
 } satisfies Record<string, PriceMap>;
 
 function detectCurrency(): Currency {
