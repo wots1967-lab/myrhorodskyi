@@ -62,6 +62,7 @@ const tests = [
     description: 'Визначте свій унікальний профіль п\'яти функціональних Его-станів за методикою Джулі Хей (транзакційний аналіз)',
     duration: '~7 хвилин',
     available: true,
+    hidden: true,
     link: '/tests/profil-ego-staniv',
   },
   {
