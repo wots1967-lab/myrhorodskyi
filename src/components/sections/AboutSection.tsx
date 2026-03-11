@@ -25,7 +25,7 @@ const AboutSection = () => {
 
                 alt="Сергій Миргородський — психолог"
                 className="w-full h-full object-cover opacity-100 rounded-none shadow-none border-0"
-                loading="lazy"
+                loading="eager"
                 decoding="async" src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.jpg" />
 
             </div>
