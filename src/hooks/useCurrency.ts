@@ -16,10 +16,15 @@ const PRICES = {
   pack10saving: { USD: '50$', EUR: '50€' },
 } satisfies Record<string, PriceMap>;
 
+const USD_TIMEZONES = new Set([
+  'Europe/Kyiv', 'Europe/Kiev',
+  'Asia/Jerusalem', 'Asia/Tel_Aviv',
+]);
+
 function detectCurrency(): Currency {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (tz === 'Europe/Kyiv' || tz === 'Europe/Kiev') return 'USD';
+    if (USD_TIMEZONES.has(tz)) return 'USD';
   } catch {}
   return 'EUR';
 }
