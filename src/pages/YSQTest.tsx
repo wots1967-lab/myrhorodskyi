@@ -288,7 +288,7 @@ const YSQTest = () => {
   const exportPDF = async () => {
     if (!pdfRef.current) return;
     const html2pdf = (await import('html2pdf.js')).default;
-    html2pdf()
+    (html2pdf() as any)
       .set({
         margin: [10, 8, 10, 8],
         filename: 'YSQ-S3-Результати.pdf',
