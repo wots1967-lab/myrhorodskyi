@@ -208,14 +208,15 @@ const HINTS = [
 
 const YSQTest = () => {
   usePageSEO({
-    title: 'Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3) — 90 питань онлайн',
-    description: 'Пройдіть опитувальник Янга YSQ-S3 (90 питань) українською. Визначте 18 ранніх дезадаптивних схем. Глибинна діагностика переконань та життєвих сценаріїв зі схема-терапії.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq',
-    keywords: 'YSQ-S3 тест українською, опитувальник Янга, ранні дезадаптивні схеми, схема-терапія тест, Young Schema Questionnaire',
+    title: 'Тест YSQ-S3 онлайн — Опитувальник ранніх дезадаптивних схем Янга українською',
+    description: 'Пройдіть тест YSQ-S3 (90 питань) онлайн безкоштовно українською. Визначте 18 ранніх дезадаптивних схем за методикою Джеффрі Янга. Діагностика глибинних переконань зі схема-терапії з миттєвим результатом.',
+    canonical: 'https://myrhorodskyi.com/tests/opytuvalnyk-rannih-shem-ysq',
+    keywords: 'YSQ-S3 тест онлайн, опитувальник Янга українською, ранні дезадаптивні схеми тест безкоштовно, схема-терапія тест онлайн, Young Schema Questionnaire українською, тест схем Янга, опитувальник ранніх схем, YSQ тест пройти, дезадаптивні схеми діагностика',
+    ogImage: 'https://myrhorodskyi.com/og-image.jpg',
     jsonLd: createTestJsonLd({
-      name: 'Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3)',
-      description: 'Глибинна діагностика 18 ранніх дезадаптивних схем за методикою Джеффрі Янга. 90 питань.',
-      url: 'https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq',
+      name: 'Тест YSQ-S3 — Опитувальник ранніх дезадаптивних схем Янга',
+      description: 'Пройдіть тест YSQ-S3 (90 питань) онлайн безкоштовно українською. Визначте 18 ранніх дезадаптивних схем за методикою Джеффрі Янга зі схема-терапії.',
+      url: 'https://myrhorodskyi.com/tests/opytuvalnyk-rannih-shem-ysq',
       questionCount: 90,
       duration: 'PT20M',
     }),
@@ -235,10 +236,14 @@ const YSQTest = () => {
       next[currentQuestion] = value;
       return next;
     });
-    setTimeout(() => {
-      setCurrentQuestion(prev => (prev < questions.length - 1 ? prev + 1 : prev));
-    }, 350);
   }, [currentQuestion]);
+
+  const goNext = useCallback(() => {
+    if (responses[currentQuestion] === null) return;
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+    }
+  }, [currentQuestion, responses]);
 
   const calculateResults = useCallback(() => {
     const scores: Record<SchemaKey, number> = {} as any;
@@ -317,7 +322,7 @@ const YSQTest = () => {
         case 'Enter': {
           e.preventDefault();
           if (currentQuestion === questions.length - 1 && responses[currentQuestion] !== null) submitTest();
-          else if (responses[currentQuestion] !== null) setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1));
+          else goNext();
           break;
         }
         case 'Backspace': {
@@ -345,7 +350,7 @@ const YSQTest = () => {
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [stage, currentQuestion, responses, handleResponse]);
+  }, [stage, currentQuestion, responses, handleResponse, goNext]);
 
   const results = calculateResults();
   const top3 = results.slice(0, 3);
@@ -527,7 +532,7 @@ const YSQTest = () => {
                   ) : (
                     <Button
                       variant="ghost"
-                      onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))}
+                      onClick={goNext}
                       disabled={responses[currentQuestion] === null}
                     >
                       Далі
