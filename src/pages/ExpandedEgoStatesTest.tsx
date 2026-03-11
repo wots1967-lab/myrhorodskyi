@@ -116,7 +116,7 @@ const ExpandedEgoStatesTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Тест: Розширений Профіль Его-станів',
       description: 'Глибинний аналіз особистості на основі транзакційного аналізу з 6 функціональними его-станами.',
-      url: 'https://myrhorodskyi.lovable.app/tests/rozshyrenyi-profil-ego-staniv',
+      url: 'https://myrhorodskyi.com/tests/rozshyrenyi-profil-ego-staniv',
       questionCount: 42,
       duration: 'PT10M',
     }),

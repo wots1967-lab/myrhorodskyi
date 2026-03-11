@@ -131,7 +131,7 @@ const DarkTriadTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Коротка Темна Тріада (SD3)',
       description: 'Тест для оцінки трьох рис особистості: Макіавеллізму, Нарцисизму та Психопатії.',
-      url: 'https://myrhorodskyi.lovable.app/tests/temna-triada',
+      url: 'https://myrhorodskyi.com/tests/temna-triada',
       questionCount: 27,
       duration: 'PT5M',
     }),
