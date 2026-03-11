@@ -532,7 +532,7 @@ const YSQTest = () => {
                   ) : (
                     <Button
                       variant="ghost"
-                      onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))}
+                      onClick={goNext}
                       disabled={responses[currentQuestion] === null}
                     >
                       Далі
