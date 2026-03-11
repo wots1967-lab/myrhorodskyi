@@ -144,7 +144,7 @@ const EgoStatesTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Тест: Профіль Его-станів (Егограма)',
       description: 'Тест функціональних Его-станів за методикою Джулі Хей (транзакційний аналіз).',
-      url: 'https://myrhorodskyi.lovable.app/tests/profil-ego-staniv',
+      url: 'https://myrhorodskyi.com/tests/profil-ego-staniv',
       questionCount: 40,
       duration: 'PT7M',
     }),

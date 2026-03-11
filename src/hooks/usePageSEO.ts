@@ -96,7 +96,7 @@ export function createTestJsonLd(opts: {
       "@type": "Person",
       "name": "Сергій Миргородський",
       "jobTitle": "Психолог",
-      "url": "https://myrhorodskyi.lovable.app",
+      "url": "https://myrhorodskyi.com",
     },
     "about": {
       "@type": "Thing",

@@ -105,7 +105,7 @@ const LoveLanguagesTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Тест: 5 Мов Любові',
       description: 'Визначте свою мову любові за методикою Ґері Чепмена.',
-      url: 'https://myrhorodskyi.lovable.app/tests/5-mov-lyubovi',
+      url: 'https://myrhorodskyi.com/tests/5-mov-lyubovi',
       questionCount: 30,
       duration: 'PT7M',
     }),

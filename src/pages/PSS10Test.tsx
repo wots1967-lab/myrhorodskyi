@@ -129,7 +129,7 @@ const PSS10Test = () => {
     jsonLd: createTestJsonLd({
       name: 'Шкала сприйнятого стресу (PSS-10)',
       description: 'Тест на стрес PSS-10 для визначення рівня стресового навантаження.',
-      url: 'https://myrhorodskyi.lovable.app/tests/shkala-stresu-pss10',
+      url: 'https://myrhorodskyi.com/tests/shkala-stresu-pss10',
       questionCount: 10,
       duration: 'PT3M',
     }),

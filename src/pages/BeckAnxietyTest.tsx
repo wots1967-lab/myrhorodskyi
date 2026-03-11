@@ -137,7 +137,7 @@ const BeckAnxietyTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Шкала тривоги Бека (BAI)',
       description: 'Стандартизований тест на тривожність за шкалою Бека з 21 питання.',
-      url: 'https://myrhorodskyi.lovable.app/tests/shkala-tryvohy-beka',
+      url: 'https://myrhorodskyi.com/tests/shkala-tryvohy-beka',
       questionCount: 21,
       duration: 'PT5M',
     }),

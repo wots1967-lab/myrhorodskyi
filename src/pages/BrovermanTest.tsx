@@ -472,7 +472,7 @@ const BrovermanTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Тест нейромедіаторів Бровермана',
       description: 'Комплексний тест для оцінки балансу нейромедіаторів за методикою Бровермана.',
-      url: 'https://myrhorodskyi.lovable.app/tests/test-neiromediatoriv-brovermana',
+      url: 'https://myrhorodskyi.com/tests/test-neiromediatoriv-brovermana',
       questionCount: 140,
       duration: 'PT20M',
     }),

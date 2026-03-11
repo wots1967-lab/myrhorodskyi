@@ -305,7 +305,7 @@ const BeckDepressionTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Шкала депресії Бека (BDI)',
       description: 'Стандартизований тест на депресію за шкалою Бека з 21 питання.',
-      url: 'https://myrhorodskyi.lovable.app/tests/shkala-depresii-beka',
+      url: 'https://myrhorodskyi.com/tests/shkala-depresii-beka',
       questionCount: 21,
       duration: 'PT10M',
     }),

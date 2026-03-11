@@ -189,7 +189,7 @@ const TemperamentTest = () => {
     jsonLd: createTestJsonLd({
       name: 'Тест на темперамент Айзенка (EPI)',
       description: 'Визначте свій тип темпераменту за методикою Ганса Айзенка.',
-      url: 'https://myrhorodskyi.lovable.app/tests/temperament-aizenka',
+      url: 'https://myrhorodskyi.com/tests/temperament-aizenka',
       questionCount: 57,
       duration: 'PT15M',
     }),
