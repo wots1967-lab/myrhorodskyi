@@ -88,6 +88,14 @@ const tests = [
     available: true,
     link: '/tests/opytuvalnyk-rannih-shem-ysq',
   },
+  {
+    icon: Compass,
+    title: 'Діагностика Самості (Self) — IFS',
+    description: 'Оцінка рівня доступу до 8 якостей Самості (Self-Leadership) за моделлю Внутрішніх Сімейних Систем. Радарна діаграма профілю',
+    duration: '~5 хвилин',
+    available: true,
+    link: '/tests/diagnostyka-samosti-ifs',
+  },
 ];
 
 const Tests = () => {
