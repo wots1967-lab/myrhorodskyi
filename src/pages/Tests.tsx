@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers, Shield } from 'lucide-react';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 const patternBg = '/pattern-bg.jpg';
 
@@ -103,6 +103,14 @@ const tests = [
     duration: '~10-15 хвилин',
     available: true,
     link: '/tests/klinichna-shkala-ifs',
+  },
+  {
+    icon: Shield,
+    title: 'Профіль Захисників Психіки (IFS)',
+    description: 'Визначте ваших провідних захисників: Перфекціоніст, Доглядач, Критик, Уникаючий чи Агресор. Діагностика стратегій виживання',
+    duration: '~5 хвилин',
+    available: true,
+    link: '/tests/profil-zahysnykiv-ifs',
   },
 ];
 
