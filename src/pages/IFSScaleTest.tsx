@@ -520,7 +520,7 @@ const IFSScaleTest = () => {
                   ))}
                 </div>
 
-                <KeyboardHints hints={HINTS_SCALE} />
+                <KeyboardHints hints={HINTS_SCALE(5)} />
               </motion.div>
             )}
 
