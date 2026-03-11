@@ -236,6 +236,11 @@ const YSQTest = () => {
       next[currentQuestion] = value;
       return next;
     });
+    setTimeout(() => {
+      if (currentQuestion < questions.length - 1) {
+        setCurrentQuestion(prev => prev + 1);
+      }
+    }, 300);
   }, [currentQuestion]);
 
   const goNext = useCallback(() => {
