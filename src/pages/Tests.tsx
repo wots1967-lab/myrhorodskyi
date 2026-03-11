@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers } from 'lucide-react';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 const patternBg = '/pattern-bg.jpg';
 
@@ -95,6 +95,14 @@ const tests = [
     duration: '~5 хвилин',
     available: true,
     link: '/tests/diagnostyka-samosti-ifs',
+  },
+  {
+    icon: Layers,
+    title: 'Клінічна Шкала IFS (57 пунктів)',
+    description: 'Комплексний профіль внутрішньої системи: Самість, Захисники (Критик, Доглядач, Тривожний) та Вигнанці. Радарна діаграма та клінічний аналіз',
+    duration: '~10-15 хвилин',
+    available: true,
+    link: '/tests/klinichna-shkala-ifs',
   },
 ];
 
