@@ -96,6 +96,14 @@ const tests = [
     available: true,
     link: '/tests/diagnostyka-samosti-ifs',
   },
+  {
+    icon: Layers,
+    title: 'Клінічна Шкала IFS (57 пунктів)',
+    description: 'Комплексний профіль внутрішньої системи: Самість, Захисники (Критик, Доглядач, Тривожний) та Вигнанці. Радарна діаграма та клінічний аналіз',
+    duration: '~10-15 хвилин',
+    available: true,
+    link: '/tests/klinichna-shkala-ifs',
+  },
 ];
 
 const Tests = () => {
