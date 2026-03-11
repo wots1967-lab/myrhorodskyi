@@ -648,11 +648,11 @@ const EgoStatesTest = () => {
                 </Card>
 
                 {/* CTA */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <Button
                     variant="cta"
                     size="xl"
-                    className="flex-1"
+                    className="w-full whitespace-normal h-auto py-4"
                     asChild
                   >
                     <a
@@ -666,6 +666,7 @@ const EgoStatesTest = () => {
                   <Button
                     variant="outline"
                     size="xl"
+                    className="w-full"
                     onClick={resetTest}
                   >
                     <RotateCcw className="w-4 h-4 mr-2" />
