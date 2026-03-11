@@ -401,7 +401,7 @@ const YSQTest = () => {
                   <CardContent className="p-8 md:p-12 space-y-8">
                     <div>
                       <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                        Опитувальник Ранніх Маладаптивних Схем
+                        Опитувальник Ранніх Дезадаптивних Схем
                       </h2>
                       <p className="text-muted-foreground leading-relaxed">
                         Цей тест складається з 90 тверджень. Будь ласка, прочитайте кожне з них і оцініть, наскільки воно добре описує вас. Намагайтеся згадати, як ви почувалися більшу частину свого життя, а не лише зараз. Тест займе близько 15-20 хвилин.
