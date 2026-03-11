@@ -10,7 +10,7 @@ interface SEOProps {
   jsonLd?: Record<string, unknown>;
 }
 
-const BASE_URL = 'https://myrhorodskyi.lovable.app';
+const BASE_URL = 'https://myrhorodskyi.com';
 
 const usePageSEO = ({ title, description, canonical, keywords, ogType = 'website', ogImage, jsonLd }: SEOProps) => {
   useEffect(() => {
