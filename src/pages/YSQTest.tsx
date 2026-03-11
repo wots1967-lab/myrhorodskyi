@@ -375,7 +375,7 @@ const YSQTest = () => {
               <FileText className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-              Опитувальник Ранніх Маладаптивних Схем (YSQ-S3)
+              Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3)
             </h1>
             <p className="text-lg text-primary-foreground/80">
               Глибинна діагностика ваших глибинних переконань та життєвих сценаріїв
