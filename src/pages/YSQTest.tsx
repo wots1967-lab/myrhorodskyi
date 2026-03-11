@@ -213,8 +213,8 @@ const YSQTest = () => {
     canonical: 'https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq',
     keywords: 'YSQ-S3 тест українською, опитувальник Янга, ранні дезадаптивні схеми, схема-терапія тест, Young Schema Questionnaire',
     jsonLd: createTestJsonLd({
-      name: 'Опитувальник Ранніх Маладаптивних Схем (YSQ-S3)',
-      description: 'Глибинна діагностика 18 ранніх маладаптивних схем за методикою Джеффрі Янга. 90 питань.',
+      name: 'Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3)',
+      description: 'Глибинна діагностика 18 ранніх дезадаптивних схем за методикою Джеффрі Янга. 90 питань.',
       url: 'https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq',
       questionCount: 90,
       duration: 'PT20M',
