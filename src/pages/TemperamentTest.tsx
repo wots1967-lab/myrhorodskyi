@@ -184,7 +184,7 @@ const TemperamentTest = () => {
   usePageSEO({
     title: 'Тест Айзенка на темперамент (EPI) — онлайн безкоштовно',
     description: 'Визначте свій тип темпераменту за методикою Ганса Айзенка онлайн безкоштовно. 57 питань для оцінки екстраверсії та нейротизму. Сангвінік, холерик, флегматик чи меланхолік?',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/temperament-aizenka',
+    canonical: 'https://myrhorodskyi.com/tests/temperament-aizenka',
     keywords: 'тест Айзенка онлайн, тест на темперамент безкоштовно, сангвінік холерик флегматик меланхолік, EPI тест українською, тип темпераменту тест',
     jsonLd: createTestJsonLd({
       name: 'Тест на темперамент Айзенка (EPI)',
