@@ -104,6 +104,14 @@ const tests = [
     available: true,
     link: '/tests/klinichna-shkala-ifs',
   },
+  {
+    icon: Shield,
+    title: 'Профіль Захисників Психіки (IFS)',
+    description: 'Визначте ваших провідних захисників: Перфекціоніст, Доглядач, Критик, Уникаючий чи Агресор. Діагностика стратегій виживання',
+    duration: '~5 хвилин',
+    available: true,
+    link: '/tests/profil-zahysnykiv-ifs',
+  },
 ];
 
 const Tests = () => {

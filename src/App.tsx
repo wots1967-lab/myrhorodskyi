@@ -56,6 +56,7 @@ const App = () => (
             <Route path="/tests/opytuvalnyk-rannih-shem-ysq" element={<YSQTest />} />
             <Route path="/tests/diagnostyka-samosti-ifs" element={<IFSSelfTest />} />
             <Route path="/tests/klinichna-shkala-ifs" element={<IFSScaleTest />} />
+            <Route path="/tests/profil-zahysnykiv-ifs" element={<ProtectorsTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* Old URL redirects */}
             <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
