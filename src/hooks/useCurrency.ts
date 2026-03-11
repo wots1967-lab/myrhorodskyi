@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 type Currency = 'USD' | 'EUR';
 
@@ -16,33 +16,40 @@ const PRICES = {
   pack10saving: { USD: '50$', EUR: '50€' },
 } satisfies Record<string, PriceMap>;
 
-const USD_TIMEZONES = new Set([
-  'Europe/Kyiv', 'Europe/Kiev',
-  'Asia/Jerusalem', 'Asia/Tel_Aviv',
-]);
+const USD_COUNTRIES = new Set(['UA', 'IL']);
 
-function detectCurrency(): Currency {
+function fallbackCurrency(): Currency {
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    if (USD_TIMEZONES.has(tz)) return 'USD';
+    if (['Europe/Kyiv', 'Europe/Kiev', 'Asia/Jerusalem', 'Asia/Tel_Aviv'].includes(tz)) return 'USD';
   } catch {}
   return 'EUR';
 }
 
 export function useCurrency() {
-  const currency = useMemo(detectCurrency, []);
+  const [currency, setCurrency] = useState<Currency>(fallbackCurrency);
 
-  const p = useMemo(() => {
-    const c = currency;
-    return {
-      consultation: PRICES.consultation[c],
-      mentorship: PRICES.mentorship[c],
-      pack5: PRICES.pack5[c],
-      pack5saving: PRICES.pack5saving[c],
-      pack10: PRICES.pack10[c],
-      pack10saving: PRICES.pack10saving[c],
-    };
-  }, [currency]);
+  useEffect(() => {
+    fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
+      .then(res => res.json())
+      .then(data => {
+        if (data?.country_code) {
+          setCurrency(USD_COUNTRIES.has(data.country_code) ? 'USD' : 'EUR');
+        }
+      })
+      .catch(() => {
+        // keep fallback timezone-based currency
+      });
+  }, []);
 
-  return { currency, prices: p };
+  const prices = {
+    consultation: PRICES.consultation[currency],
+    mentorship: PRICES.mentorship[currency],
+    pack5: PRICES.pack5[currency],
+    pack5saving: PRICES.pack5saving[currency],
+    pack10: PRICES.pack10[currency],
+    pack10saving: PRICES.pack10saving[currency],
+  };
+
+  return { currency, prices };
 }
