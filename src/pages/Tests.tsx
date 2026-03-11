@@ -80,6 +80,14 @@ const tests = [
     available: true,
     link: '/tests/rozshyrenyi-profil-ego-staniv',
   },
+  {
+    icon: FileText,
+    title: 'Опитувальник Ранніх Схем Янга (YSQ-S3)',
+    description: 'Глибинна діагностика 18 ранніх маладаптивних схем за методикою схема-терапії. 90 тверджень для виявлення глибинних переконань',
+    duration: '~15-20 хвилин',
+    available: true,
+    link: '/tests/opytuvalnyk-rannih-shem-ysq',
+  },
 ];
 
 const Tests = () => {

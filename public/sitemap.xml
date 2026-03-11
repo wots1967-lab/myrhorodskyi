@@ -56,6 +56,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://myrhorodskyi.lovable.app/courses</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
