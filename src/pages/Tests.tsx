@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass } from 'lucide-react';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 const patternBg = '/pattern-bg.jpg';
 
@@ -87,6 +87,14 @@ const tests = [
     duration: '~15-20 хвилин',
     available: true,
     link: '/tests/opytuvalnyk-rannih-shem-ysq',
+  },
+  {
+    icon: Compass,
+    title: 'Діагностика Самості (Self) — IFS',
+    description: 'Оцінка рівня доступу до 8 якостей Самості (Self-Leadership) за моделлю Внутрішніх Сімейних Систем. Радарна діаграма профілю',
+    duration: '~5 хвилин',
+    available: true,
+    link: '/tests/diagnostyka-samosti-ifs',
   },
 ];
 
