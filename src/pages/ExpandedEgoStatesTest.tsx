@@ -187,6 +187,7 @@ const ExpandedEgoStatesTest = () => {
         }
         case 'Enter': {
           e.preventDefault();
+          if (responses[currentQuestion] === null) break;
           if (currentQuestion === questions.length - 1) submitTest();
           else setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1));
           break;
@@ -430,7 +431,7 @@ const ExpandedEgoStatesTest = () => {
                           Завершити тест
                         </Button>
                       ) : (
-                        <Button variant="outline" onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))}>
+                        <Button variant="outline" onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))} disabled={responses[currentQuestion] === null}>
                           Далі →
                         </Button>
                       )}
@@ -611,8 +612,8 @@ const ExpandedEgoStatesTest = () => {
                 </Card>
 
                 {/* CTA */}
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button variant="cta" size="xl" className="flex-1" asChild>
+                <div className="flex flex-col gap-4">
+                  <Button variant="cta" size="xl" className="w-full whitespace-normal h-auto py-4" asChild>
                     <a
                       href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788"
                       target="_blank"
@@ -621,7 +622,7 @@ const ExpandedEgoStatesTest = () => {
                       Записатися на консультацію для розбору результатів
                     </a>
                   </Button>
-                  <Button variant="outline" size="xl" onClick={resetTest}>
+                  <Button variant="outline" size="xl" className="w-full" onClick={resetTest}>
                     <RotateCcw className="w-4 h-4 mr-2" />
                     Пройти ще раз
                   </Button>

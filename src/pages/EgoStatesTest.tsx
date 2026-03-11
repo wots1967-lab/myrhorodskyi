@@ -221,6 +221,7 @@ const EgoStatesTest = () => {
         }
         case 'Enter': {
           e.preventDefault();
+          if (responses[currentQuestion] === null) break;
           if (currentQuestion === questions.length - 1) {
             submitTest();
           } else {
@@ -463,6 +464,7 @@ const EgoStatesTest = () => {
                         <Button
                           variant="outline"
                           onClick={() => setCurrentQuestion(prev => Math.min(questions.length - 1, prev + 1))}
+                          disabled={responses[currentQuestion] === null}
                         >
                           Далі →
                         </Button>
@@ -648,11 +650,11 @@ const EgoStatesTest = () => {
                 </Card>
 
                 {/* CTA */}
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <Button
                     variant="cta"
                     size="xl"
-                    className="flex-1"
+                    className="w-full whitespace-normal h-auto py-4"
                     asChild
                   >
                     <a
@@ -666,6 +668,7 @@ const EgoStatesTest = () => {
                   <Button
                     variant="outline"
                     size="xl"
+                    className="w-full"
                     onClick={resetTest}
                   >
                     <RotateCcw className="w-4 h-4 mr-2" />
