@@ -300,7 +300,7 @@ const BeckDepressionTest = () => {
   usePageSEO({
     title: 'Шкала депресії Бека (BDI) — Тест на депресію онлайн безкоштовно',
     description: 'Пройдіть тест на депресію за шкалою Бека (BDI) онлайн безкоштовно. 21 питання для оцінки ступеня депресивних симптомів з миттєвою інтерпретацією.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-depresii-beka',
+    canonical: 'https://myrhorodskyi.com/tests/shkala-depresii-beka',
     keywords: 'шкала депресії Бека, BDI тест, тест на депресію онлайн, тест депресії безкоштовно, рівень депресії, тест Бека депресія українською',
     jsonLd: createTestJsonLd({
       name: 'Шкала депресії Бека (BDI)',
