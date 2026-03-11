@@ -208,13 +208,13 @@ const HINTS = [
 
 const YSQTest = () => {
   usePageSEO({
-    title: 'Опитувальник Ранніх Маладаптивних Схем (YSQ-S3) — 90 питань онлайн',
-    description: 'Пройдіть опитувальник Янга YSQ-S3 (90 питань) українською. Визначте 18 ранніх маладаптивних схем. Глибинна діагностика переконань та життєвих сценаріїв зі схема-терапії.',
+    title: 'Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3) — 90 питань онлайн',
+    description: 'Пройдіть опитувальник Янга YSQ-S3 (90 питань) українською. Визначте 18 ранніх дезадаптивних схем. Глибинна діагностика переконань та життєвих сценаріїв зі схема-терапії.',
     canonical: 'https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq',
-    keywords: 'YSQ-S3 тест українською, опитувальник Янга, ранні маладаптивні схеми, схема-терапія тест, Young Schema Questionnaire',
+    keywords: 'YSQ-S3 тест українською, опитувальник Янга, ранні дезадаптивні схеми, схема-терапія тест, Young Schema Questionnaire',
     jsonLd: createTestJsonLd({
-      name: 'Опитувальник Ранніх Маладаптивних Схем (YSQ-S3)',
-      description: 'Глибинна діагностика 18 ранніх маладаптивних схем за методикою Джеффрі Янга. 90 питань.',
+      name: 'Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3)',
+      description: 'Глибинна діагностика 18 ранніх дезадаптивних схем за методикою Джеффрі Янга. 90 питань.',
       url: 'https://myrhorodskyi.lovable.app/tests/opytuvalnyk-rannih-shem-ysq',
       questionCount: 90,
       duration: 'PT20M',
@@ -375,7 +375,7 @@ const YSQTest = () => {
               <FileText className="w-10 h-10 text-primary-foreground" />
             </div>
             <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-              Опитувальник Ранніх Маладаптивних Схем (YSQ-S3)
+              Опитувальник Ранніх Дезадаптивних Схем (YSQ-S3)
             </h1>
             <p className="text-lg text-primary-foreground/80">
               Глибинна діагностика ваших глибинних переконань та життєвих сценаріїв
@@ -401,7 +401,7 @@ const YSQTest = () => {
                   <CardContent className="p-8 md:p-12 space-y-8">
                     <div>
                       <h2 className="font-display text-2xl md:text-3xl font-semibold text-foreground mb-4">
-                        Опитувальник Ранніх Маладаптивних Схем
+                        Опитувальник Ранніх Дезадаптивних Схем
                       </h2>
                       <p className="text-muted-foreground leading-relaxed">
                         Цей тест складається з 90 тверджень. Будь ласка, прочитайте кожне з них і оцініть, наскільки воно добре описує вас. Намагайтеся згадати, як ви почувалися більшу частину свого життя, а не лише зараз. Тест займе близько 15-20 хвилин.
@@ -602,7 +602,7 @@ const YSQTest = () => {
                   <Card className="border-border shadow-md">
                     <CardContent className="p-4 md:p-6">
                       <h3 className="font-display text-lg font-semibold text-foreground mb-4 text-center">
-                        Профіль маладаптивних схем
+                        Профіль дезадаптивних схем
                       </h3>
                       <div className="w-full" style={{ height: Math.max(500, results.length * 32) }}>
                         <ResponsiveContainer width="100%" height="100%">
