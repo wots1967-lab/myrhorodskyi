@@ -18,6 +18,7 @@ const TemperamentTest = lazy(() => import("./pages/TemperamentTest"));
 const EgoStatesTest = lazy(() => import("./pages/EgoStatesTest"));
 const ExpandedEgoStatesTest = lazy(() => import("./pages/ExpandedEgoStatesTest"));
 const LoveLanguagesTest = lazy(() => import("./pages/LoveLanguagesTest"));
+const YSQTest = lazy(() => import("./pages/YSQTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -49,6 +50,7 @@ const App = () => (
             <Route path="/tests/profil-ego-staniv" element={<EgoStatesTest />} />
             <Route path="/tests/5-mov-lyubovi" element={<LoveLanguagesTest />} />
             <Route path="/tests/rozshyrenyi-profil-ego-staniv" element={<ExpandedEgoStatesTest />} />
+            <Route path="/tests/opytuvalnyk-rannih-shem-ysq" element={<YSQTest />} />
             <Route path="/resources" element={<Resources />} />
             {/* Old URL redirects */}
             <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
