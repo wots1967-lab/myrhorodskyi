@@ -111,12 +111,12 @@ const ExpandedEgoStatesTest = () => {
   usePageSEO({
     title: 'Тест: Розширений Профіль Его-станів (6 станів) — онлайн безкоштовно',
     description: 'Пройдіть розширений тест Его-станів з 6 шкалами на основі транзакційного аналізу. 42 питання: Контролюючий Батько, Опікаючий Батько, Дорослий, Вільна Дитина, Слухняна Дитина, Бунтуюча Дитина.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/rozshyrenyi-profil-ego-staniv',
+    canonical: 'https://myrhorodskyi.com/tests/rozshyrenyi-profil-ego-staniv',
     keywords: 'розширений тест его-станів, 6 его-станів тест, транзакційний аналіз тест онлайн, его-стани бунтуюча дитина, слухняна дитина тест',
     jsonLd: createTestJsonLd({
       name: 'Тест: Розширений Профіль Его-станів',
       description: 'Глибинний аналіз особистості на основі транзакційного аналізу з 6 функціональними его-станами.',
-      url: 'https://myrhorodskyi.lovable.app/tests/rozshyrenyi-profil-ego-staniv',
+      url: 'https://myrhorodskyi.com/tests/rozshyrenyi-profil-ego-staniv',
       questionCount: 42,
       duration: 'PT10M',
     }),

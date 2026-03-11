@@ -124,12 +124,12 @@ const PSS10Test = () => {
   usePageSEO({
     title: 'Шкала стресу PSS-10 — Тест на стрес онлайн безкоштовно',
     description: 'Пройдіть тест на стрес PSS-10 онлайн безкоштовно. 10 питань для визначення рівня вашого стресового навантаження за останній місяць з миттєвим результатом.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/shkala-stresu-pss10',
+    canonical: 'https://myrhorodskyi.com/tests/shkala-stresu-pss10',
     keywords: 'тест на стрес онлайн, шкала стресу PSS-10, рівень стресу тест безкоштовно, сприйнятий стрес, PSS-10 українською',
     jsonLd: createTestJsonLd({
       name: 'Шкала сприйнятого стресу (PSS-10)',
       description: 'Тест на стрес PSS-10 для визначення рівня стресового навантаження.',
-      url: 'https://myrhorodskyi.lovable.app/tests/shkala-stresu-pss10',
+      url: 'https://myrhorodskyi.com/tests/shkala-stresu-pss10',
       questionCount: 10,
       duration: 'PT3M',
     }),

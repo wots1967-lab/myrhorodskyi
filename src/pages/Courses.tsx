@@ -34,7 +34,7 @@ const Courses = () => {
   usePageSEO({
     title: 'Курси та програми — Психолог Сергій Миргородський',
     description: 'Навчальні курси з психології: управління стресом, емоційний інтелект, здорові відносини. Психолог Сергій Миргородський.',
-    canonical: 'https://myrhorodskyi.lovable.app/courses',
+    canonical: 'https://myrhorodskyi.com/courses',
     keywords: 'курси психології, управління стресом, емоційний інтелект, психолог курси онлайн',
   });
 

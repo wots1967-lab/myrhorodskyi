@@ -10,7 +10,7 @@ interface SEOProps {
   jsonLd?: Record<string, unknown>;
 }
 
-const BASE_URL = 'https://myrhorodskyi.lovable.app';
+const BASE_URL = 'https://myrhorodskyi.com';
 
 const usePageSEO = ({ title, description, canonical, keywords, ogType = 'website', ogImage, jsonLd }: SEOProps) => {
   useEffect(() => {
@@ -96,7 +96,7 @@ export function createTestJsonLd(opts: {
       "@type": "Person",
       "name": "Сергій Миргородський",
       "jobTitle": "Психолог",
-      "url": "https://myrhorodskyi.lovable.app",
+      "url": "https://myrhorodskyi.com",
     },
     "about": {
       "@type": "Thing",

@@ -57,7 +57,7 @@ const Resources = () => {
   usePageSEO({
     title: 'Корисні матеріали — Психолог Сергій Миргородський',
     description: 'Статті, відео та гайди з психології. Корисні матеріали для вашого психологічного здоров\'я від психолога Сергія Миргородського.',
-    canonical: 'https://myrhorodskyi.lovable.app/resources',
+    canonical: 'https://myrhorodskyi.com/resources',
     keywords: 'статті психологія, гайди психолога, психологічне здоровʼя, поради психолога',
   });
 

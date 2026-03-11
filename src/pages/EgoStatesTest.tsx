@@ -139,12 +139,12 @@ const EgoStatesTest = () => {
   usePageSEO({
     title: 'Тест Его-станів — Егограма за Джулі Хей онлайн безкоштовно',
     description: 'Пройдіть тест функціональних Его-станів за методикою Джулі Хей онлайн безкоштовно. 40 питань для визначення профілю: Контролюючий Батько, Опікаючий Батько, Дорослий, Вільна Дитина, Адаптована Дитина.',
-    canonical: 'https://myrhorodskyi.lovable.app/tests/profil-ego-staniv',
+    canonical: 'https://myrhorodskyi.com/tests/profil-ego-staniv',
     keywords: 'тест его-станів онлайн, егограма тест, транзакційний аналіз тест, его стани Джулі Хей, тест его-станів безкоштовно українською',
     jsonLd: createTestJsonLd({
       name: 'Тест: Профіль Его-станів (Егограма)',
       description: 'Тест функціональних Его-станів за методикою Джулі Хей (транзакційний аналіз).',
-      url: 'https://myrhorodskyi.lovable.app/tests/profil-ego-staniv',
+      url: 'https://myrhorodskyi.com/tests/profil-ego-staniv',
       questionCount: 40,
       duration: 'PT7M',
     }),
