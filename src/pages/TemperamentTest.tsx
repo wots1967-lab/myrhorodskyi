@@ -494,7 +494,7 @@ const TemperamentTest = () => {
                   <CardContent className="pt-6 pb-6 text-center">
                     <h3 className="font-display text-xl font-semibold text-foreground mb-2">💬 Хочете обговорити результати?</h3>
                     <p className="text-muted-foreground mb-6">Запишіться на консультацію для професійної оцінки та індивідуальних рекомендацій.</p>
-                    <Button variant="cta" size="lg" asChild>
+                    <Button variant="cta" size="lg" className="w-full whitespace-normal h-auto py-4" asChild>
                       <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
                     </Button>
                   </CardContent>

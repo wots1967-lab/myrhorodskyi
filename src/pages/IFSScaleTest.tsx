@@ -679,7 +679,7 @@ const IFSScaleTest = () => {
                             Записатися на консультацію
                           </a>
                         </Button>
-                        <Button variant="outline" size="lg" className="w-full sm:w-auto gap-2" onClick={resetTest}>
+                        <Button variant="outline" size="lg" className="w-full gap-2" onClick={resetTest}>
                           <RotateCcw className="w-4 h-4" />
                           Пройти ще раз
                         </Button>

@@ -159,7 +159,7 @@ const Tests = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {tests.map((test, index) => (
+            {tests.filter(t => !t.hidden).map((test, index) => (
               <motion.div
                 key={test.title}
                 initial={{ opacity: 0, y: 30 }}
