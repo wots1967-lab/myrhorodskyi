@@ -297,18 +297,53 @@ const YSQTest = () => {
 
   const exportPDF = async () => {
     if (!pdfRef.current) return;
-    const html2pdf = (await import('html2pdf.js')).default;
-    (html2pdf() as any)
-      .set({
-        margin: [10, 8, 10, 8],
-        filename: 'YSQ-S3-Результати.pdf',
-        image: { type: 'jpeg', quality: 0.95 },
-        html2canvas: { scale: 2, useCORS: true, scrollY: 0 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-        pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
-      })
-      .from(pdfRef.current)
-      .save();
+    try {
+      const html2pdf = (await import('html2pdf.js')).default;
+
+      // Clone the element to avoid modifying the live DOM
+      const clone = pdfRef.current.cloneNode(true) as HTMLElement;
+      clone.style.width = '800px';
+      clone.style.padding = '20px';
+      clone.style.background = '#ffffff';
+      clone.style.color = '#000000';
+
+      // Fix all text colors for PDF readability
+      clone.querySelectorAll('*').forEach((el) => {
+        const htmlEl = el as HTMLElement;
+        const computed = window.getComputedStyle(el);
+        if (computed.color) htmlEl.style.color = '#1a1a1a';
+      });
+
+      // Remove recharts (SVG) which causes issues — replace with a simple text fallback
+      const chartCard = clone.querySelector('.recharts-responsive-container')?.closest('.border-border');
+      if (chartCard) {
+        const fallback = document.createElement('div');
+        fallback.style.padding = '16px';
+        fallback.style.border = '1px solid #ddd';
+        fallback.style.borderRadius = '12px';
+        fallback.style.marginBottom = '16px';
+        fallback.innerHTML = `<p style="text-align:center;color:#666;font-size:13px;">Графік доступний в онлайн-версії результатів</p>`;
+        chartCard.replaceWith(fallback);
+      }
+
+      document.body.appendChild(clone);
+
+      await (html2pdf() as any)
+        .set({
+          margin: [10, 8, 10, 8],
+          filename: 'YSQ-S3-Результати.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true, scrollY: 0, windowWidth: 800 },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
+          pagebreak: { mode: ['css', 'legacy'] },
+        })
+        .from(clone)
+        .save();
+
+      document.body.removeChild(clone);
+    } catch (err) {
+      console.error('PDF export error:', err);
+    }
   };
 
   // Keyboard navigation
