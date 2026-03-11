@@ -21,6 +21,7 @@ const LoveLanguagesTest = lazy(() => import("./pages/LoveLanguagesTest"));
 const YSQTest = lazy(() => import("./pages/YSQTest"));
 const IFSScaleTest = lazy(() => import("./pages/IFSScaleTest"));
 const IFSSelfTest = lazy(() => import("./pages/IFSSelfTest"));
+const ProtectorsTest = lazy(() => import("./pages/ProtectorsTest"));
 const Resources = lazy(() => import("./pages/Resources"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
