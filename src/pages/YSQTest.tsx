@@ -235,10 +235,14 @@ const YSQTest = () => {
       next[currentQuestion] = value;
       return next;
     });
-    setTimeout(() => {
-      setCurrentQuestion(prev => (prev < questions.length - 1 ? prev + 1 : prev));
-    }, 350);
   }, [currentQuestion]);
+
+  const goNext = useCallback(() => {
+    if (responses[currentQuestion] === null) return;
+    if (currentQuestion < questions.length - 1) {
+      setCurrentQuestion(prev => prev + 1);
+    }
+  }, [currentQuestion, responses]);
 
   const calculateResults = useCallback(() => {
     const scores: Record<SchemaKey, number> = {} as any;
