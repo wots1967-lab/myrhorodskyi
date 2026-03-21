@@ -37,7 +37,7 @@ const AboutSection = () => {
             className="flex flex-col">
             
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
-              Привіт, я Сергій
+              Привіт, мене звуть Сергій
             </h2>
             <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
               <p>
