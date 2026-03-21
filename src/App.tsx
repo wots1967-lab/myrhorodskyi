@@ -23,6 +23,8 @@ const IFSScaleTest = lazy(() => import("./pages/IFSScaleTest"));
 const IFSSelfTest = lazy(() => import("./pages/IFSSelfTest"));
 const ProtectorsTest = lazy(() => import("./pages/ProtectorsTest"));
 const Resources = lazy(() => import("./pages/Resources"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -58,6 +60,8 @@ const App = () => (
             <Route path="/tests/klinichna-shkala-ifs" element={<IFSScaleTest />} />
             <Route path="/tests/profil-zahysnykiv-ifs" element={<ProtectorsTest />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfUse />} />
             {/* Old URL redirects */}
             <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
             <Route path="/tests/broverman" element={<Navigate to="/tests/test-neiromediatoriv-brovermana" replace />} />
