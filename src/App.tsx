@@ -23,6 +23,8 @@ const IFSScaleTest = lazy(() => import("./pages/IFSScaleTest"));
 const IFSSelfTest = lazy(() => import("./pages/IFSSelfTest"));
 const ProtectorsTest = lazy(() => import("./pages/ProtectorsTest"));
 const Resources = lazy(() => import("./pages/Resources"));
+const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
+const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
