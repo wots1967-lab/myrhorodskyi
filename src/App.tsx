@@ -60,6 +60,8 @@ const App = () => (
             <Route path="/tests/klinichna-shkala-ifs" element={<IFSScaleTest />} />
             <Route path="/tests/profil-zahysnykiv-ifs" element={<ProtectorsTest />} />
             <Route path="/resources" element={<Resources />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfUse />} />
             {/* Old URL redirects */}
             <Route path="/tests/beck-anxiety" element={<Navigate to="/tests/shkala-tryvohy-beka" replace />} />
             <Route path="/tests/broverman" element={<Navigate to="/tests/test-neiromediatoriv-brovermana" replace />} />
