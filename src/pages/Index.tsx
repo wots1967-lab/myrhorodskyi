@@ -30,6 +30,24 @@ const Index = () => {
     description: 'Психолог Сергій Миргородський — індивідуальні консультації, психотерапія, КПТ, схема-терапія. Запишіться на онлайн-консультацію.',
     canonical: 'https://myrhorodskyi.com/',
     keywords: 'психолог, Миргородський Сергій, психотерапія, знайти психолога, онлайн психолог, консультація психолога, КПТ, когнітивно-поведінкова терапія, схема-терапія, тривожність, стрес',
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Person",
+          "name": "Сергій Миргородський",
+          "jobTitle": "Психолог",
+          "url": "https://myrhorodskyi.com",
+          "sameAs": ["https://www.instagram.com/myrhorodskyi.serhii/"]
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "Сергій Миргородський — Психолог",
+          "url": "https://myrhorodskyi.com",
+          "description": "Психолог Сергій Миргородський — індивідуальні консультації онлайн"
+        }
+      ]
+    },
   });
 
   return (
