@@ -53,11 +53,11 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="mb-10">
             
-            <p className="text-cream text-2xl md:text-3xl font-display italic mb-4">
+            <p className="text-cream md:text-3xl italic mb-4 text-xl font-serif">
               Я працюю на те, щоб ти більше не потребував психолога.
             </p>
             <p className="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Тривога, вигорання, стосунки, кризи ідентичності. Онлайн, українською.
+              ​
             </p>
           </motion.div>
 
