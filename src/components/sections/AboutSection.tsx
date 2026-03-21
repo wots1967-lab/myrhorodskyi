@@ -17,16 +17,16 @@ const AboutSection = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6 }}
-            className="relative"
-          >
+            className="relative">
+            
             <div className="aspect-[4/5] overflow-hidden rounded-none">
               <img
                 alt="Сергій Миргородський — психолог"
                 className="w-full h-full object-cover opacity-100 rounded-none shadow-none border-0"
                 loading="eager"
                 decoding="async"
-                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.jpg"
-              />
+                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.jpg" />
+              
             </div>
           </motion.div>
 
@@ -34,8 +34,8 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
-          >
+            transition={{ duration: 0.6, delay: 0.15 }}>
+            
             <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6">
               Привіт, я Сергій
             </h2>
@@ -61,7 +61,7 @@ const AboutSection = () => {
                 <p className="text-muted-foreground text-sm mt-1">років практики</p>
               </div>
               <div className="bg-card/80 border border-border rounded-xl p-5 text-center">
-                <p className="font-display text-3xl font-bold text-secondary">1 000+</p>
+                <p className="font-display text-3xl font-bold text-secondary">3500+</p>
                 <p className="text-muted-foreground text-sm mt-1">проведених сесій</p>
               </div>
             </div>
@@ -70,8 +70,8 @@ const AboutSection = () => {
               initial={{ opacity: 0 }}
               animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8"
-            >
+              className="mt-8">
+              
               <Button variant="cta" size="lg" asChild>
                 <a href="#help" className="inline-flex items-center gap-2">
                   Більше
@@ -82,8 +82,8 @@ const AboutSection = () => {
           </motion.div>
         </div>
       </div>
-    </section>
-  );
+    </section>);
+
 };
 
 export default AboutSection;
