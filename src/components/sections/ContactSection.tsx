@@ -18,14 +18,11 @@ const ContactSection = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto"
         >
-          <span className="text-secondary font-medium tracking-widest uppercase text-sm">
-            Контакти
-          </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
-            Готові зробити перший крок?
+            Готовий зробити перший крок?
           </h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Запишіться на консультацію через Telegram-бот або напишіть особисто
+            Запишися на консультацію через Telegram-бот або напиши особисто.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
