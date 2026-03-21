@@ -37,13 +37,13 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-cream/80 text-lg md:text-xl font-medium tracking-widest uppercase mb-4"
           >
-            Психолог
+            Психолог · Сергій Миргородський
           </motion.p>
 
           <h1
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream mb-6"
           >
-            Сергій Миргородський
+            Пізнай себе.
           </h1>
 
           {/* Subtitle */}
@@ -54,10 +54,10 @@ const HeroSection = () => {
             className="mb-10"
           >
             <p className="text-cream text-2xl md:text-3xl font-display italic mb-4">
-              Пізнай себе.
+              Я працюю на те, щоб ти більше не потребував психолога.
             </p>
             <p className="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Відкрий свій внутрішній потенціал і знайди гармонію в житті
+              Тривога, вигорання, стосунки, кризи ідентичності. Онлайн, українською.
             </p>
           </motion.div>
 
@@ -69,10 +69,10 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
             <Button variant="hero" size="xl" asChild>
-              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
+              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на сесію</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
-              <a href="#about">Дізнатися більше</a>
+              <a href="#therapy">Як проходить терапія</a>
             </Button>
           </motion.div>
         </motion.div>
@@ -96,7 +96,6 @@ const HeroSection = () => {
             fill="none"
             className="opacity-60"
           >
-            {/* Leaf-like double chevron pointing down */}
             <path
               d="M8 10C12 16 14 18 16 20C18 18 20 16 24 10"
               stroke="hsl(40, 33%, 95%)"
