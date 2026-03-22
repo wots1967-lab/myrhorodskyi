@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
             На головну
           </Link>
 
-          <div className="glass-card rounded-3xl p-6 md:p-10 lg:p-14 prose prose-slate dark:prose-invert max-w-none">
+          <div className="glass-card rounded-3xl p-6 md:p-10 lg:p-14 prose prose-slate dark:prose-invert max-w-none prose-headings:font-display prose-h1:text-3xl prose-h1:md:text-4xl prose-h2:text-xl prose-h2:md:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4 prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-6 prose-p:text-base prose-p:leading-relaxed prose-li:text-base">
             <h1 className="font-display text-3xl md:text-4xl font-bold mb-2">Політика конфіденційності</h1>
 
             <p className="text-sm text-muted-foreground mb-8">
