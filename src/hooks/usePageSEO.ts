@@ -11,6 +11,8 @@ interface SEOProps {
 }
 
 const BASE_URL = 'https://myrhorodskyi.com';
+const DEFAULT_OG_IMAGE = `${BASE_URL}/og-image.jpg`;
+const SITE_NAME = 'Психолог Сергій Миргородський';
 
 const usePageSEO = ({ title, description, canonical, keywords, ogType = 'website', ogImage, jsonLd }: SEOProps) => {
   useEffect(() => {
@@ -27,16 +29,25 @@ const usePageSEO = ({ title, description, canonical, keywords, ogType = 'website
       el.setAttribute('content', content);
     };
 
+    // Basic meta
     setMeta('description', description);
     if (keywords) setMeta('keywords', keywords);
+
+    // Open Graph
     setMeta('og:title', title, true);
     setMeta('og:description', description, true);
     setMeta('og:type', ogType, true);
     setMeta('og:locale', 'uk_UA', true);
+    setMeta('og:site_name', SITE_NAME, true);
+    setMeta('og:image', ogImage || DEFAULT_OG_IMAGE, true);
+
+    // Twitter Card
+    setMeta('twitter:card', 'summary_large_image');
     setMeta('twitter:title', title);
     setMeta('twitter:description', description);
-    setMeta('twitter:card', 'summary_large_image');
+    setMeta('twitter:image', ogImage || DEFAULT_OG_IMAGE);
 
+    // Canonical & og:url
     if (canonical) {
       setMeta('og:url', canonical, true);
       let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
@@ -46,11 +57,6 @@ const usePageSEO = ({ title, description, canonical, keywords, ogType = 'website
         document.head.appendChild(link);
       }
       link.setAttribute('href', canonical);
-    }
-
-    if (ogImage) {
-      setMeta('og:image', ogImage, true);
-      setMeta('twitter:image', ogImage);
     }
 
     // JSON-LD structured data
