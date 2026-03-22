@@ -70,10 +70,10 @@ const TopicsSection = () => {
             const selectedCount = cat.topics.filter(t => selected.has(t)).length;
 
             return (
-              <div key={cat.title} className="rounded-2xl border border-border/50 bg-card/30 overflow-hidden">
+              <div key={cat.title} className="rounded-2xl border border-border/50 bg-card/30 transition-colors hover:bg-card/60">
                 <button
                   onClick={() => toggleCategory(cat.title)}
-                  className="w-full flex items-center justify-between px-5 py-4 md:px-6 md:py-5 cursor-pointer group transition-colors hover:bg-card/60"
+                  className="w-full flex items-center justify-between px-5 py-4 md:px-6 md:py-5 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3">
                     <h3 className="font-display text-lg md:text-xl font-semibold text-secondary">
