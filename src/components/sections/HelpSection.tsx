@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { Brain, Flame, Users, Compass, Globe, ShieldAlert } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const helpItems = [
   {
@@ -41,10 +42,65 @@ const helpItems = [
   },
 ];
 
+const HelpCard = ({ item, index, isMobile }: { item: typeof helpItems[0]; index: number; isMobile: boolean }) => {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true, margin: '-60px', amount: 0.4 });
+  const isActive = isMobile ? isInView : false;
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.4, delay: isMobile ? 0 : index * 0.07 }}
+      className={`group relative rounded-2xl border bg-card/20 p-6 cursor-default transition-all duration-300 overflow-hidden ${
+        isActive
+          ? 'border-secondary/40'
+          : 'border-border/40 hover:border-secondary/40'
+      }`}
+    >
+      {/* Glow background — hover on desktop, inView on mobile */}
+      <div
+        className={`absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl transition-opacity duration-350 ${
+          isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+        }`}
+      />
+
+      {/* Icon */}
+      <div className="relative z-10 mb-5">
+        <div
+          className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+            isActive
+              ? 'bg-secondary/20 scale-[1.08]'
+              : 'bg-secondary/10 group-hover:bg-secondary/20 group-hover:scale-[1.08]'
+          }`}
+        >
+          <item.icon className="w-6 h-6 text-secondary" strokeWidth={1.5} />
+        </div>
+      </div>
+
+      <h3 className="relative z-10 font-display text-lg font-semibold text-foreground mb-3">
+        {item.title}
+      </h3>
+
+      <p className="relative z-10 text-muted-foreground leading-relaxed text-sm">
+        {item.description}
+      </p>
+
+      {/* Top accent bar */}
+      <div
+        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/50 to-transparent transition-transform duration-300 origin-center ${
+          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+        }`}
+      />
+    </motion.div>
+  );
+};
+
 const HelpSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="help" className="section-padding relative z-10" ref={ref}>
@@ -61,57 +117,9 @@ const HelpSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-          {helpItems.map((item, index) => {
-            const isHovered = hoveredCard === index;
-            return (
-              <motion.div
-                key={item.title}
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.4, delay: index * 0.07 }}
-                onMouseEnter={() => setHoveredCard(index)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="group relative rounded-2xl border border-border/40 bg-card/20 p-6 cursor-default transition-all duration-300 hover:border-secondary/40 overflow-hidden"
-              >
-                {/* Glow background on hover */}
-                <motion.div
-                  className="absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: isHovered ? 1 : 0 }}
-                  transition={{ duration: 0.35 }}
-                />
-
-                {/* Icon */}
-                <div className="relative z-10 mb-5">
-                  <motion.div
-                    animate={isHovered ? { scale: 1.08 } : { scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 350, damping: 22 }}
-                    className="w-12 h-12 rounded-2xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center transition-colors duration-300"
-                  >
-                    <item.icon className="w-6 h-6 text-secondary" strokeWidth={1.5} />
-                  </motion.div>
-                </div>
-
-                {/* Title */}
-                <h3 className="relative z-10 font-display text-lg font-semibold text-foreground mb-3">
-                  {item.title}
-                </h3>
-
-                {/* Description */}
-                <p className="relative z-10 text-muted-foreground leading-relaxed text-sm">
-                  {item.description}
-                </p>
-
-                {/* Top accent bar */}
-                <motion.div
-                  className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/50 to-transparent"
-                  initial={{ scaleX: 0 }}
-                  animate={{ scaleX: isHovered ? 1 : 0 }}
-                  transition={{ duration: 0.3 }}
-                />
-              </motion.div>
-            );
-          })}
+          {helpItems.map((item, index) => (
+            <HelpCard key={item.title} item={item} index={index} isMobile={isMobile} />
+          ))}
         </div>
       </div>
     </section>
