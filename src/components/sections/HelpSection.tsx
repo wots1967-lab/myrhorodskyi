@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { Brain, Flame, Users, Compass, Globe, ShieldAlert } from 'lucide-react';
 
 const helpItems = [
@@ -44,6 +44,7 @@ const helpItems = [
 const HelpSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   return (
     <section id="help" className="section-padding relative z-10" ref={ref}>
@@ -60,25 +61,50 @@ const HelpSection = () => {
           </h2>
         </motion.div>
 
-        {/* Cards Grid - 3 columns */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {helpItems.map((item, index) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: index * 0.08 }}
-              className="text-center"
-            >
-              <div className="w-20 h-20 mx-auto mb-6 bg-secondary/15 rounded-2xl flex items-center justify-center">
-                <item.icon className="w-10 h-10 text-secondary" strokeWidth={1.5} />
-              </div>
-              <h3 className="font-display text-xl font-semibold text-foreground mb-4">
-                {item.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-            </motion.div>
-          ))}
+        {/* Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
+          {helpItems.map((item, index) => {
+            const isHovered = hoveredCard === index;
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0 }}
+                animate={isInView ? { opacity: 1 } : {}}
+                transition={{ duration: 0.4, delay: index * 0.08 }}
+                onMouseEnter={() => setHoveredCard(index)}
+                onMouseLeave={() => setHoveredCard(null)}
+                className="group relative rounded-2xl border border-border/50 bg-card/30 p-6 md:p-7 cursor-default transition-all duration-300 hover:bg-card/70 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/5"
+              >
+                {/* Icon + Title */}
+                <div className="flex items-center gap-3 mb-4 relative z-10">
+                  <motion.div
+                    animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                    className="w-10 h-10 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center transition-colors duration-300 shrink-0"
+                  >
+                    <item.icon className="w-5 h-5 text-secondary" strokeWidth={1.5} />
+                  </motion.div>
+                  <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">
+                    {item.title}
+                  </h3>
+                </div>
+
+                {/* Description */}
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base relative z-10">
+                  {item.description}
+                </p>
+
+                {/* Bottom accent line on hover */}
+                <motion.div
+                  className="absolute bottom-0 left-6 right-6 h-px bg-secondary/40 rounded-full"
+                  initial={{ scaleX: 0 }}
+                  animate={isHovered ? { scaleX: 1 } : { scaleX: 0 }}
+                  transition={{ duration: 0.3 }}
+                  style={{ originX: 0 }}
+                />
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
