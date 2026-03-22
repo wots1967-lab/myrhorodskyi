@@ -6,8 +6,8 @@ import usePageSEO from '@/hooks/usePageSEO';
 
 const TermsOfUse = () => {
   usePageSEO({
-    title: 'Умови використання — Сергій Миргородський',
-    description: 'Умови використання сайту myrhorodskyi.com та послуг психологічного консультування.',
+    title: 'Умови використання | Психолог Сергій Миргородський',
+    description: 'Умови використання сайту myrhorodskyi.com та послуг психологічного консультування. Оплата, скасування, правила сесій.',
     canonical: 'https://myrhorodskyi.com/terms',
   });
 

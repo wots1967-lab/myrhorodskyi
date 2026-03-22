@@ -6,8 +6,8 @@ import usePageSEO from '@/hooks/usePageSEO';
 
 const PrivacyPolicy = () => {
   usePageSEO({
-    title: 'Політика конфіденційності — Сергій Миргородський',
-    description: 'Політика конфіденційності сайту myrhorodskyi.com. Як збираються, використовуються та захищаються ваші персональні дані.',
+    title: 'Політика конфіденційності | Психолог Сергій Миргородський',
+    description: 'Політика конфіденційності сайту myrhorodskyi.com. Захист персональних даних та конфіденційність терапевтичних сесій.',
     canonical: 'https://myrhorodskyi.com/privacy',
   });
 
