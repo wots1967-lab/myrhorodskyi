@@ -102,23 +102,21 @@ const TopicsSection = () => {
                       transition={{ duration: 0.25, ease: 'easeInOut' }}
                       className="overflow-hidden"
                     >
-                      <div className="flex flex-wrap gap-2 px-5 pb-5 md:px-6 md:pb-6">
+                      <div className="flex flex-wrap gap-2.5 md:gap-3 px-5 pb-5 md:px-6 md:pb-6">
                         {cat.topics.map((topic) => {
                           const isSelected = selected.has(topic);
                           return (
-                            <motion.button
+                            <button
                               key={topic}
                               onClick={() => toggleTopic(topic)}
-                              className={`px-4 py-2.5 rounded-full text-sm font-medium cursor-pointer select-none border transition-colors duration-150 ${
+                              className={`px-4 py-2.5 rounded-full text-sm font-medium cursor-pointer select-none border transition-all duration-150 ${
                                 isSelected
-                                  ? 'bg-secondary text-secondary-foreground border-secondary shadow-md'
-                                  : 'bg-card/80 text-foreground border-border hover:bg-secondary/15 hover:border-secondary/50 hover:text-secondary'
+                                  ? 'bg-secondary text-secondary-foreground border-secondary shadow-md scale-[1.03]'
+                                  : 'bg-card/80 text-foreground border-border hover:bg-secondary/15 hover:border-secondary/50 hover:text-secondary active:scale-95'
                               }`}
-                              whileHover={{ scale: 1.1, transition: { duration: 0.1 } }}
-                              whileTap={{ scale: 0.95, transition: { duration: 0.05 } }}
                             >
                               {topic}
-                            </motion.button>
+                            </button>
                           );
                         })}
                       </div>
