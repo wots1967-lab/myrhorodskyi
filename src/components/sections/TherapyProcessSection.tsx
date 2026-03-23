@@ -1,6 +1,7 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { AlertCircle, UserCheck, CalendarDays, BookOpen } from 'lucide-react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const steps = [
   {
@@ -29,10 +30,65 @@ const steps = [
   },
 ];
 
+const TherapyCard = ({ step, index, isMobile }: { step: typeof steps[0]; index: number; isMobile: boolean }) => {
+  const cardRef = useRef(null);
+  const isInView = useInView(cardRef, { once: true, margin: '-60px', amount: 0.4 });
+  const isActive = isMobile ? isInView : false;
+
+  return (
+    <motion.div
+      ref={cardRef}
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : {}}
+      transition={{ duration: 0.4, delay: isMobile ? 0 : index * 0.1 }}
+      className={`group relative rounded-2xl border bg-card/30 p-6 md:p-7 cursor-default transition-all duration-300 overflow-hidden ${
+        isActive
+          ? 'bg-card/70 border-secondary/30 shadow-lg shadow-secondary/5'
+          : 'border-border/50 hover:bg-card/70 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/5'
+      }`}
+    >
+      {/* Step number watermark */}
+      <span className={`absolute top-4 right-5 font-display text-4xl md:text-5xl font-bold select-none leading-none transition-colors duration-300 ${
+        isActive ? 'text-secondary/15' : 'text-secondary/[0.07] group-hover:text-secondary/15'
+      }`}>
+        {step.step}
+      </span>
+
+      {/* Icon + Title row */}
+      <div className="flex items-center gap-3 mb-4 relative z-10">
+        <div
+          className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shrink-0 ${
+            isActive
+              ? 'bg-secondary/20 scale-[1.1]'
+              : 'bg-secondary/10 group-hover:bg-secondary/20 group-hover:scale-[1.1]'
+          }`}
+        >
+          <step.icon className="w-5 h-5 text-secondary" strokeWidth={1.5} />
+        </div>
+        <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">
+          {step.title}
+        </h3>
+      </div>
+
+      {/* Text */}
+      <p className="text-muted-foreground leading-relaxed text-sm md:text-base relative z-10">
+        {step.text}
+      </p>
+
+      {/* Bottom accent line */}
+      <div
+        className={`absolute bottom-0 left-6 right-6 h-px bg-secondary/40 rounded-full transition-transform duration-300 origin-left ${
+          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+        }`}
+      />
+    </motion.div>
+  );
+};
+
 const TherapyProcessSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-80px' });
-  const [hoveredStep, setHoveredStep] = useState<number | null>(null);
+  const isMobile = useIsMobile();
 
   return (
     <section id="therapy" className="section-padding relative z-10" ref={ref}>
@@ -49,53 +105,9 @@ const TherapyProcessSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 max-w-5xl mx-auto">
-          {steps.map((step, i) => {
-            const isHovered = hoveredStep === i;
-            return (
-              <motion.div
-                key={step.step}
-                initial={{ opacity: 0 }}
-                animate={isInView ? { opacity: 1 } : {}}
-                transition={{ duration: 0.4, delay: i * 0.1 }}
-                onMouseEnter={() => setHoveredStep(i)}
-                onMouseLeave={() => setHoveredStep(null)}
-                className="group relative rounded-2xl border border-border/50 bg-card/30 p-6 md:p-7 cursor-default transition-all duration-300 hover:bg-card/70 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/5"
-              >
-                {/* Step number watermark */}
-                <span className="absolute top-4 right-5 font-display text-4xl md:text-5xl font-bold text-secondary/[0.07] group-hover:text-secondary/15 transition-colors duration-300 select-none leading-none">
-                  {step.step}
-                </span>
-
-                {/* Icon + Title row */}
-                <div className="flex items-center gap-3 mb-4 relative z-10">
-                  <motion.div
-                    animate={isHovered ? { scale: 1.1 } : { scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                    className="w-10 h-10 rounded-xl bg-secondary/10 group-hover:bg-secondary/20 flex items-center justify-center transition-colors duration-300 shrink-0"
-                  >
-                    <step.icon className="w-5 h-5 text-secondary" strokeWidth={1.5} />
-                  </motion.div>
-                  <h3 className="font-display text-lg md:text-xl font-semibold text-foreground">
-                    {step.title}
-                  </h3>
-                </div>
-
-                {/* Text */}
-                <p className="text-muted-foreground leading-relaxed text-sm md:text-base relative z-10">
-                  {step.text}
-                </p>
-
-                {/* Bottom accent line on hover */}
-                <motion.div
-                  className="absolute bottom-0 left-6 right-6 h-px bg-secondary/40 rounded-full"
-                  initial={{ scaleX: 0 }}
-                  animate={isHovered ? { scaleX: 1 } : { scaleX: 0 }}
-                  transition={{ duration: 0.3 }}
-                  style={{ originX: 0 }}
-                />
-              </motion.div>
-            );
-          })}
+          {steps.map((step, i) => (
+            <TherapyCard key={step.step} step={step} index={i} isMobile={isMobile} />
+          ))}
         </div>
       </div>
     </section>
