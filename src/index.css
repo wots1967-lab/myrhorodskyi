@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap&text=&font-display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -102,6 +102,7 @@
 
   html {
     scroll-behavior: auto;
+    -webkit-overflow-scrolling: touch;
   }
 
   body {
@@ -161,6 +162,48 @@
     border: 1px solid hsla(168, 56%, 40%, 0.25);
     box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
   }
+}
+
+/* === In-app browser optimizations === */
+.in-app-browser .glass-card {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: hsla(40, 33%, 97%, 0.97) !important;
+}
+
+.in-app-browser .glass-card-dark {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: hsla(168, 56%, 18%, 0.98) !important;
+}
+
+.in-app-browser * {
+  scroll-behavior: auto !important;
+}
+
+.in-app-browser section {
+  will-change: auto !important;
+}
+
+/* === Mobile performance: disable backdrop-filter === */
+@media (max-width: 768px) {
+  .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: hsla(40, 33%, 97%, 0.97) !important;
+  }
+
+  .glass-card-dark {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: hsla(168, 56%, 18%, 0.98) !important;
+  }
+}
+
+/* GPU-accelerate animated containers */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform, opacity;
 }
 
 @layer utilities {

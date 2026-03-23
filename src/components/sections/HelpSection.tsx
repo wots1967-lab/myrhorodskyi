@@ -53,7 +53,7 @@ const HelpCard = ({ item, index, isMobile }: { item: typeof helpItems[0]; index:
       initial={{ opacity: 0 }}
       animate={isInView ? { opacity: 1 } : {}}
       transition={{ duration: 0.4, delay: isMobile ? 0 : index * 0.07 }}
-      className={`group relative rounded-2xl border bg-card/20 p-6 cursor-default transition-all duration-300 overflow-hidden ${
+      className={`group relative rounded-2xl border bg-card/20 p-6 cursor-default overflow-hidden transition-colors transition-border duration-300 ${
         isActive
           ? 'border-secondary/40'
           : 'border-border/40 hover:border-secondary/40'
@@ -61,7 +61,7 @@ const HelpCard = ({ item, index, isMobile }: { item: typeof helpItems[0]; index:
     >
       {/* Glow background — hover on desktop, inView on mobile */}
       <div
-        className={`absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl transition-opacity duration-350 ${
+        className={`absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl transition-opacity duration-300 ${
           isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
         }`}
       />
@@ -69,11 +69,12 @@ const HelpCard = ({ item, index, isMobile }: { item: typeof helpItems[0]; index:
       {/* Icon */}
       <div className="relative z-10 mb-5">
         <div
-          className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 ${
+          className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 ${
             isActive
-              ? 'bg-secondary/20 scale-[1.08]'
-              : 'bg-secondary/10 group-hover:bg-secondary/20 group-hover:scale-[1.08]'
+              ? 'bg-secondary/20'
+              : 'bg-secondary/10 group-hover:bg-secondary/20'
           }`}
+          style={{ transform: isActive ? 'scale(1.08)' : undefined, transition: 'transform 0.3s' }}
         >
           <item.icon className="w-6 h-6 text-secondary" strokeWidth={1.5} />
         </div>
