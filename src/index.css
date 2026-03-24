@@ -203,7 +203,6 @@
 /* GPU-accelerate animated containers */
 .gpu-accelerated {
   transform: translateZ(0);
-  will-change: transform, opacity;
 }
 
 /* === Mobile: cap animation durations === */
@@ -223,18 +222,10 @@
 
 .in-app-browser section {
   will-change: auto !important;
-  content-visibility: auto;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
-}
-
-/* === Optimize section rendering === */
-section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
-}
 }
