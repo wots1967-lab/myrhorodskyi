@@ -32,9 +32,9 @@ const HeroSection = () => {
 
           {/* Title */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
             className="text-cream/80 text-lg md:text-xl font-medium tracking-widest uppercase mb-4">
             
             Психолог   
