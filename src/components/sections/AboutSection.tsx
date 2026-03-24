@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
@@ -8,27 +6,25 @@ const AboutSection = () => {
   const { ref, revealed } = useReveal();
 
   return (
-    <section id="about" className="section-padding relative z-10" ref={ref}>
+    <section id="about" className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16">
         <div className="grid lg:grid-cols-[5fr_7fr] gap-8 md:gap-12 lg:gap-16 items-start">
+
           {/* Image Side */}
-          <div
-          className={\`reveal\${revealed ? \' revealed\' : \'\'} relative mx-auto lg:mx-0 max-w-sm lg:max-w-none\`}>
-            
+          <div ref={ref} className={`reveal${revealed ? ' revealed' : ''} relative mx-auto lg:mx-0 max-w-sm lg:max-w-none`}>
             <div className="aspect-[3/4] overflow-hidden rounded-2xl">
               <img
                 alt="Сергій Миргородський — психолог"
                 className="w-full h-full object-cover"
                 loading="eager"
                 decoding="async"
-                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.jpg" />
+                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.jpg"
+              />
             </div>
-          </motion.div>
+          </div>
 
           {/* Content Side */}
-          <div
-          className={\`reveal\${revealed ? \' revealed\' : \'\'} flex flex-col\`}>
-            
+          <div className={`reveal${revealed ? ' revealed' : ''} flex flex-col`} style={{ transitionDelay: '150ms' }}>
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Привіт, мене звуть Сергій
             </h2>
@@ -40,11 +36,8 @@ const AboutSection = () => {
                 Сьогодні я працюю в інтегративному підході — який поєднує когнітивно-поведінкову терапію, схема-терапію, IFS, юнгіанський аналіз і транзактний аналіз. Для мене це найбільш ефективний набір інструментів. Мені важливо, щоб ти побачив цілу картину: як ти думаєш, чому реагуєш саме так, і що з цим робити далі.
               </p>
               <p>
-                Мій головний принцип — я працюю на те, щоб ти більше не потребував терапевта. Щоб після нашої роботи ти мав інструменти, розуміння і внутрішню опору, аби справлятися з більшістю ситуацій самостійно. Я не хочу, щоб ти приходив до мене роками. Я хочу, щоб ти навчився бути психологом для себе сам. 
+                Мій головний принцип — я працюю на те, щоб ти більше не потребував терапевта. Щоб після нашої роботи ти мав інструменти, розуміння і внутрішню опору, аби справлятися з більшістю ситуацій самостійно. Я не хочу, щоб ти приходив до мене роками. Я хочу, щоб ти навчився бути психологом для себе сам.
               </p>
-              
-
-              
             </div>
 
             {/* Stats */}
@@ -59,21 +52,20 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <div
-          className={\`reveal\${revealed ? \' revealed\' : \'\'} mt-6 md:mt-8\`}>
-              
+            <div className="mt-6 md:mt-8">
               <Button variant="cta" size="lg" asChild>
                 <a href="#help" className="inline-flex items-center gap-2">
                   Більше
                   <ArrowDown size={18} />
                 </a>
               </Button>
-            </motion.div>
-          </motion.div>
+            </div>
+          </div>
+
         </div>
       </div>
-    </section>);
-
+    </section>
+  );
 };
 
 export default AboutSection;

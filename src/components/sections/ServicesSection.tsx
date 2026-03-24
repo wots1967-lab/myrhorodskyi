@@ -1,5 +1,3 @@
-import { motion } from 'framer-motion';
-import { useRef } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
@@ -41,41 +39,32 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="section-padding relative z-10" ref={ref}>
+    <section id="services" className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
-        <div
-          className={\`reveal\${revealed ? \' revealed\' : \'\'} text-center mb-16\`}
-        >
-          <span className="text-secondary font-medium tracking-widest uppercase text-sm">
-            Послуги
-          </span>
+        <div ref={ref} className={`reveal${revealed ? ' revealed' : ''} text-center mb-16`}>
+          <span className="text-secondary font-medium tracking-widest uppercase text-sm">Послуги</span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3">
             Послуги та ціни
           </h2>
-        </motion.div>
+        </div>
 
         <div className="space-y-6 max-w-4xl mx-auto">
           {services.map((service, index) => (
-            <div
-              key={service.title}
+            <div key={service.title}
               className="reveal revealed relative bg-card rounded-2xl p-8 card-hover shadow-sm border border-border"
-              style={{ transitionDelay: `${index * 80}ms` }}
-            >
+              style={{ transitionDelay: `${index * 80}ms` }}>
               {service.badge && (
                 <div className={`absolute -top-3 left-6 ${service.badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full flex items-center gap-1`}>
                   <Star size={12} />
                   {service.badge}
                 </div>
               )}
-
               <div className="flex flex-col lg:flex-row lg:items-center gap-6">
                 <div className="flex-1">
                   <h3 className="font-display text-xl md:text-2xl font-semibold text-foreground mb-3">
                     {service.title} — {service.price}
                   </h3>
-                  <p className="text-muted-foreground leading-relaxed mb-2">
-                    {service.description}
-                  </p>
+                  <p className="text-muted-foreground leading-relaxed mb-2">{service.description}</p>
                   {service.saving && (
                     <p className="text-primary text-sm flex items-center gap-1">
                       <Check size={14} />
@@ -83,7 +72,6 @@ const ServicesSection = () => {
                     </p>
                   )}
                 </div>
-
                 <div className="flex flex-col items-start lg:items-end gap-3 lg:min-w-[180px]">
                   <Button variant="ctaOutline" size="lg" className="w-full lg:w-auto" asChild>
                     <a href="#contact">{service.cta}</a>
@@ -94,9 +82,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        <p
-          className="text-center text-muted-foreground italic mt-8 max-w-2xl mx-auto"
-        >
+        <p className="text-center text-muted-foreground italic mt-8 max-w-2xl mx-auto">
           Якщо не знаєш, який формат обрати — починай з індивідуальної сесії. Розберемося разом.
         </p>
       </div>

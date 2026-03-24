@@ -232,13 +232,6 @@
   }
 }
 
-/* === Optimize section rendering === */
-section {
-    content-visibility: auto;
-    contain-intrinsic-size: auto 600px;
-}
-}
-
 /* === iOS-safe reveal animations (no framer-motion inline opacity) === */
 .reveal {
   opacity: 0;

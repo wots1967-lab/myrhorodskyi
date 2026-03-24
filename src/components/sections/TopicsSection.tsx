@@ -75,10 +75,7 @@ const TopicsSection = () => {
                       </span>
                     )}
                   </div>
-                  <motion.div
-                    animate={{ rotate: isOpen ? 180 : 0 }}
-                    transition={{ duration: 0.25 }}
-                  >
+                  <motion.div animate={{ rotate: isOpen ? 180 : 0 }} transition={{ duration: 0.25 }}>
                     <ChevronDown className="w-5 h-5 text-muted-foreground group-hover:text-secondary transition-colors" />
                   </motion.div>
                 </button>
@@ -116,7 +113,7 @@ const TopicsSection = () => {
               </div>
             );
           })}
-        </motion.div>
+        </div>
 
         {selected.size > 0 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mt-8">
