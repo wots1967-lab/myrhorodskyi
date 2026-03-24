@@ -11,10 +11,10 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container-custom section-padding text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto">
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto gpu-accelerated">
           
           {/* Logo */}
           <motion.div
@@ -32,9 +32,9 @@ const HeroSection = () => {
 
           {/* Title */}
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
             className="text-cream/80 text-lg md:text-xl font-medium tracking-widest uppercase mb-4">
             
             Психолог   
@@ -48,9 +48,9 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
             className="mb-10">
             
             <p className="text-cream italic mb-4 text-xl font-serif md:text-2xl">
@@ -63,9 +63,9 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             
             <Button variant="hero" size="xl" asChild>
