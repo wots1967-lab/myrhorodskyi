@@ -1,4 +1,4 @@
-import { motion, useInView, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { ChevronDown } from 'lucide-react';
 
@@ -22,8 +22,6 @@ const categories = [
 ];
 
 const TopicsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [openCategories, setOpenCategories] = useState<Set<string>>(new Set());
 
@@ -46,11 +44,11 @@ const TopicsSection = () => {
   };
 
   return (
-    <section className="section-padding relative z-10" ref={ref}>
+    <section className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-10"
         >
@@ -61,7 +59,7 @@ const TopicsSection = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="space-y-3 max-w-4xl mx-auto"
         >

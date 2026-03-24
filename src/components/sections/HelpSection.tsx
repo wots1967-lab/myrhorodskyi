@@ -1,5 +1,4 @@
-import { motion, useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { motion } from 'framer-motion';
 import { Brain, Flame, Users, Compass, Globe, ShieldAlert } from 'lucide-react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -43,39 +42,20 @@ const helpItems = [
 ];
 
 const HelpCard = ({ item, index, isMobile }: { item: typeof helpItems[0]; index: number; isMobile: boolean }) => {
-  const cardRef = useRef(null);
-  const isInView = useInView(cardRef, { once: true, margin: '-60px', amount: 0.4 });
-  const isActive = isMobile ? isInView : false;
-
   return (
     <motion.div
-      ref={cardRef}
+     
       initial={{ opacity: 0 }}
-      animate={isInView ? { opacity: 1 } : {}}
+      whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.4, delay: isMobile ? 0 : index * 0.07 }}
-      className={`group relative rounded-2xl border bg-card/20 p-6 cursor-default overflow-hidden transition-colors transition-border duration-300 ${
-        isActive
-          ? 'border-secondary/40'
-          : 'border-border/40 hover:border-secondary/40'
-      }`}
+      className={`group relative rounded-2xl border bg-card/20 p-6 cursor-default overflow-hidden transition-colors transition-border duration-300 border-border/40 hover:border-secondary/40`}
     >
-      {/* Glow background — hover on desktop, inView on mobile */}
-      <div
-        className={`absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl transition-opacity duration-300 ${
-          isActive ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
-        }`}
-      />
+      {/* Glow background — hover */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
 
       {/* Icon */}
       <div className="relative z-10 mb-5">
-        <div
-          className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 ${
-            isActive
-              ? 'bg-secondary/20'
-              : 'bg-secondary/10 group-hover:bg-secondary/20'
-          }`}
-          style={{ transform: isActive ? 'scale(1.08)' : undefined, transition: 'transform 0.3s' }}
-        >
+        <div className="w-12 h-12 rounded-2xl flex items-center justify-center transition-colors duration-300 bg-secondary/10 group-hover:bg-secondary/20 group-hover:scale-[1.08]">
           <item.icon className="w-6 h-6 text-secondary" strokeWidth={1.5} />
         </div>
       </div>
@@ -89,26 +69,20 @@ const HelpCard = ({ item, index, isMobile }: { item: typeof helpItems[0]; index:
       </p>
 
       {/* Top accent bar */}
-      <div
-        className={`absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/50 to-transparent transition-transform duration-300 origin-center ${
-          isActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
-        }`}
-      />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-secondary/50 to-transparent transition-transform duration-300 origin-center scale-x-0 group-hover:scale-x-100" />
     </motion.div>
   );
 };
 
 const HelpSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const isMobile = useIsMobile();
 
   return (
-    <section id="help" className="section-padding relative z-10" ref={ref}>
+    <section id="help" className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-12 md:mb-16"
         >

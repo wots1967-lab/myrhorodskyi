@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { HelpCircle, LucideIcon, Clock, UserCheck, Lock, ShieldOff, Pill, MessageCircle } from 'lucide-react';
 import {
@@ -54,15 +54,13 @@ const faqs: { question: string; icon: LucideIcon; answer: string }[] = [
 ];
 
 const FAQSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="section-padding relative z-10" ref={ref}>
+    <section className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -76,7 +74,7 @@ const FAQSection = () => {
 
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="max-w-3xl mx-auto"
         >

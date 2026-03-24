@@ -1,12 +1,10 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
 
 const ServicesSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
   const { prices } = useCurrency();
 
   const services = [
@@ -41,11 +39,11 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section id="services" className="section-padding relative z-10" ref={ref}>
+    <section id="services" className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
         <motion.div
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -62,7 +60,7 @@ const ServicesSection = () => {
             <motion.div
               key={service.title}
               initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
+              whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="relative bg-card rounded-2xl p-8 card-hover shadow-sm border border-border"
             >
@@ -101,7 +99,7 @@ const ServicesSection = () => {
 
         <motion.p
           initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
+          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
           transition={{ duration: 0.6, delay: 0.5 }}
           className="text-center text-muted-foreground italic mt-8 max-w-2xl mx-auto"
         >

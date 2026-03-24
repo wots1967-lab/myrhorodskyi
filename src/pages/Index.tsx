@@ -37,10 +37,10 @@ const Index = () => {
       className="min-h-[100dvh]"
       style={{
         backgroundImage: `url(/pattern-bg.jpg)`,
-        backgroundSize: '100% auto',
+        backgroundSize: 'cover',
         backgroundPosition: 'center top',
-        backgroundRepeat: 'repeat-y',
-        backgroundAttachment: 'scroll',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed',
         backgroundColor: 'hsl(163, 50%, 12%)',
       }}
     >
