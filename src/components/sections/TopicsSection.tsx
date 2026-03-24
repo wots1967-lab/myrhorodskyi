@@ -1,5 +1,6 @@
-import { motion, useInView, AnimatePresence } from 'framer-motion';
-import { useRef, useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useState } from 'react';
+import { useReveal } from '@/hooks/useReveal';
 import { ChevronDown } from 'lucide-react';
 
 const categories = [
@@ -22,8 +23,7 @@ const categories = [
 ];
 
 const TopicsSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref: revealRef, revealed } = useReveal({ margin: '-100px' });
   const [selected, setSelected] = useState<Set<string>>(new Set());
   const [openCategories, setOpenCategories] = useState<Set<string>>(new Set());
 
@@ -46,25 +46,15 @@ const TopicsSection = () => {
   };
 
   return (
-    <section className="section-padding relative z-10" ref={ref}>
+    <section className="section-padding relative z-10">
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12 lg:p-16">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10"
-        >
+        <div ref={revealRef} className={`reveal${revealed ? ' revealed' : ''} text-center mb-10`}>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
             Я підійду якщо:
           </h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="space-y-3 max-w-4xl mx-auto"
-        >
+        <div className="space-y-3 max-w-4xl mx-auto">
           {categories.map((cat) => {
             const isOpen = openCategories.has(cat.title);
             const selectedCount = cat.topics.filter(t => selected.has(t)).length;

@@ -1,22 +1,19 @@
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
+import { useReveal } from '@/hooks/useReveal';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
 import telegramIcon from '@/assets/telegram-icon.png';
 import instagramIcon from '@/assets/instagram-icon.png';
 
 const ContactSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, revealed } = useReveal();
 
   return (
     <section id="contact" className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center max-w-2xl mx-auto"
+        <div
+          className={\`reveal\${revealed ? \' revealed\' : \'\'} text-center max-w-2xl mx-auto\`}
         >
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-3 mb-4">
             Готовий зробити перший крок?

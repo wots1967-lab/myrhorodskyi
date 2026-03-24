@@ -1,23 +1,19 @@
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { useReveal } from '@/hooks/useReveal';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const AboutSection = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const { ref, revealed } = useReveal();
 
   return (
     <section id="about" className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16">
         <div className="grid lg:grid-cols-[5fr_7fr] gap-8 md:gap-12 lg:gap-16 items-start">
           {/* Image Side */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6 }}
-            className="relative mx-auto lg:mx-0 max-w-sm lg:max-w-none">
+          <div
+          className={\`reveal\${revealed ? \' revealed\' : \'\'} relative mx-auto lg:mx-0 max-w-sm lg:max-w-none\`}>
             
             <div className="aspect-[3/4] overflow-hidden rounded-2xl">
               <img
@@ -30,11 +26,8 @@ const AboutSection = () => {
           </motion.div>
 
           {/* Content Side */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={isInView ? { opacity: 1 } : {}}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="flex flex-col">
+          <div
+          className={\`reveal\${revealed ? \' revealed\' : \'\'} flex flex-col\`}>
             
             <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
               Привіт, мене звуть Сергій
@@ -66,11 +59,8 @@ const AboutSection = () => {
               </div>
             </div>
 
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={isInView ? { opacity: 1 } : {}}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-6 md:mt-8">
+            <div
+          className={\`reveal\${revealed ? \' revealed\' : \'\'} mt-6 md:mt-8\`}>
               
               <Button variant="cta" size="lg" asChild>
                 <a href="#help" className="inline-flex items-center gap-2">

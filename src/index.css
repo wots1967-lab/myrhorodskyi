@@ -238,3 +238,24 @@ section {
     contain-intrinsic-size: auto 600px;
 }
 }
+
+/* === iOS-safe reveal animations (no framer-motion inline opacity) === */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-fast {
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.reveal-fast.revealed {
+  opacity: 1;
+}
