@@ -11,10 +11,10 @@ const HeroSection = () => {
       {/* Content */}
       <div className="relative z-10 container-custom section-padding text-center">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto">
+          transition={{ duration: 0.5 }}
+          className="max-w-4xl mx-auto gpu-accelerated">
           
           {/* Logo */}
           <motion.div
