@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Banknote, Clock, Heart, Home } from 'lucide-react';
 
@@ -22,13 +22,15 @@ const rules = [
 ];
 
 const RulesSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="section-padding relative z-10">
+    <section className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card-dark rounded-3xl p-8 md:p-12 lg:p-16 shadow-lg">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
@@ -45,7 +47,7 @@ const RulesSection = () => {
             <motion.div
               key={index}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
+              animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="bg-primary-foreground/10 backdrop-blur-sm rounded-2xl p-6 text-center"
             >

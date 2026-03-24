@@ -1,18 +1,21 @@
 import { motion } from 'framer-motion';
+import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const AboutSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="about" className="section-padding relative z-10">
+    <section id="about" className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card rounded-3xl p-6 sm:p-8 md:p-12 lg:p-16">
         <div className="grid lg:grid-cols-[5fr_7fr] gap-8 md:gap-12 lg:gap-16 items-start">
           {/* Image Side */}
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6 }}
             className="relative mx-auto lg:mx-0 max-w-sm lg:max-w-none">
             
@@ -29,7 +32,7 @@ const AboutSection = () => {
           {/* Content Side */}
           <motion.div
             initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
+            animate={isInView ? { opacity: 1 } : {}}
             transition={{ duration: 0.6, delay: 0.15 }}
             className="flex flex-col">
             
@@ -65,7 +68,7 @@ const AboutSection = () => {
 
             <motion.div
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
+              animate={isInView ? { opacity: 1 } : {}}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="mt-6 md:mt-8">
               

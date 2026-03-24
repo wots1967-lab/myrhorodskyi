@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Send } from 'lucide-react';
@@ -6,13 +6,15 @@ import telegramIcon from '@/assets/telegram-icon.png';
 import instagramIcon from '@/assets/instagram-icon.png';
 
 const ContactSection = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="contact" className="section-padding relative z-10">
+    <section id="contact" className="section-padding relative z-10" ref={ref}>
       <div className="container-custom glass-card rounded-3xl p-8 md:p-12">
         <motion.div
           initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }} viewport={{ once: true, margin: '-80px' }}
+          animate={isInView ? { opacity: 1 } : {}}
           transition={{ duration: 0.6 }}
           className="text-center max-w-2xl mx-auto"
         >
