@@ -206,6 +206,26 @@
   will-change: transform, opacity;
 }
 
+/* === Mobile: cap animation durations === */
+@media (max-width: 768px), (hover: none) {
+  [data-framer-motion],
+  .animate-on-scroll {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.3s !important;
+  }
+}
+
+/* === In-app browser: disable framer-motion animations === */
+.in-app-browser [style*="opacity"],
+.in-app-browser [style*="transform"] {
+  transition-duration: 0.15s !important;
+}
+
+.in-app-browser section {
+  will-change: auto !important;
+  content-visibility: auto;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

@@ -45,6 +45,7 @@ const Index = () => {
       }}
     >
       <div>
+        <div id="scroll-sentinel" className="absolute top-0 left-0 w-full h-[1px]" />
         <Header />
         <main>
           <HeroSection />

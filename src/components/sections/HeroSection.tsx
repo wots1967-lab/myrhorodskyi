@@ -63,9 +63,9 @@ const HeroSection = () => {
 
           {/* CTA Buttons */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.4, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center">
             
             <Button variant="hero" size="xl" asChild>
