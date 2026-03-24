@@ -128,7 +128,7 @@
   }
 
   .card-hover {
-        @apply transition-colors duration-300 hover:shadow-lg;
+            transition: color 0.3s, background-color 0.3s, box-shadow 0.3s;
   }
 
   .btn-glow {
