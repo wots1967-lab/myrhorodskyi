@@ -48,9 +48,9 @@ const HeroSection = () => {
 
           {/* Subtitle */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            transition={{ duration: 0.4, delay: 0.4 }}
             className="mb-10">
             
             <p className="text-cream italic mb-4 text-xl font-serif md:text-2xl">
