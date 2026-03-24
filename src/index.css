@@ -206,6 +206,24 @@
   will-change: transform, opacity;
 }
 
+.render-stable {
+  transform: translateZ(0);
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.render-stable-text {
+  transform: translateZ(0);
+  -webkit-font-smoothing: antialiased;
+}
+
+.render-stable-media {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
 /* === Mobile: cap animation durations === */
 @media (max-width: 768px), (hover: none) {
   [data-framer-motion],
@@ -223,7 +241,7 @@
 
 .in-app-browser section {
   will-change: auto !important;
-  content-visibility: auto;
+  content-visibility: visible !important;
 }
 
 @layer utilities {
