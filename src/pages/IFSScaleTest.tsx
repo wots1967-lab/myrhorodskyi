@@ -18,6 +18,7 @@ import {
   Radar,
   ResponsiveContainer,
 } from 'recharts';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 // --- DATA ---
 
@@ -163,6 +164,7 @@ const GaugeChart = ({ percentage }: { percentage: number }) => {
 };
 
 const IFSScaleTest = () => {
+  const { saveResult } = useTestResultSaver('ifs-scale');
   const [stage, setStage] = useState<Stage>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(Array(57).fill(null));
@@ -230,6 +232,7 @@ const IFSScaleTest = () => {
 
   const submitTest = useCallback(() => {
     setStage('results');
+    saveResult(responses, scores);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

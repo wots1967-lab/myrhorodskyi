@@ -27,12 +27,13 @@ const FinancialTestResult = () => {
     if (!slug) return;
     const fetchResult = async () => {
       const { data } = await supabase
-        .from('financial_test_results')
-        .select('answers, created_at')
+        .from('test_results')
+        .select('responses, created_at')
         .eq('slug', slug)
+        .eq('test_type', 'financial')
         .single();
       if (data) {
-        setResult({ answers: data.answers as unknown as Answers, createdAt: data.created_at });
+        setResult({ answers: data.responses as unknown as Answers, createdAt: data.created_at });
       }
       setLoading(false);
     };

@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 const questions = [
   // Machiavellianism (1-9)
@@ -137,6 +138,7 @@ const DarkTriadTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('dark-triad');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(27).fill(null));
@@ -190,6 +192,7 @@ const DarkTriadTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, calculateScores(responses));
     sessionStorage.removeItem(STORAGE_KEY);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

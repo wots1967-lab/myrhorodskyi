@@ -22,6 +22,7 @@ import {
   ReferenceLine,
   Cell,
 } from 'recharts';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 // --- DATA ---
 
@@ -222,6 +223,7 @@ const YSQTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('ysq');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(90).fill(null));
@@ -285,6 +287,7 @@ const YSQTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, calculateResults());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

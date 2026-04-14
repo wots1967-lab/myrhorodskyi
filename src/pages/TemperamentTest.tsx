@@ -11,6 +11,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, Shield, AlertTriangle, Puzzle } from 
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import KeyboardHints, { HINTS_YES_NO } from '@/components/KeyboardHints';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 const questions = [
   "Чи часто Ви відчуваєте потяг до нових вражень, щоб струсити з себе апатію, відчути збудження?",
@@ -195,6 +196,7 @@ const TemperamentTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('temperament');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(boolean | null)[]>(new Array(57).fill(null));
@@ -251,6 +253,7 @@ const TemperamentTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, scores);
     sessionStorage.removeItem(STORAGE_KEY);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [allAnswered, responses]);

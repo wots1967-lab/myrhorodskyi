@@ -25,6 +25,7 @@ import {
   Tooltip,
   Cell,
 } from 'recharts';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 // --- DATA ---
 
@@ -122,6 +123,7 @@ const ExpandedEgoStatesTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('expanded-ego-states');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(42).fill(null));
@@ -162,6 +164,7 @@ const ExpandedEgoStatesTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, calculateScores());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

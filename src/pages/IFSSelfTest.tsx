@@ -18,6 +18,7 @@ import {
   Radar,
   ResponsiveContainer,
 } from 'recharts';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 // --- DATA ---
 
@@ -72,6 +73,7 @@ const categoryKeys = Object.keys(categories);
 type Stage = 'intro' | 'test' | 'results';
 
 const IFSSelfTest = () => {
+  const { saveResult } = useTestResultSaver('ifs-self');
   const [stage, setStage] = useState<Stage>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(Array(24).fill(null));
@@ -135,6 +137,7 @@ const IFSSelfTest = () => {
 
   const submitTest = useCallback(() => {
     setStage('results');
+    saveResult(responses, { ...scores, totalScore });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 // Question categories
 const categories = [
@@ -477,6 +478,7 @@ const BrovermanTest = () => {
       duration: 'PT20M',
     }),
   });
+  const { saveResult } = useTestResultSaver('broverman');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const [currentQuestionInCategory, setCurrentQuestionInCategory] = useState(0);
@@ -590,6 +592,7 @@ const BrovermanTest = () => {
     }
     sessionStorage.removeItem('broverman-progress');
     setStage('results');
+    saveResult(responses, calculateScores());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

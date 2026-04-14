@@ -21,6 +21,7 @@ import {
   Cell,
   LabelList,
 } from 'recharts';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 // --- DATA ---
 
@@ -111,6 +112,7 @@ const barColors = [
 type Stage = 'intro' | 'test' | 'results';
 
 const ProtectorsTest = () => {
+  const { saveResult } = useTestResultSaver('protectors');
   const [stage, setStage] = useState<Stage>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(Array(25).fill(null));
@@ -164,6 +166,7 @@ const ProtectorsTest = () => {
 
   const submitTest = useCallback(() => {
     setStage('results');
+    saveResult(responses, scores);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 
