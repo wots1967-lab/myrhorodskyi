@@ -49,9 +49,5 @@ export type Answers = Record<string, AnswerValue>;
 export interface TestSubmission {
   slug: string;
   answers: Answers;
-  email: string;
-  name?: string;
-  phone?: string;
-  wantsConsultation: boolean;
   createdAt: string;
 }
