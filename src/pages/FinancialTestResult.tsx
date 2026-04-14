@@ -5,7 +5,7 @@ import { financialTestData } from '@/data/financialTestQuestions';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Download, Copy, MessageCircle, Check } from 'lucide-react';
+import { Download, Copy, Check } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 
