@@ -151,6 +151,7 @@ const EgoStatesTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('ego-states');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(40).fill(null));

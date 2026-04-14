@@ -196,6 +196,7 @@ const TemperamentTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('temperament');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(boolean | null)[]>(new Array(57).fill(null));

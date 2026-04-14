@@ -223,6 +223,7 @@ const YSQTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('ysq');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(90).fill(null));

@@ -164,6 +164,7 @@ const GaugeChart = ({ percentage }: { percentage: number }) => {
 };
 
 const IFSScaleTest = () => {
+  const { saveResult } = useTestResultSaver('ifs-scale');
   const [stage, setStage] = useState<Stage>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(Array(57).fill(null));

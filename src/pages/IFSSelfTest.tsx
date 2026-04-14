@@ -73,6 +73,7 @@ const categoryKeys = Object.keys(categories);
 type Stage = 'intro' | 'test' | 'results';
 
 const IFSSelfTest = () => {
+  const { saveResult } = useTestResultSaver('ifs-self');
   const [stage, setStage] = useState<Stage>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(Array(24).fill(null));

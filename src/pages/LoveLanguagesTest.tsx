@@ -91,6 +91,7 @@ const categoryDescriptions: Record<string, string> = {
 type Screen = 'intro' | 'quiz' | 'results';
 
 const LoveLanguagesTest = () => {
+  const { saveResult } = useTestResultSaver('love-languages');
   const [screen, setScreen] = useState<Screen>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [scores, setScores] = useState<Record<string, number>>({ A: 0, B: 0, C: 0, D: 0, E: 0 });

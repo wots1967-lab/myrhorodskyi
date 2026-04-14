@@ -123,6 +123,7 @@ const ExpandedEgoStatesTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('expanded-ego-states');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(42).fill(null));
