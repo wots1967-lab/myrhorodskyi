@@ -5,7 +5,7 @@ import { financialTestData } from '@/data/financialTestQuestions';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Download, Copy, MessageCircle, Check } from 'lucide-react';
+import { Download, Copy, Check } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
 
@@ -155,11 +155,6 @@ const FinancialTestResult = () => {
           <Button variant="outline" onClick={handleCopyLink} className="gap-2">
             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             {copied ? 'Скопійовано' : 'Поділитися посиланням'}
-          </Button>
-          <Button variant="outline" asChild className="gap-2">
-            <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-4 h-4" /> Хочу розбір від консультанта
-            </a>
           </Button>
         </div>
       </div>

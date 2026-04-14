@@ -104,15 +104,11 @@ export function useFinancialTest() {
   const isLastBlock = currentBlockIndex === blocks.length - 1;
 
   // Save result
-  const saveResult = useCallback((email: string, name?: string, phone?: string, wantsConsultation = false): string => {
+  const saveResult = useCallback((): string => {
     const slug = generateSlug();
     const submission: TestSubmission = {
       slug,
       answers,
-      email,
-      name,
-      phone,
-      wantsConsultation,
       createdAt: new Date().toISOString(),
     };
     const existing = JSON.parse(localStorage.getItem(RESULTS_KEY) || '{}');
