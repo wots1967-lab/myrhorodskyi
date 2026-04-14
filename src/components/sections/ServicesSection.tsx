@@ -20,14 +20,14 @@ const ServicesSection = () => {
       title: 'Пакет «5 сесій»',
       description: "П'ять зустрічей — мінімальний обсяг, щоб побачити перші зміни в патернах. Для тих, хто готовий працювати регулярно.",
       price: prices.pack5,
-      saving: `економія ${prices.pack5saving}`,
+      saving: `перевага пакету — ${prices.pack5saving}`,
       cta: 'Обрати пакет',
     },
     {
       title: 'Пакет «10 сесій»',
       description: 'Десять зустрічей для глибшої роботи. Достатньо простору, щоб розібрати патерни, попрацювати з ними і закріпити нову поведінку.',
       price: prices.pack10,
-      saving: `економія ${prices.pack10saving}`,
+      saving: `перевага пакету — ${prices.pack10saving}`,
       cta: 'Обрати пакет',
     },
     {
