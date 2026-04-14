@@ -11,6 +11,7 @@ import { ArrowLeft, ArrowRight, RotateCcw, Shield, AlertTriangle, Puzzle } from 
 import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import KeyboardHints, { HINTS_YES_NO } from '@/components/KeyboardHints';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 const questions = [
   "Чи часто Ви відчуваєте потяг до нових вражень, щоб струсити з себе апатію, відчути збудження?",
