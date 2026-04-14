@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback, useMemo } from 'react';
 import { financialTestData, transitionMessages } from '@/data/financialTestQuestions';
 import { Answers, AnswerValue, TestSubmission } from '@/types/financialTest';
+import { supabase } from '@/integrations/supabase/client';
 
 const STORAGE_KEY = 'financial_test_progress';
-const RESULTS_KEY = 'financial_test_results';
 
 function generateSlug(): string {
   const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
@@ -104,24 +104,15 @@ export function useFinancialTest() {
   const isLastBlock = currentBlockIndex === blocks.length - 1;
 
   // Save result
-  const saveResult = useCallback((): string => {
+  const saveResult = useCallback(async (): Promise<string> => {
     const slug = generateSlug();
-    const submission: TestSubmission = {
+    await supabase.from('financial_test_results').insert({
       slug,
-      answers,
-      createdAt: new Date().toISOString(),
-    };
-    const existing = JSON.parse(localStorage.getItem(RESULTS_KEY) || '{}');
-    existing[slug] = submission;
-    localStorage.setItem(RESULTS_KEY, JSON.stringify(existing));
+      answers: answers as any,
+    });
     localStorage.removeItem(STORAGE_KEY);
     return slug;
   }, [answers]);
-
-  const getResult = useCallback((slug: string): TestSubmission | null => {
-    const existing = JSON.parse(localStorage.getItem(RESULTS_KEY) || '{}');
-    return existing[slug] || null;
-  }, []);
 
   return {
     currentBlock,
@@ -145,7 +136,6 @@ export function useFinancialTest() {
     restoreProgress,
     startFresh,
     saveResult,
-    getResult,
     answeredCount,
     totalQuestions,
   };
