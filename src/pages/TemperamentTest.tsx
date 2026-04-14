@@ -253,6 +253,7 @@ const TemperamentTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, scores);
     sessionStorage.removeItem(STORAGE_KEY);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [allAnswered, responses]);

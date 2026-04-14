@@ -137,6 +137,7 @@ const IFSSelfTest = () => {
 
   const submitTest = useCallback(() => {
     setStage('results');
+    saveResult(responses, { ...scores, totalScore });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

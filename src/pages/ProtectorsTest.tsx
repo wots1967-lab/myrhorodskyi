@@ -166,6 +166,7 @@ const ProtectorsTest = () => {
 
   const submitTest = useCallback(() => {
     setStage('results');
+    saveResult(responses, scores);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, []);
 

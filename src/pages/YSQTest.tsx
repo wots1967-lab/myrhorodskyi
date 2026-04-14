@@ -287,6 +287,7 @@ const YSQTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, calculateResults());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 

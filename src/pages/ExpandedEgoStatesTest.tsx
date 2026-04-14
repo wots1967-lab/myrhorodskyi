@@ -164,6 +164,7 @@ const ExpandedEgoStatesTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, calculateScores());
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
