@@ -30,6 +30,7 @@ const FinancialTestTake = () => {
     hasExistingProgress,
     restoreProgress,
     startFresh,
+    saveResult,
   } = useFinancialTest();
 
   useEffect(() => {
@@ -150,7 +151,10 @@ const FinancialTestTake = () => {
             <ArrowLeft className="w-4 h-4" /> Назад
           </Button>
           {isLastBlock ? (
-            <Button variant="cta" onClick={() => navigate('/test/finish')} className="gap-2">
+            <Button variant="cta" onClick={() => {
+              const slug = saveResult();
+              navigate(`/test-result/${slug}`);
+            }} className="gap-2">
               Завершити <ArrowRight className="w-4 h-4" />
             </Button>
           ) : (
