@@ -151,8 +151,8 @@ const FinancialTestTake = () => {
             <ArrowLeft className="w-4 h-4" /> Назад
           </Button>
           {isLastBlock ? (
-            <Button variant="cta" onClick={() => {
-              const slug = saveResult();
+            <Button variant="cta" onClick={async () => {
+              const slug = await saveResult();
               navigate(`/test-result/${slug}`);
             }} className="gap-2">
               Завершити <ArrowRight className="w-4 h-4" />

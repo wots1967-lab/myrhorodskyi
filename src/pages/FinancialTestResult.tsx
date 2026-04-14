@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { TestSubmission } from '@/types/financialTest';
+import { Answers } from '@/types/financialTest';
 import { financialTestData } from '@/data/financialTestQuestions';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
@@ -8,20 +8,35 @@ import { Button } from '@/components/ui/button';
 import { Download, Copy, Check } from 'lucide-react';
 import { Progress } from '@/components/ui/progress';
 import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 
-const RESULTS_KEY = 'financial_test_results';
+interface ResultData {
+  answers: Answers;
+  createdAt: string;
+}
 
 const FinancialTestResult = () => {
   const { slug } = useParams<{ slug: string }>();
-  const [result, setResult] = useState<TestSubmission | null>(null);
+  const [result, setResult] = useState<ResultData | null>(null);
+  const [loading, setLoading] = useState(true);
   const [copied, setCopied] = useState(false);
   const resultRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
   useEffect(() => {
     if (!slug) return;
-    const data = JSON.parse(localStorage.getItem(RESULTS_KEY) || '{}');
-    setResult(data[slug] || null);
+    const fetchResult = async () => {
+      const { data } = await supabase
+        .from('financial_test_results')
+        .select('answers, created_at')
+        .eq('slug', slug)
+        .single();
+      if (data) {
+        setResult({ answers: data.answers as unknown as Answers, createdAt: data.created_at });
+      }
+      setLoading(false);
+    };
+    fetchResult();
   }, [slug]);
 
   const handleCopyLink = async () => {
@@ -51,6 +66,14 @@ const FinancialTestResult = () => {
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
     }).from(clone).save();
   };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-pulse text-muted-foreground">Завантаження результатів...</div>
+      </div>
+    );
+  }
 
   if (!result) {
     return (
