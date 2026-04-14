@@ -143,6 +143,7 @@ const BeckAnxietyTest = () => {
       duration: 'PT5M',
     }),
   });
+  const { saveResult } = useTestResultSaver('beck-anxiety');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(21).fill(null));

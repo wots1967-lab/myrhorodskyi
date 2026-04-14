@@ -478,6 +478,7 @@ const BrovermanTest = () => {
       duration: 'PT20M',
     }),
   });
+  const { saveResult } = useTestResultSaver('broverman');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentCategoryIndex, setCurrentCategoryIndex] = useState(0);
   const [currentQuestionInCategory, setCurrentQuestionInCategory] = useState(0);

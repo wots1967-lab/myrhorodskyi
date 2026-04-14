@@ -312,6 +312,7 @@ const BeckDepressionTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('beck-depression');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(21).fill(null));

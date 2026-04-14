@@ -138,6 +138,7 @@ const DarkTriadTest = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('dark-triad');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(27).fill(null));

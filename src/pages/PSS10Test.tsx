@@ -136,6 +136,7 @@ const PSS10Test = () => {
     }),
   });
 
+  const { saveResult } = useTestResultSaver('pss10');
   const [stage, setStage] = useState<'intro' | 'test' | 'results'>('intro');
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [responses, setResponses] = useState<(number | null)[]>(new Array(10).fill(null));
