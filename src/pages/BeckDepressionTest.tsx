@@ -14,6 +14,7 @@ import { cn } from '@/lib/utils';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestKeyboard } from '@/hooks/useTestKeyboard';
 import KeyboardHints, { HINTS_SCALE } from '@/components/KeyboardHints';
+import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 
 interface Question {
   title: string;
