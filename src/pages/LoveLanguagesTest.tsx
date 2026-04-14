@@ -122,7 +122,7 @@ const LoveLanguagesTest = () => {
       setCurrentQuestion(prev => prev + 1);
     } else {
       setScreen('results');
-      saveResult(answers, scores);
+      saveResult(answerHistory, scores);
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
   }, [currentQuestion]);
