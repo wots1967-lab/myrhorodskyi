@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers, Shield } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers, Shield, Banknote } from 'lucide-react';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 const patternBg = '/pattern-bg.jpg';
 
@@ -113,6 +113,14 @@ const tests = [
     duration: '~5 хвилин',
     available: true,
     link: '/tests/profil-zahysnykiv-ifs',
+  },
+  {
+    icon: Banknote,
+    title: 'Фінансова особистість',
+    description: 'Глибокий психодіагностичний тест: 14 блоків, 140 питань. Фінансовий портрет, карта блокувань, діагностика фінансової стелі',
+    duration: '~60-90 хвилин',
+    available: true,
+    link: '/test',
   },
 ];
 
