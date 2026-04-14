@@ -35,6 +35,33 @@ export type Database = {
         }
         Relationships: []
       }
+      test_results: {
+        Row: {
+          created_at: string
+          id: string
+          responses: Json
+          scores: Json | null
+          slug: string
+          test_type: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          responses?: Json
+          scores?: Json | null
+          slug: string
+          test_type: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          responses?: Json
+          scores?: Json | null
+          slug?: string
+          test_type?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
