@@ -106,9 +106,10 @@ export function useFinancialTest() {
   // Save result
   const saveResult = useCallback(async (): Promise<string> => {
     const slug = generateSlug();
-    await supabase.from('financial_test_results').insert({
+    await supabase.from('test_results').insert({
+      test_type: 'financial',
       slug,
-      answers: answers as any,
+      responses: answers as any,
     });
     localStorage.removeItem(STORAGE_KEY);
     return slug;
