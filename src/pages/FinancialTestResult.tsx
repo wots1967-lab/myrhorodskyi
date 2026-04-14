@@ -156,11 +156,6 @@ const FinancialTestResult = () => {
             {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
             {copied ? 'Скопійовано' : 'Поділитися посиланням'}
           </Button>
-          <Button variant="outline" asChild className="gap-2">
-            <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="w-4 h-4" /> Хочу розбір від консультанта
-            </a>
-          </Button>
         </div>
       </div>
 
