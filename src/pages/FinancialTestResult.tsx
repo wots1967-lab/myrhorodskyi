@@ -67,6 +67,14 @@ const FinancialTestResult = () => {
     }).from(clone).save();
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="animate-pulse text-muted-foreground">Завантаження результатів...</div>
+      </div>
+    );
+  }
+
   if (!result) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
