@@ -44,12 +44,11 @@ const FinancialTestResult = () => {
       htmlEl.style.borderColor = '#e0e0e0';
     });
 
-    html2pdf().set({
+    (html2pdf() as any).set({
       margin: [10, 10],
       filename: 'financial-personality-report.pdf',
       html2canvas: { scale: 2, useCORS: true },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
-      pagebreak: { mode: ['avoid-all', 'css', 'legacy'] },
     }).from(clone).save();
   };
 

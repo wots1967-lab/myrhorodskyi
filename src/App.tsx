@@ -22,6 +22,10 @@ const YSQTest = lazy(() => import("./pages/YSQTest"));
 const IFSScaleTest = lazy(() => import("./pages/IFSScaleTest"));
 const IFSSelfTest = lazy(() => import("./pages/IFSSelfTest"));
 const ProtectorsTest = lazy(() => import("./pages/ProtectorsTest"));
+const FinancialTestLanding = lazy(() => import("./pages/FinancialTestLanding"));
+const FinancialTestTake = lazy(() => import("./pages/FinancialTestTake"));
+const FinancialTestFinish = lazy(() => import("./pages/FinancialTestFinish"));
+const FinancialTestResult = lazy(() => import("./pages/FinancialTestResult"));
 const Resources = lazy(() => import("./pages/Resources"));
 const PrivacyPolicy = lazy(() => import("./pages/PrivacyPolicy"));
 const TermsOfUse = lazy(() => import("./pages/TermsOfUse"));
@@ -59,6 +63,10 @@ const App = () => (
             <Route path="/tests/diagnostyka-samosti-ifs" element={<IFSSelfTest />} />
             <Route path="/tests/klinichna-shkala-ifs" element={<IFSScaleTest />} />
             <Route path="/tests/profil-zahysnykiv-ifs" element={<ProtectorsTest />} />
+            <Route path="/test" element={<FinancialTestLanding />} />
+            <Route path="/test/take" element={<FinancialTestTake />} />
+            <Route path="/test/finish" element={<FinancialTestFinish />} />
+            <Route path="/test-result/:slug" element={<FinancialTestResult />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfUse />} />
