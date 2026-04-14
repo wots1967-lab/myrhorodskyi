@@ -217,6 +217,7 @@ const BeckAnxietyTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, { totalScore });
     sessionStorage.removeItem('beck-anxiety-progress');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

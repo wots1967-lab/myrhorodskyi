@@ -192,6 +192,7 @@ const DarkTriadTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, calculateScores(responses));
     sessionStorage.removeItem(STORAGE_KEY);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

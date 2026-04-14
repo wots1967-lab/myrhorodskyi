@@ -209,6 +209,7 @@ const PSS10Test = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, { totalScore });
     sessionStorage.removeItem('pss10-progress');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };

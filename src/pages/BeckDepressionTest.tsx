@@ -384,6 +384,7 @@ const BeckDepressionTest = () => {
       return;
     }
     setStage('results');
+    saveResult(responses, { totalScore });
     sessionStorage.removeItem('beck-depression-progress');
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
