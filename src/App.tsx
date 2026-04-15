@@ -3,8 +3,13 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate, useParams } from "react-router-dom";
 import Index from "./pages/Index";
+
+const RedirectTestResult = () => {
+  const { slug } = useParams();
+  return <Navigate to={`/test/result/${slug}`} replace />;
+};
 
 // Lazy load non-critical route pages
 const Courses = lazy(() => import("./pages/Courses"));
@@ -65,7 +70,9 @@ const App = () => (
             <Route path="/test" element={<FinancialTestLanding />} />
             <Route path="/test/take" element={<FinancialTestTake />} />
             
-            <Route path="/test-result/:slug" element={<FinancialTestResult />} />
+            <Route path="/test/result/:slug" element={<FinancialTestResult />} />
+            {/* Old URL redirect */}
+            <Route path="/test-result/:slug" element={<RedirectTestResult />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfUse />} />
