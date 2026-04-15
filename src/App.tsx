@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 
 const RedirectTestResult = () => {
   const { slug } = useParams();
-  return <Navigate to={`/test/result/${slug}`} replace />;
+  return <Navigate to={`/tests/finansova-osobystist/result/${slug}`} replace />;
 };
 
 // Lazy load non-critical route pages
@@ -67,11 +67,13 @@ const App = () => (
             <Route path="/tests/diagnostyka-samosti-ifs" element={<IFSSelfTest />} />
             <Route path="/tests/klinichna-shkala-ifs" element={<IFSScaleTest />} />
             <Route path="/tests/profil-zahysnykiv-ifs" element={<ProtectorsTest />} />
-            <Route path="/test" element={<FinancialTestLanding />} />
-            <Route path="/test/take" element={<FinancialTestTake />} />
-            
-            <Route path="/test/result/:slug" element={<FinancialTestResult />} />
-            {/* Old URL redirect */}
+            <Route path="/tests/finansova-osobystist" element={<FinancialTestLanding />} />
+            <Route path="/tests/finansova-osobystist/take" element={<FinancialTestTake />} />
+            <Route path="/tests/finansova-osobystist/result/:slug" element={<FinancialTestResult />} />
+            {/* Old URL redirects */}
+            <Route path="/test" element={<Navigate to="/tests/finansova-osobystist" replace />} />
+            <Route path="/test/take" element={<Navigate to="/tests/finansova-osobystist/take" replace />} />
+            <Route path="/test/result/:slug" element={<RedirectTestResult />} />
             <Route path="/test-result/:slug" element={<RedirectTestResult />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />

@@ -153,7 +153,7 @@ const FinancialTestTake = () => {
           {isLastBlock ? (
             <Button variant="cta" onClick={async () => {
               const slug = await saveResult();
-              navigate(`/test/result/${slug}`);
+              navigate(`/tests/finansova-osobystist/result/${slug}`);
             }} className="gap-2">
               Завершити <ArrowRight className="w-4 h-4" />
             </Button>
