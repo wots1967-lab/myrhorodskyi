@@ -65,7 +65,9 @@ const App = () => (
             <Route path="/test" element={<FinancialTestLanding />} />
             <Route path="/test/take" element={<FinancialTestTake />} />
             
-            <Route path="/test-result/:slug" element={<FinancialTestResult />} />
+            <Route path="/test/result/:slug" element={<FinancialTestResult />} />
+            {/* Old URL redirect */}
+            <Route path="/test-result/:slug" element={<Navigate to="/test/result/:slug" replace />} />
             <Route path="/resources" element={<Resources />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfUse />} />
