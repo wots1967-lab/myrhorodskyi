@@ -8,7 +8,7 @@ import Index from "./pages/Index";
 
 const RedirectTestResult = () => {
   const { slug } = useParams();
-  return <Nav to={`/test/result/${slug}`} replace />;
+  return <Navigate to={`/test/result/${slug}`} replace />;
 };
 
 // Lazy load non-critical route pages
