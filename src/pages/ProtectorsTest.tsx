@@ -119,7 +119,7 @@ const ProtectorsTest = () => {
   const resultRef = useRef<HTMLDivElement>(null);
 
   usePageSEO({
-    title: 'Діагностика Захисників Психіки (IFS) — Тест онлайн українською',
+    title: 'Профіль захисників психіки (IFS) — онлайн тест | myrhorodskyi.com',
     description: 'Безкоштовний тест на визначення провідних захисників психіки за моделлю IFS: Перфекціоніст, Доглядач, Критик, Уникаючий, Агресор. 25 питань, миттєві результати.',
     canonical: 'https://myrhorodskyi.com/tests/profil-zahysnykiv-ifs',
     keywords: 'IFS тест захисники, менеджери пожежники IFS, внутрішні частини психіки, психологічний тест українською',

@@ -7,7 +7,7 @@ import usePageSEO from '@/hooks/usePageSEO';
 
 const FinancialTestLanding = () => {
   usePageSEO({
-    title: 'Глибокий аналіз фінансової особистості | Психолог Сергій Миргородський',
+    title: 'Глибокий аналіз фінансової особистості — онлайн тест | myrhorodskyi.com',
     description: 'Безкоштовний психодіагностичний тест: 140 питань, 14 блоків. Фінансовий психологічний портрет, карта внутрішніх блокувань, діагностика фінансової стелі.',
     canonical: 'https://myrhorodskyi.com/tests/finansova-osobystist',
     keywords: 'фінансова психологія, тест фінансова особистість, фінансові переконання, грошові блоки',
