@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import fs from "fs";
 import { componentTagger } from "lovable-tagger";
-import { buildSitemapXml } from "./scripts/sitemap-routes.mjs";
+import { buildSitemapXml } from "./scripts/sitemap-routes";
 
 function sitemapPlugin() {
   const writeSitemap = () => {
