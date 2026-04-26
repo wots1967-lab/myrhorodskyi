@@ -123,7 +123,7 @@ const calculateScore = (responses: (number | null)[]): number => {
 
 const PSS10Test = () => {
   usePageSEO({
-    title: 'Шкала стресу PSS-10 — Тест на стрес онлайн безкоштовно',
+    title: 'Тест на стрес PSS-10 онлайн | myrhorodskyi.com',
     description: 'Пройдіть тест на стрес PSS-10 онлайн безкоштовно. 10 питань для визначення рівня вашого стресового навантаження за останній місяць з миттєвим результатом.',
     canonical: 'https://myrhorodskyi.com/tests/shkala-stresu-pss10',
     keywords: 'тест на стрес онлайн, шкала стресу PSS-10, рівень стресу тест безкоштовно, сприйнятий стрес, PSS-10 українською',

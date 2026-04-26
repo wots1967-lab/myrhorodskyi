@@ -171,7 +171,7 @@ const IFSScaleTest = () => {
   const resultRef = useRef<HTMLDivElement>(null);
 
   usePageSEO({
-    title: 'Клінічна Шкала IFS (57 пунктів) — Комплексний профіль внутрішньої системи',
+    title: 'Клінічна шкала IFS — онлайн тест | myrhorodskyi.com',
     description: 'Глибинна клінічна діагностика внутрішньої системи за моделлю IFS. 57 тверджень, 10 субшкал: Самість, Критик, Доглядач, Тривожний, Вигнанці та інші. Безкоштовно українською.',
     canonical: 'https://myrhorodskyi.com/tests/klinichna-shkala-ifs',
     keywords: 'IFS шкала, внутрішні сімейні системи, клінічний тест IFS, частини особистості, Self-Leadership, психологічний тест українською',

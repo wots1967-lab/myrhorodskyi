@@ -80,7 +80,7 @@ const IFSSelfTest = () => {
   const resultRef = useRef<HTMLDivElement>(null);
 
   usePageSEO({
-    title: 'Діагностика Самості (Self) за IFS — Тест онлайн українською',
+    title: 'Діагностика Самості (Self) за IFS — онлайн тест | myrhorodskyi.com',
     description: 'Безкоштовний тест на рівень доступу до Самості (Self-Leadership) за моделлю IFS. 24 питання, 8 якостей, миттєві результати з радарною діаграмою.',
     canonical: 'https://myrhorodskyi.com/tests/diagnostyka-samosti-ifs',
     keywords: 'IFS тест, Самість, Self-Leadership, внутрішні сімейні системи, психологічний тест українською',

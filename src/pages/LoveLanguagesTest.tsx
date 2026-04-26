@@ -100,7 +100,7 @@ const LoveLanguagesTest = () => {
   const [answerHistory, setAnswerHistory] = useState<string[]>([]);
 
   usePageSEO({
-    title: 'Тест: 5 Мов Любові — тест Ґері Чепмена онлайн безкоштовно',
+    title: 'Тест 5 мов любові онлайн | myrhorodskyi.com',
     description: 'Дізнайтеся свою мову любові за методикою Ґері Чепмена. 30 питань онлайн безкоштовно: слова заохочення, якісний час, подарунки, акти служіння, фізичний дотик.',
     canonical: 'https://myrhorodskyi.com/tests/5-mov-lyubovi',
     keywords: '5 мов любові тест, тест мови любові онлайн, Ґері Чепмен тест українською, яка моя мова любові, тест мови любові безкоштовно',
