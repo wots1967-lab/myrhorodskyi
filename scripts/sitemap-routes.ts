@@ -15,8 +15,6 @@ export const sitemapRoutes = [
   // Core pages
   { path: "/", changefreq: "weekly", priority: 1.0 },
   { path: "/tests", changefreq: "weekly", priority: 0.9 },
-  { path: "/courses", changefreq: "monthly", priority: 0.8 },
-  { path: "/resources", changefreq: "monthly", priority: 0.7 },
 
   // Public test pages
   { path: "/tests/finansova-osobystist", changefreq: "monthly", priority: 0.85 },
