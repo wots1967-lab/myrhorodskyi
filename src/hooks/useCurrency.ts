@@ -30,16 +30,25 @@ export function useCurrency() {
   const [currency, setCurrency] = useState<Currency>(fallbackCurrency);
 
   useEffect(() => {
-    fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
-      .then(res => res.json())
-      .then(data => {
-        if (data?.country_code) {
-          setCurrency(USD_COUNTRIES.has(data.country_code) ? 'USD' : 'EUR');
-        }
-      })
-      .catch(() => {
-        // keep fallback timezone-based currency
-      });
+    // Defer geolocation fetch to idle time so it never competes with LCP/critical path
+    const run = () => {
+      fetch('https://ipapi.co/json/', { signal: AbortSignal.timeout(3000) })
+        .then(res => res.json())
+        .then(data => {
+          if (data?.country_code) {
+            setCurrency(USD_COUNTRIES.has(data.country_code) ? 'USD' : 'EUR');
+          }
+        })
+        .catch(() => {
+          // keep fallback timezone-based currency
+        });
+    };
+    const w = window as Window & { requestIdleCallback?: (cb: () => void, opts?: { timeout: number }) => number };
+    if (typeof w.requestIdleCallback === 'function') {
+      w.requestIdleCallback(run, { timeout: 4000 });
+    } else {
+      setTimeout(run, 2500);
+    }
   }, []);
 
   const prices = {
