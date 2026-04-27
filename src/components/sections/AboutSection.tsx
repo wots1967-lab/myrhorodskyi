@@ -13,14 +13,27 @@ const AboutSection = () => {
           {/* Image Side */}
           <div ref={ref} className={`reveal${revealed ? ' revealed' : ''} relative mx-auto lg:mx-0 max-w-sm lg:max-w-none`}>
             <div className="aspect-[3/4] overflow-hidden rounded-2xl">
-              <img
-                alt="Сергій Миргородський — психолог"
-                className="w-full h-full object-cover"
-                loading="eager"
-                decoding="async"
-                fetchPriority="high"
-                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
-              />
+              <picture>
+                <source
+                  media="(max-width: 767px)"
+                  srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856-mobile.webp"
+                  type="image/webp"
+                />
+                <source
+                  srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
+                  type="image/webp"
+                />
+                <img
+                  alt="Сергій Миргородський — психолог"
+                  className="w-full h-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
+                  src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
+                  width={800}
+                  height={1067}
+                />
+              </picture>
             </div>
           </div>
 
