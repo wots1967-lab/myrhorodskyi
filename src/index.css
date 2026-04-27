@@ -146,73 +146,19 @@
   }
 
   .glass-card {
-    position: relative;
-    background: hsla(40, 33%, 97%, 0.55);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid hsla(40, 33%, 100%, 0.6);
-    box-shadow:
-      0 8px 40px rgba(0, 0, 0, 0.08),
-      inset 0 1px 0 0 hsla(0, 0%, 100%, 0.5),
-      inset 0 -1px 0 0 hsla(168, 30%, 20%, 0.04);
-    overflow: hidden;
-    isolation: isolate;
-  }
-
-  .glass-card::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      135deg,
-      hsla(0, 0%, 100%, 0.35) 0%,
-      hsla(0, 0%, 100%, 0.05) 35%,
-      hsla(0, 0%, 100%, 0) 60%,
-      hsla(0, 0%, 100%, 0.08) 100%
-    );
-    z-index: -1;
+        background: hsla(40, 33%, 97%, 0.97);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    border: 1px solid hsla(40, 33%, 100%, 0.5);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
   }
 
   .glass-card-dark {
-    position: relative;
-    background: hsla(168, 56%, 18%, 0.55);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border: 1px solid hsla(168, 56%, 60%, 0.25);
-    box-shadow:
-      0 8px 40px rgba(0, 0, 0, 0.18),
-      inset 0 1px 0 0 hsla(168, 56%, 80%, 0.18),
-      inset 0 -1px 0 0 hsla(0, 0%, 0%, 0.1);
-    overflow: hidden;
-    isolation: isolate;
-  }
-
-  .glass-card-dark::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(
-      135deg,
-      hsla(168, 56%, 80%, 0.18) 0%,
-      hsla(168, 56%, 80%, 0.03) 40%,
-      hsla(0, 0%, 0%, 0) 60%,
-      hsla(168, 56%, 80%, 0.05) 100%
-    );
-    z-index: -1;
-  }
-
-  /* === Liquid Glass Header === */
-  .liquid-header {
-    position: fixed;
-    background: hsla(40, 33%, 97%, 0.6);
-    backdrop-filter: blur(20px) saturate(180%);
-    -webkit-backdrop-filter: blur(20px) saturate(180%);
-    border-bottom: 1px solid hsla(40, 33%, 100%, 0.4);
-    box-shadow:
-      0 1px 0 0 hsla(0, 0%, 100%, 0.5) inset,
-      0 4px 24px hsla(168, 30%, 10%, 0.06);
+        background: hsla(168, 56%, 18%, 0.98);
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    border: 1px solid hsla(168, 56%, 40%, 0.25);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
   }
 }
 
@@ -229,12 +175,6 @@
   background: hsla(168, 56%, 18%, 0.98) !important;
 }
 
-.in-app-browser .liquid-header {
-  backdrop-filter: none !important;
-  -webkit-backdrop-filter: none !important;
-  background: hsla(40, 33%, 97%, 0.97) !important;
-}
-
 .in-app-browser * {
   scroll-behavior: auto !important;
 }
@@ -243,24 +183,18 @@
   will-change: auto !important;
 }
 
-/* === Mobile performance: lighter blur (8px) instead of full disable === */
+/* === Mobile performance: disable backdrop-filter === */
 @media (max-width: 768px) {
   .glass-card {
-    backdrop-filter: blur(8px) saturate(150%);
-    -webkit-backdrop-filter: blur(8px) saturate(150%);
-    background: hsla(40, 33%, 97%, 0.7);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: hsla(40, 33%, 97%, 0.97) !important;
   }
 
   .glass-card-dark {
-    backdrop-filter: blur(8px) saturate(150%);
-    -webkit-backdrop-filter: blur(8px) saturate(150%);
-    background: hsla(168, 56%, 18%, 0.7);
-  }
-
-  .liquid-header {
-    backdrop-filter: blur(10px) saturate(160%);
-    -webkit-backdrop-filter: blur(10px) saturate(160%);
-    background: hsla(40, 33%, 97%, 0.75);
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    background: hsla(168, 56%, 18%, 0.98) !important;
   }
 }
 
