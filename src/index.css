@@ -252,3 +252,19 @@
 .reveal-fast.revealed {
   opacity: 1;
 }
+
+/* === Responsive pattern background (mobile vs desktop) === */
+.pattern-bg {
+  background-color: hsl(163, 50%, 12%);
+  background-image: url('/pattern-bg-mobile.webp');
+  background-size: 100% auto;
+  background-position: center top;
+  background-repeat: repeat-y;
+  background-attachment: scroll;
+}
+
+@media (min-width: 768px) {
+  .pattern-bg {
+    background-image: url('/pattern-bg.webp');
+  }
+}

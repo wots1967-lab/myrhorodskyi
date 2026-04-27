@@ -33,17 +33,7 @@ const Index = () => {
   });
 
   return (
-    <div
-      className="min-h-[100dvh]"
-      style={{
-        backgroundImage: `url(/pattern-bg.webp)`,
-        backgroundSize: '100% auto',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'repeat-y',
-        backgroundAttachment: 'scroll',
-        backgroundColor: 'hsl(163, 50%, 12%)',
-      }}
-    >
+    <div className="min-h-[100dvh] pattern-bg">
       <div>
         <div id="scroll-sentinel" className="absolute top-0 left-0 w-full h-[1px]" />
         <Header />
