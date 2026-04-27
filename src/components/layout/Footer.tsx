@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Brand */}
           <div className="lg:col-span-1">
             <Link to="/" className="flex items-center gap-3 mb-4">
-              <img src={logo} alt="Logo" className="h-10 w-10" />
+              <img src={logo} alt="Logo" className="h-10 w-10" loading="lazy" decoding="async" />
               <div>
                 <span className="font-display text-lg font-semibold">
                   Сергій Миргородський

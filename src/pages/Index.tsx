@@ -36,11 +36,6 @@ const Index = () => {
     <div
       className="min-h-[100dvh]"
       style={{
-        backgroundImage: `url(/pattern-bg.jpg)`,
-        backgroundSize: '100% auto',
-        backgroundPosition: 'center top',
-        backgroundRepeat: 'repeat-y',
-        backgroundAttachment: 'scroll',
         backgroundColor: 'hsl(163, 50%, 12%)',
       }}
     >

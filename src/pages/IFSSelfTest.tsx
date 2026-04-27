@@ -211,7 +211,7 @@ const IFSSelfTest = () => {
   }, [stage, currentQuestion, responses, handleResponse, submitTest]);
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
-  const patternBg = '/pattern-bg.jpg';
+  const patternBg = '/pattern-bg.webp';
 
   const insightLevel = totalPercent >= 80 ? 'high' : totalPercent >= 50 ? 'medium' : 'low';
   const insightConfig = {

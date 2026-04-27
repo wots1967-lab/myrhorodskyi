@@ -307,7 +307,7 @@ const IFSScaleTest = () => {
   }, [stage, currentQuestion, responses, handleResponse, submitTest]);
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
-  const patternBg = '/pattern-bg.jpg';
+  const patternBg = '/pattern-bg.webp';
 
   const insightLevel = selfPercent >= 75 ? 'high' : selfPercent >= 40 ? 'medium' : 'low';
   const insightConfig = {

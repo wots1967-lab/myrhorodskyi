@@ -4,7 +4,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { BookOpen, Clock, Users } from 'lucide-react';
 import usePageSEO from '@/hooks/usePageSEO';
-const patternBg = '/pattern-bg.jpg';
+const patternBg = '/pattern-bg.webp';
 
 const placeholderCourses = [
   {

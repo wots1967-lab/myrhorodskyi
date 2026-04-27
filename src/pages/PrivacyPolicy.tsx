@@ -15,7 +15,7 @@ const PrivacyPolicy = () => {
     <div
       className="min-h-[100dvh]"
       style={{
-        backgroundImage: 'url(/pattern-bg.jpg)',
+        backgroundImage: 'url(/pattern-bg.webp)',
         backgroundSize: '100% auto',
         backgroundPosition: 'center top',
         backgroundRepeat: 'repeat-y',
