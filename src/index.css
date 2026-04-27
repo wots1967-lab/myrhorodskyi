@@ -202,6 +202,18 @@
     );
     z-index: -1;
   }
+
+  /* === Liquid Glass Header === */
+  .liquid-header {
+    position: fixed;
+    background: hsla(40, 33%, 97%, 0.6);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid hsla(40, 33%, 100%, 0.4);
+    box-shadow:
+      0 1px 0 0 hsla(0, 0%, 100%, 0.5) inset,
+      0 4px 24px hsla(168, 30%, 10%, 0.06);
+  }
 }
 
 /* === In-app browser optimizations === */
@@ -215,6 +227,12 @@
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   background: hsla(168, 56%, 18%, 0.98) !important;
+}
+
+.in-app-browser .liquid-header {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  background: hsla(40, 33%, 97%, 0.97) !important;
 }
 
 .in-app-browser * {
@@ -237,6 +255,12 @@
     backdrop-filter: blur(8px) saturate(150%);
     -webkit-backdrop-filter: blur(8px) saturate(150%);
     background: hsla(168, 56%, 18%, 0.7);
+  }
+
+  .liquid-header {
+    backdrop-filter: blur(10px) saturate(160%);
+    -webkit-backdrop-filter: blur(10px) saturate(160%);
+    background: hsla(40, 33%, 97%, 0.75);
   }
 }
 
