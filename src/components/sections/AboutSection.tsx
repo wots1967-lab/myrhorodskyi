@@ -12,7 +12,7 @@ const AboutSection = () => {
 
           {/* Image Side */}
           <div ref={ref} className={`reveal${revealed ? ' revealed' : ''} relative mx-auto lg:mx-0 max-w-sm lg:max-w-none`}>
-            <div className="liquid-glass-frame aspect-[3/4] overflow-hidden rounded-2xl p-2">
+            <div className="aspect-[3/4] overflow-hidden rounded-2xl">
               <picture>
                 <source
                   media="(max-width: 767px)"
@@ -25,7 +25,7 @@ const AboutSection = () => {
                 />
                 <img
                   alt="Сергій Миргородський — психолог"
-                  className="w-full h-full object-cover rounded-xl"
+                  className="w-full h-full object-cover"
                   loading="eager"
                   decoding="async"
                   fetchPriority="high"
@@ -39,11 +39,9 @@ const AboutSection = () => {
 
           {/* Content Side */}
           <div className={`reveal${revealed ? ' revealed' : ''} flex flex-col`} style={{ transitionDelay: '150ms' }}>
-            <div className="liquid-glass-frame rounded-2xl px-5 py-4 md:px-6 md:py-5 mb-4 md:mb-6 inline-block self-start">
-              <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground">
-                Привіт, мене звуть Сергій
-              </h2>
-            </div>
+            <h2 className="font-display text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4 md:mb-6">
+              Привіт, мене звуть Сергій
+            </h2>
             <div className="space-y-3 md:space-y-4 text-muted-foreground leading-relaxed text-sm md:text-base">
               <p>
                 Я захопився психологією ще в 10 років. Вже тоді сидів із зошитом і психологічними підручниками та намагався розібратись у своїх питаннях — чому ми робимо те, що робимо, що нами рухає, як все влаштовано і що насправді працює. Роками шукав підходи та інструменти, які дають результат, а не просто красиво звучать.
