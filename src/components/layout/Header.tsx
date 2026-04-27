@@ -63,7 +63,7 @@ const Header = () => {
           <nav className="flex items-center justify-between">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-3">
-              <img src={logo} alt="Logo" className="h-10 w-10" />
+              <img src={logo} alt="Logo" className="h-10 w-10" loading="lazy" decoding="async" />
               <div className="hidden sm:block">
                 <span className={`font-display text-lg font-semibold transition-colors duration-300 ${
                   isScrolled ? 'text-foreground' : 'text-cream'
