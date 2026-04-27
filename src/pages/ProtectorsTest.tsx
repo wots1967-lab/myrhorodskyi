@@ -241,7 +241,7 @@ const ProtectorsTest = () => {
   }, [stage, currentQuestion, responses, handleResponse, submitTest]);
 
   const progress = ((currentQuestion + 1) / questions.length) * 100;
-  const patternBg = '/pattern-bg.jpg';
+  const patternBg = '/pattern-bg.webp';
 
   return (
     <div className="min-h-screen bg-background">

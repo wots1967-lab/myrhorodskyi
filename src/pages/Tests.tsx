@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
 import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers, Shield, Banknote } from 'lucide-react';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
-const patternBg = '/pattern-bg.jpg';
+const patternBg = '/pattern-bg.webp';
 
 const tests = [
   {

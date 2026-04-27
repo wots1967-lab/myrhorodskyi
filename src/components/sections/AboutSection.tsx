@@ -18,7 +18,8 @@ const AboutSection = () => {
                 className="w-full h-full object-cover"
                 loading="eager"
                 decoding="async"
-                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.jpg"
+                fetchPriority="high"
+                src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
               />
             </div>
           </div>
