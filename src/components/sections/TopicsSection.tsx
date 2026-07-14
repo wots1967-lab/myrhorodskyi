@@ -66,7 +66,7 @@ const TopicsSection = () => {
                   className="w-full flex items-center justify-between px-5 py-4 md:px-6 md:py-5 cursor-pointer group"
                 >
                   <div className="flex items-center gap-3">
-                    <h3 className="font-display text-lg md:text-xl font-semibold text-secondary">
+                    <h3 className="font-display text-lg md:text-xl font-semibold text-secondary text-left">
                       {cat.title}
                     </h3>
                     {selectedCount > 0 && (
