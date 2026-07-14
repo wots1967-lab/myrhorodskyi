@@ -66,7 +66,7 @@ const AboutSection = () => {
                 <p className="text-muted-foreground text-xs md:text-sm mt-1">років практики</p>
               </div>
               <div className="bg-card/80 border border-border rounded-xl p-4 md:p-5 text-center">
-                <p className="font-display text-2xl md:text-3xl font-bold text-secondary">3500+</p>
+                <p className="font-display text-2xl md:text-3xl font-bold text-secondary">4200+</p>
                 <p className="text-muted-foreground text-xs md:text-sm mt-1">проведених сесій</p>
               </div>
             </div>
