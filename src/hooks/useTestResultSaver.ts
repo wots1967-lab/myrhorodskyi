@@ -19,12 +19,22 @@ export function useTestResultSaver(testType: string) {
     const slug = generateSlug();
     savedSlugRef.current = slug;
 
-    await supabase.from('test_results').insert({
-      test_type: testType,
-      slug,
-      responses: responses as any,
-      scores: (scores ?? null) as any,
-    });
+    try {
+      const insertPromise = supabase.from('test_results').insert({
+        test_type: testType,
+        slug,
+        responses: responses as any,
+        scores: (scores ?? null) as any,
+      });
+      // Timeout guard so a hanging network never blocks navigation
+      await Promise.race([
+        insertPromise,
+        new Promise((resolve) => setTimeout(resolve, 4000)),
+      ]);
+    } catch (err) {
+      // Silently swallow — results are rendered locally; DB save is best-effort
+      console.error('[useTestResultSaver] save failed', err);
+    }
 
     return slug;
   }, [testType]);
