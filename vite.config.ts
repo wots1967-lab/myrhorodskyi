@@ -4,6 +4,7 @@ import path from "path";
 import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 import { buildSitemapXml } from "./scripts/sitemap-routes";
+import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 function sitemapPlugin() {
   const writeSitemap = () => {
@@ -34,6 +35,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     sitemapPlugin(),
+    mcpPlugin(),
     mode === "development" && componentTagger(),
   ].filter(Boolean),
   resolve: {

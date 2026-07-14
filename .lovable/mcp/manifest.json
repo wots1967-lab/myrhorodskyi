@@ -1,0 +1,73 @@
+{
+  "version": 1,
+  "sdk_version": "0.22.0",
+  "path": "/functions/v1/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "myrhorodskyi-mcp",
+      "version": "0.1.0",
+      "title": "Myrhorodskyi Psychology MCP"
+    },
+    "tools": [
+      {
+        "name": "list_tests",
+        "title": "Каталог психологічних тестів",
+        "description": "Повертає перелік усіх психологічних тестів, доступних на сайті myrhorodskyi.com, з назвами, коротким описом і публічними URL.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_test_result",
+        "title": "Отримати результат тесту за slug",
+        "description": "За унікальним slug результату (12-символьний ідентифікатор із URL сторінки результату) повертає збережені відповіді та бали психологічного тесту, пройденого на myrhorodskyi.com.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "slug": {
+              "type": "string",
+              "description": "12-символьний slug зі сторінки результату, напр. 'a1b2c3d4e5f6'."
+            }
+          },
+          "required": [
+            "slug"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "practitioner_info",
+        "title": "Про психолога та контакти",
+        "description": "Повертає інформацію про психолога Сергія Миргородського: підхід, спеціалізацію та актуальні контакти для запису на сесію.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
