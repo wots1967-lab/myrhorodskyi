@@ -183,8 +183,8 @@
   will-change: auto !important;
 }
 
-/* === Mobile performance: disable backdrop-filter === */
-@media (max-width: 768px) {
+/* === Mobile + tablet performance: disable backdrop-filter === */
+@media (max-width: 1024px) {
   .glass-card {
     backdrop-filter: none !important;
     -webkit-backdrop-filter: none !important;
@@ -204,8 +204,8 @@
   will-change: transform, opacity;
 }
 
-/* === Mobile: cap animation durations === */
-@media (max-width: 768px), (hover: none) {
+/* === Mobile + tablet: cap animation durations === */
+@media (max-width: 1024px), (hover: none) {
   [data-framer-motion],
   .animate-on-scroll {
     animation-duration: 0.3s !important;
