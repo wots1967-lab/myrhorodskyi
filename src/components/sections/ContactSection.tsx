@@ -18,7 +18,7 @@ const ContactSection = () => {
             Запишися на консультацію через Telegram-бот або напиши особисто.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-            <Button variant="cta" size="xl" asChild>
+            <Button variant="cta" size="xl" asChild className="text-base md:text-lg">
               <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">
                 <Send size={18} />
                 Записатися на консультацію
