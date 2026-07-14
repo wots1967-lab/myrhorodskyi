@@ -26,45 +26,40 @@ export default defineTool({
       auth: { persistSession: false, autoRefreshToken: false },
     });
 
-    // Try the generic tests table first
-    const generic = await supabase
-      .from("test_results")
-      .select("test_type, slug, responses, scores, created_at")
-      .eq("slug", slug)
-      .maybeSingle();
+    // Use SECURITY DEFINER RPC — anon can only fetch a single row by slug,
+    // not enumerate the table.
+    const generic = await supabase.rpc("get_test_result_by_slug", { _slug: slug });
+    const genericRow = Array.isArray(generic.data) ? generic.data[0] : generic.data;
 
-    if (generic.data) {
+    if (genericRow) {
       return {
         content: [
           {
             type: "text",
-            text: `Result for ${generic.data.test_type} (slug ${slug}):\n${JSON.stringify(
-              { scores: generic.data.scores, responses: generic.data.responses },
+            text: `Result for ${genericRow.test_type} (slug ${slug}):\n${JSON.stringify(
+              { scores: genericRow.scores, responses: genericRow.responses },
               null,
               2,
             )}`,
           },
         ],
-        structuredContent: { source: "test_results", result: generic.data },
+        structuredContent: { source: "test_results", result: genericRow },
       };
     }
 
-    // Fallback: legacy financial_test_results table
-    const fin = await supabase
-      .from("financial_test_results")
-      .select("slug, answers, created_at")
-      .eq("slug", slug)
-      .maybeSingle();
+    // Fallback: legacy financial_test_results table (also via RPC)
+    const fin = await supabase.rpc("get_financial_result_by_slug", { _slug: slug });
+    const finRow = Array.isArray(fin.data) ? fin.data[0] : fin.data;
 
-    if (fin.data) {
+    if (finRow) {
       return {
         content: [
           {
             type: "text",
-            text: `Financial test result (slug ${slug}):\n${JSON.stringify(fin.data.answers, null, 2)}`,
+            text: `Financial test result (slug ${slug}):\n${JSON.stringify(finRow.answers, null, 2)}`,
           },
         ],
-        structuredContent: { source: "financial_test_results", result: fin.data },
+        structuredContent: { source: "financial_test_results", result: finRow },
       };
     }
 
