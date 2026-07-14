@@ -20,6 +20,11 @@ const AboutSection = () => {
                   type="image/webp"
                 />
                 <source
+                  media="(max-width: 1279px)"
+                  srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856-tablet.webp"
+                  type="image/webp"
+                />
+                <source
                   srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
                   type="image/webp"
                 />

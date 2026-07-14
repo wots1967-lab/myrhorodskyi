@@ -106,11 +106,19 @@ export function useFinancialTest() {
   // Save result
   const saveResult = useCallback(async (): Promise<string> => {
     const slug = generateSlug();
-    await supabase.from('test_results').insert({
-      test_type: 'financial',
-      slug,
-      responses: answers as any,
-    });
+    try {
+      const insertPromise = supabase.from('test_results').insert({
+        test_type: 'financial',
+        slug,
+        responses: answers as any,
+      });
+      await Promise.race([
+        insertPromise,
+        new Promise((resolve) => setTimeout(resolve, 5000)),
+      ]);
+    } catch (err) {
+      console.error('[useFinancialTest] save failed', err);
+    }
     localStorage.removeItem(STORAGE_KEY);
     return slug;
   }, [answers]);

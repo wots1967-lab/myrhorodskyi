@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFinancialTest } from '@/hooks/useFinancialTest';
 import QuestionRenderer from '@/components/financial-test/QuestionRenderer';
@@ -9,6 +9,7 @@ import { cn } from '@/lib/utils';
 
 const FinancialTestTake = () => {
   const navigate = useNavigate();
+  const [isFinishing, setIsFinishing] = useState(false);
   const {
     currentBlock,
     currentBlockIndex,
@@ -151,11 +152,23 @@ const FinancialTestTake = () => {
             <ArrowLeft className="w-4 h-4" /> Назад
           </Button>
           {isLastBlock ? (
-            <Button variant="cta" onClick={async () => {
-              const slug = await saveResult();
-              navigate(`/tests/finansova-osobystist/result/${slug}`);
-            }} className="gap-2">
-              Завершити <ArrowRight className="w-4 h-4" />
+            <Button
+              variant="cta"
+              disabled={isFinishing}
+              onClick={async () => {
+                if (isFinishing) return;
+                setIsFinishing(true);
+                try {
+                  const slug = await saveResult();
+                  navigate(`/tests/finansova-osobystist/result/${slug}`);
+                } catch (err) {
+                  console.error('finish failed', err);
+                  setIsFinishing(false);
+                }
+              }}
+              className="gap-2"
+            >
+              {isFinishing ? 'Зберігаємо…' : 'Завершити'} <ArrowRight className="w-4 h-4" />
             </Button>
           ) : (
             <Button variant="cta" onClick={goNextBlock} className="gap-2">
