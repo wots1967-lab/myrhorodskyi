@@ -67,7 +67,24 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_financial_result_by_slug: {
+        Args: { _slug: string }
+        Returns: {
+          answers: Json
+          created_at: string
+          slug: string
+        }[]
+      }
+      get_test_result_by_slug: {
+        Args: { _slug: string }
+        Returns: {
+          created_at: string
+          responses: Json
+          scores: Json
+          slug: string
+          test_type: string
+        }[]
+      }
     }
     Enums: {
       [_ in never]: never

@@ -26,14 +26,15 @@ const FinancialTestResult = () => {
   useEffect(() => {
     if (!slug) return;
     const fetchResult = async () => {
-      const { data } = await supabase
-        .from('test_results')
-        .select('responses, created_at')
-        .eq('slug', slug)
-        .eq('test_type', 'financial')
-        .single();
-      if (data) {
-        setResult({ answers: data.responses as unknown as Answers, createdAt: data.created_at });
+      // Fetch through the SECURITY DEFINER RPC so anon callers can only
+      // read the exact row identified by slug (not enumerate the table).
+      const { data } = await supabase.rpc('get_test_result_by_slug', { _slug: slug });
+      const row = Array.isArray(data) ? data[0] : data;
+      if (row && row.test_type === 'financial') {
+        setResult({
+          answers: row.responses as unknown as Answers,
+          createdAt: row.created_at,
+        });
       }
       setLoading(false);
     };
