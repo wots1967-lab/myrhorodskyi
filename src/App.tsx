@@ -28,6 +28,7 @@ const YSQTest = lazy(() => import("./pages/YSQTest"));
 const IFSScaleTest = lazy(() => import("./pages/IFSScaleTest"));
 const IFSSelfTest = lazy(() => import("./pages/IFSSelfTest"));
 const ProtectorsTest = lazy(() => import("./pages/ProtectorsTest"));
+const ExistentialProfileTest = lazy(() => import("./pages/ExistentialProfileTest"));
 const FinancialTestLanding = lazy(() => import("./pages/FinancialTestLanding"));
 const FinancialTestTake = lazy(() => import("./pages/FinancialTestTake"));
 const FinancialTestResult = lazy(() => import("./pages/FinancialTestResult"));
@@ -69,6 +70,7 @@ const App = () => (
             <Route path="/tests/diagnostyka-samosti-ifs" element={<IFSSelfTest />} />
             <Route path="/tests/klinichna-shkala-ifs" element={<IFSScaleTest />} />
             <Route path="/tests/profil-zahysnykiv-ifs" element={<ProtectorsTest />} />
+            <Route path="/tests/ekzystentsiinyi-profil" element={<ExistentialProfileTest />} />
             <Route path="/tests/finansova-osobystist" element={<FinancialTestLanding />} />
             <Route path="/tests/finansova-osobystist/take" element={<FinancialTestTake />} />
             <Route path="/tests/finansova-osobystist/result/:slug" element={<FinancialTestResult />} />

@@ -25,6 +25,7 @@ export const sitemapRoutes = [
   { path: "/tests/diagnostyka-samosti-ifs", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/klinichna-shkala-ifs", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/profil-zahysnykiv-ifs", changefreq: "monthly", priority: 0.8 },
+  { path: "/tests/ekzystentsiinyi-profil", changefreq: "monthly", priority: 0.8 },
 
   // Legal
   { path: "/privacy", changefreq: "yearly", priority: 0.3 },

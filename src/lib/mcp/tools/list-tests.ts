@@ -16,6 +16,7 @@ const TESTS: Array<{ slug: string; title: string; description: string }> = [
   { slug: "diagnostyka-samosti-ifs", title: "Діагностика Самості (IFS)", description: "IFS-скринінг рівня доступу до Самості." },
   { slug: "klinichna-shkala-ifs", title: "Клінічна шкала IFS", description: "Клінічна оцінка внутрішньої системи за моделлю IFS." },
   { slug: "profil-zahysnykiv-ifs", title: "Профіль захисників (IFS)", description: "Профіль менеджерів та пожежників у моделі IFS." },
+  { slug: "ekzystentsiinyi-profil", title: "Екзистенційний профіль", description: "Тест на сенс, свободу, відповідальність та життєву наснагу за мотивами Франкла та Ленгле." },
   { slug: "finansova-osobystist", title: "Фінансова особистість", description: "Глибинний тест ставлення до грошей." },
 ];
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers, Shield, Banknote } from 'lucide-react';
+import { Brain, Clock, Target, Heart, Dna, Drama, Puzzle, Users, HeartHandshake, Flame, FileText, Compass, Layers, Shield, Banknote, Sparkles } from 'lucide-react';
 import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 const patternBg = '/pattern-bg.webp';
 
@@ -113,6 +113,14 @@ const tests = [
     duration: '~5 хвилин',
     available: true,
     link: '/tests/profil-zahysnykiv-ifs',
+  },
+  {
+    icon: Sparkles,
+    title: 'Екзистенційний профіль',
+    description: 'Тест на сенс, свободу, відповідальність та життєву наснагу. 38 тверджень + 16 сфер життя. За мотивами Франкла та Ленгле',
+    duration: '~10 хвилин',
+    available: true,
+    link: '/tests/ekzystentsiinyi-profil',
   },
   {
     icon: Banknote,
