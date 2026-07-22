@@ -9,7 +9,7 @@ import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import { Download, RotateCcw, Compass, LifeBuoy } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import usePageSEO from '@/hooks/usePageSEO';
+import usePageSEO, { createTestJsonLd } from '@/hooks/usePageSEO';
 import { useTestResultSaver } from '@/hooks/useTestResultSaver';
 import {
   BarChart,
@@ -191,10 +191,18 @@ const ExistentialProfileTest = () => {
   const resultRef = useRef<HTMLDivElement>(null);
 
   usePageSEO({
-    title: 'Екзистенційний профіль — тест на сенс і сповненість життя | myrhorodskyi.com',
-    description: 'Тест «Екзистенційний профіль»: 38 тверджень і 16 сфер життя. Виміряй сенс, свободу, відповідальність, згоду з цінностями та життєву наснагу — за мотивами підходів Франкла та Ленгле.',
+    title: 'Екзистенційний профіль — тест на сенс життя онлайн (Франкл, Ленгле)',
+    description: 'Пройди тест «Екзистенційний профіль» українською: 38 тверджень + 16 сфер життя. Виміряй сенс, свободу, відповідальність, цінності та життєву наснагу за мотивами Франкла та Ленгле.',
     canonical: 'https://myrhorodskyi.com/tests/ekzystentsiinyi-profil',
-    keywords: 'екзистенційний тест, тест на сенс життя, Франкл, Ленгле, психологічний тест українською, сенс, самотрансценденція',
+    keywords: 'екзистенційний тест, тест на сенс життя, тест Франкла, тест Ленгле, екзистенційний аналіз, психологічний тест українською, сенс життя, самотрансценденція, життєва наснага',
+    ogType: 'article',
+    jsonLd: createTestJsonLd({
+      name: 'Екзистенційний профіль',
+      description: 'Психологічний тест на сенс, свободу, відповідальність, цінності та життєву наснагу — 38 тверджень і 16 сфер життя за мотивами Франкла та Ленгле.',
+      url: 'https://myrhorodskyi.com/tests/ekzystentsiinyi-profil',
+      questionCount: 54,
+      duration: 'PT10M',
+    }),
   });
 
   // --- Question page ranges ---
