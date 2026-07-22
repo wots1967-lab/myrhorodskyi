@@ -47,72 +47,9 @@ var list_tests_default = defineTool({
   }
 });
 
-// src/lib/mcp/tools/get-test-result.ts
-import { createClient } from "npm:@supabase/supabase-js@^2.103.0";
-import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.22.0";
-import { z } from "npm:zod@^4.4.3";
-var get_test_result_default = defineTool2({
-  name: "get_test_result",
-  title: "\u041E\u0442\u0440\u0438\u043C\u0430\u0442\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u0442\u0435\u0441\u0442\u0443 \u0437\u0430 slug",
-  description: "\u0417\u0430 \u0443\u043D\u0456\u043A\u0430\u043B\u044C\u043D\u0438\u043C slug \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0443 (12-\u0441\u0438\u043C\u0432\u043E\u043B\u044C\u043D\u0438\u0439 \u0456\u0434\u0435\u043D\u0442\u0438\u0444\u0456\u043A\u0430\u0442\u043E\u0440 \u0456\u0437 URL \u0441\u0442\u043E\u0440\u0456\u043D\u043A\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0443) \u043F\u043E\u0432\u0435\u0440\u0442\u0430\u0454 \u0437\u0431\u0435\u0440\u0435\u0436\u0435\u043D\u0456 \u0432\u0456\u0434\u043F\u043E\u0432\u0456\u0434\u0456 \u0442\u0430 \u0431\u0430\u043B\u0438 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0456\u0447\u043D\u043E\u0433\u043E \u0442\u0435\u0441\u0442\u0443, \u043F\u0440\u043E\u0439\u0434\u0435\u043D\u043E\u0433\u043E \u043D\u0430 myrhorodskyi.com.",
-  inputSchema: {
-    slug: z.string().describe("12-\u0441\u0438\u043C\u0432\u043E\u043B\u044C\u043D\u0438\u0439 slug \u0437\u0456 \u0441\u0442\u043E\u0440\u0456\u043D\u043A\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0443, \u043D\u0430\u043F\u0440. 'a1b2c3d4e5f6'.")
-  },
-  annotations: { readOnlyHint: true, idempotentHint: true, openWorldHint: false },
-  handler: async ({ slug }) => {
-    const url = process.env.SUPABASE_URL;
-    const anon = process.env.SUPABASE_PUBLISHABLE_KEY ?? process.env.SUPABASE_ANON_KEY;
-    if (!url || !anon) {
-      return {
-        content: [{ type: "text", text: "Supabase configuration missing." }],
-        isError: true
-      };
-    }
-    const supabase = createClient(url, anon, {
-      auth: { persistSession: false, autoRefreshToken: false }
-    });
-    const generic = await supabase.rpc("get_test_result_by_slug", { _slug: slug });
-    const genericRow = Array.isArray(generic.data) ? generic.data[0] : generic.data;
-    if (genericRow) {
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Result for ${genericRow.test_type} (slug ${slug}):
-${JSON.stringify(
-              { scores: genericRow.scores, responses: genericRow.responses },
-              null,
-              2
-            )}`
-          }
-        ],
-        structuredContent: { source: "test_results", result: genericRow }
-      };
-    }
-    const fin = await supabase.rpc("get_financial_result_by_slug", { _slug: slug });
-    const finRow = Array.isArray(fin.data) ? fin.data[0] : fin.data;
-    if (finRow) {
-      return {
-        content: [
-          {
-            type: "text",
-            text: `Financial test result (slug ${slug}):
-${JSON.stringify(finRow.answers, null, 2)}`
-          }
-        ],
-        structuredContent: { source: "financial_test_results", result: finRow }
-      };
-    }
-    return {
-      content: [{ type: "text", text: `No result found for slug '${slug}'.` }],
-      isError: true
-    };
-  }
-});
-
 // src/lib/mcp/tools/practitioner-info.ts
-import { defineTool as defineTool3 } from "npm:@lovable.dev/mcp-js@0.22.0";
-var practitioner_info_default = defineTool3({
+import { defineTool as defineTool2 } from "npm:@lovable.dev/mcp-js@0.22.0";
+var practitioner_info_default = defineTool2({
   name: "practitioner_info",
   title: "\u041F\u0440\u043E \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0430 \u0442\u0430 \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0438",
   description: "\u041F\u043E\u0432\u0435\u0440\u0442\u0430\u0454 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044E \u043F\u0440\u043E \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0430 \u0421\u0435\u0440\u0433\u0456\u044F \u041C\u0438\u0440\u0433\u043E\u0440\u043E\u0434\u0441\u044C\u043A\u043E\u0433\u043E: \u043F\u0456\u0434\u0445\u0456\u0434, \u0441\u043F\u0435\u0446\u0456\u0430\u043B\u0456\u0437\u0430\u0446\u0456\u044E \u0442\u0430 \u0430\u043A\u0442\u0443\u0430\u043B\u044C\u043D\u0456 \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0438 \u0434\u043B\u044F \u0437\u0430\u043F\u0438\u0441\u0443 \u043D\u0430 \u0441\u0435\u0441\u0456\u044E.",
@@ -167,8 +104,8 @@ var mcp_default = defineMcp({
   name: "myrhorodskyi-mcp",
   title: "Myrhorodskyi Psychology MCP",
   version: "0.1.0",
-  instructions: "\u041F\u0443\u0431\u043B\u0456\u0447\u043D\u0438\u0439 MCP-\u0441\u0435\u0440\u0432\u0435\u0440 \u0441\u0430\u0439\u0442\u0443 myrhorodskyi.com (\u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433 \u0421\u0435\u0440\u0433\u0456\u0439 \u041C\u0438\u0440\u0433\u043E\u0440\u043E\u0434\u0441\u044C\u043A\u0438\u0439). \u0412\u0438\u043A\u043E\u0440\u0438\u0441\u0442\u043E\u0432\u0443\u0439 `list_tests`, \u0449\u043E\u0431 \u043E\u0442\u0440\u0438\u043C\u0430\u0442\u0438 \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0438\u0445 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0456\u0447\u043D\u0438\u0445 \u0442\u0435\u0441\u0442\u0456\u0432; `get_test_result`, \u0449\u043E\u0431 \u043F\u0440\u043E\u0447\u0438\u0442\u0430\u0442\u0438 \u0437\u0431\u0435\u0440\u0435\u0436\u0435\u043D\u0438\u0439 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442 \u0442\u0435\u0441\u0442\u0443 \u0437\u0430 slug \u0437\u0456 \u0441\u0442\u043E\u0440\u0456\u043D\u043A\u0438 \u0440\u0435\u0437\u0443\u043B\u044C\u0442\u0430\u0442\u0443; `practitioner_info`, \u0449\u043E\u0431 \u043E\u0442\u0440\u0438\u043C\u0430\u0442\u0438 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044E \u043F\u0440\u043E \u043F\u0456\u0434\u0445\u0456\u0434 \u0456 \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0438 \u0434\u043B\u044F \u0437\u0430\u043F\u0438\u0441\u0443 \u043D\u0430 \u0441\u0435\u0441\u0456\u044E.",
-  tools: [list_tests_default, get_test_result_default, practitioner_info_default]
+  instructions: "\u041F\u0443\u0431\u043B\u0456\u0447\u043D\u0438\u0439 MCP-\u0441\u0435\u0440\u0432\u0435\u0440 \u0441\u0430\u0439\u0442\u0443 myrhorodskyi.com (\u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433 \u0421\u0435\u0440\u0433\u0456\u0439 \u041C\u0438\u0440\u0433\u043E\u0440\u043E\u0434\u0441\u044C\u043A\u0438\u0439). \u0412\u0438\u043A\u043E\u0440\u0438\u0441\u0442\u043E\u0432\u0443\u0439 `list_tests`, \u0449\u043E\u0431 \u043E\u0442\u0440\u0438\u043C\u0430\u0442\u0438 \u043A\u0430\u0442\u0430\u043B\u043E\u0433 \u0434\u043E\u0441\u0442\u0443\u043F\u043D\u0438\u0445 \u043F\u0441\u0438\u0445\u043E\u043B\u043E\u0433\u0456\u0447\u043D\u0438\u0445 \u0442\u0435\u0441\u0442\u0456\u0432; `practitioner_info`, \u0449\u043E\u0431 \u043E\u0442\u0440\u0438\u043C\u0430\u0442\u0438 \u0456\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0456\u044E \u043F\u0440\u043E \u043F\u0456\u0434\u0445\u0456\u0434 \u0456 \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u0438 \u0434\u043B\u044F \u0437\u0430\u043F\u0438\u0441\u0443 \u043D\u0430 \u0441\u0435\u0441\u0456\u044E.",
+  tools: [list_tests_default, practitioner_info_default]
 });
 
 // lovable-mcp-supabase-entry.ts
