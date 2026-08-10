@@ -363,7 +363,7 @@ const YSQTest = () => {
         }
         case 'Enter': {
           e.preventDefault();
-          if (currentQuestion === questions.length - 1 && responses[currentQuestion] !== null) submitTest();
+          if (currentQuestion === questions.length - 1 || answeredCount === questions.length) submitTest();
           else goNext();
           break;
         }
