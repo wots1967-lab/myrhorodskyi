@@ -246,7 +246,6 @@ const YSQTest = () => {
   }, [currentQuestion]);
 
   const goNext = useCallback(() => {
-    if (responses[currentQuestion] === null) return;
     if (currentQuestion < questions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     }
