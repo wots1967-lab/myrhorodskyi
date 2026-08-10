@@ -562,12 +562,11 @@ const YSQTest = () => {
                     Назад
                   </Button>
 
-                  {currentQuestion === questions.length - 1 ? (
+                  {(currentQuestion === questions.length - 1 || answeredCount === questions.length) ? (
                     <Button
                       variant="cta"
                       size="lg"
                       onClick={submitTest}
-                      disabled={responses.some(r => r === null)}
                     >
                       Завершити тест
                     </Button>
@@ -575,13 +574,25 @@ const YSQTest = () => {
                     <Button
                       variant="ghost"
                       onClick={goNext}
-                      disabled={responses[currentQuestion] === null}
                     >
                       Далі
                       <ArrowRight className="w-4 h-4 ml-1" />
                     </Button>
                   )}
                 </div>
+
+                {answeredCount < questions.length && (
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const first = responses.findIndex(r => r === null);
+                      if (first !== -1) setCurrentQuestion(first);
+                    }}
+                    className="w-full text-center text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Без відповіді: {questions.length - answeredCount} — перейти до першого пропущеного
+                  </button>
+                )}
 
                 <KeyboardHints hints={HINTS} />
               </motion.div>
