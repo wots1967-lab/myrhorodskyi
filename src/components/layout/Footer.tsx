@@ -54,7 +54,7 @@ const Footer = () => {
               {[
                 { label: 'Тести', href: '/tests' },
                 { label: 'Матеріали', href: '/resources' },
-                { label: 'Пакети консультацій', href: '/#packages' },
+                { label: 'Пакети консультацій', href: '/#services' },
                 { label: 'Курси та програми', href: '/courses' },
               ].map((item) => (
                 <li key={item.label}>
