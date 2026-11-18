@@ -13,32 +13,18 @@ const AboutSection = () => {
           {/* Image Side */}
           <div ref={ref} className={`reveal${revealed ? ' revealed' : ''} relative mx-auto lg:mx-0 max-w-sm lg:max-w-none`}>
             <div className="aspect-[3/4] overflow-hidden rounded-2xl">
-              <picture>
-                <source
-                  media="(max-width: 767px)"
-                  srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856-mobile.webp"
-                  type="image/webp"
-                />
-                <source
-                  media="(max-width: 1279px)"
-                  srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856-tablet.webp"
-                  type="image/webp"
-                />
-                <source
-                  srcSet="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
-                  type="image/webp"
-                />
-                <img
-                  alt="Сергій Миргородський — психолог"
-                  className="w-full h-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                  fetchPriority="high"
-                  src="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
-                  width={800}
-                  height={1067}
-                />
-              </picture>
+              {/* Портретний кадр 3:4 з оригіналу 1920×1288: 640 px для телефонів, 966 px для великих екранів */}
+              <img
+                alt="Сергій Миргородський — психолог"
+                className="w-full h-full object-cover"
+                loading="lazy"
+                decoding="async"
+                src="/lovable-uploads/acde4692-portrait.webp"
+                srcSet="/lovable-uploads/acde4692-portrait-640.webp 640w, /lovable-uploads/acde4692-portrait.webp 966w"
+                sizes="(max-width: 1023px) min(100vw, 24rem), 460px"
+                width={966}
+                height={1288}
+              />
             </div>
           </div>
 

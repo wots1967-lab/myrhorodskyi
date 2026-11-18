@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { PRICE_EUR, PACK_SAVING_EUR, USD_PER_EUR } from '@/config/pricing';
 
 type Currency = 'USD' | 'EUR';
 
@@ -7,13 +8,19 @@ interface PriceMap {
   EUR: string;
 }
 
+// Числа беруться з єдиного файлу цін: src/config/pricing.ts
+const fmt = (eur: number): PriceMap => ({
+  EUR: `${eur}€`,
+  USD: `${Math.round(eur * USD_PER_EUR)}$`,
+});
+
 const PRICES = {
-  consultation: { USD: '50$', EUR: '50€' },
-  mentorship: { USD: '70$', EUR: '70€' },
-  pack5: { USD: '230$', EUR: '230€' },
-  pack5saving: { USD: '20$', EUR: '20€' },
-  pack10: { USD: '450$', EUR: '450€' },
-  pack10saving: { USD: '50$', EUR: '50€' },
+  consultation: fmt(PRICE_EUR.consultation),
+  mentorship: fmt(PRICE_EUR.mentorship),
+  pack5: fmt(PRICE_EUR.pack5),
+  pack5saving: fmt(PACK_SAVING_EUR.pack5),
+  pack10: fmt(PRICE_EUR.pack10),
+  pack10saving: fmt(PACK_SAVING_EUR.pack10),
 } satisfies Record<string, PriceMap>;
 
 const USD_COUNTRIES = new Set(['UA', 'IL']);

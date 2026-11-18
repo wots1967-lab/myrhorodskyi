@@ -4,6 +4,7 @@ import path from "path";
 import fs from "fs";
 import { componentTagger } from "lovable-tagger";
 import { buildSitemapXml } from "./scripts/sitemap-routes";
+import { htmlPriceTokens } from "./src/config/pricing";
 import { mcpPlugin } from "@lovable.dev/mcp-js/stacks/supabase/vite";
 
 function sitemapPlugin() {
@@ -23,6 +24,20 @@ function sitemapPlugin() {
   };
 }
 
+// Підставляє ціни з src/config/pricing.ts у токени {{PRICE_...}} в index.html
+// (структуровані дані для Google), щоб ціна жила в одному місці.
+function pricingPlugin() {
+  return {
+    name: "inject-pricing",
+    transformIndexHtml(html: string) {
+      const tokens = htmlPriceTokens();
+      return html.replace(/\{\{([A-Z0-9_]+)\}\}/g, (match, key: string) =>
+        key in tokens ? tokens[key] : match
+      );
+    },
+  };
+}
+
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
   server: {
@@ -35,6 +50,7 @@ export default defineConfig(({ mode }) => ({
   plugins: [
     react(),
     sitemapPlugin(),
+    pricingPlugin(),
     mcpPlugin(),
     mode === "development" && componentTagger(),
   ].filter(Boolean),

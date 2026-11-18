@@ -6,10 +6,12 @@ const BASE = "https://myrhorodskyi.com";
 
 /**
  * Routes excluded from sitemap (kept in sync with public/robots.txt Disallow):
- * /tests/beck-anxiety, /tests/broverman, /tests/beck-depression,
- * /tests/pss10, /tests/dark-triad, /tests/temperament
- * Also excluded: legacy redirects, /test/* aliases, take/result subpaths,
- * privacy/terms (low SEO value).
+ * old slugs /tests/beck-anxiety, /tests/broverman, /tests/beck-depression,
+ * /tests/pss10, /tests/dark-triad, /tests/temperament (they redirect to the
+ * new slugs below, which ARE in the sitemap).
+ * Also excluded: tests with `hidden: true` in src/pages/Tests.tsx
+ * (profil-ego-staniv, diagnostyka-samosti-ifs), /test/* aliases,
+ * take/result subpaths.
  */
 export const sitemapRoutes = [
   // Core pages
@@ -17,12 +19,16 @@ export const sitemapRoutes = [
   { path: "/tests", changefreq: "weekly", priority: 0.9 },
 
   // Public test pages
+  { path: "/tests/shkala-tryvohy-beka", changefreq: "monthly", priority: 0.85 },
+  { path: "/tests/shkala-depresii-beka", changefreq: "monthly", priority: 0.85 },
+  { path: "/tests/shkala-stresu-pss10", changefreq: "monthly", priority: 0.85 },
+  { path: "/tests/test-neiromediatoriv-brovermana", changefreq: "monthly", priority: 0.8 },
+  { path: "/tests/temna-triada", changefreq: "monthly", priority: 0.8 },
+  { path: "/tests/temperament-aizenka", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/finansova-osobystist", changefreq: "monthly", priority: 0.85 },
-  { path: "/tests/profil-ego-staniv", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/rozshyrenyi-profil-ego-staniv", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/5-mov-lyubovi", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/opytuvalnyk-rannih-shem-ysq", changefreq: "monthly", priority: 0.8 },
-  { path: "/tests/diagnostyka-samosti-ifs", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/klinichna-shkala-ifs", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/profil-zahysnykiv-ifs", changefreq: "monthly", priority: 0.8 },
   { path: "/tests/ekzystentsiinyi-profil", changefreq: "monthly", priority: 0.8 },

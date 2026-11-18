@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { ChevronDown } from 'lucide-react';
+import { BOT_URL } from '@/lib/links';
 
 const categories = [
   {
@@ -118,7 +119,7 @@ const TopicsSection = () => {
         {selected.size > 0 && (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center mt-8">
             <a
-              href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788"
+              href={BOT_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-3 bg-secondary text-secondary-foreground rounded-lg font-semibold shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"

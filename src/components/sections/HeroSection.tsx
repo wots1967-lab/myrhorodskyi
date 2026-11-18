@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
+import { BOT_URL } from '@/lib/links';
 
 const HeroSection = () => {
   return (
@@ -27,6 +28,9 @@ const HeroSection = () => {
               src={logo}
               alt="Logo"
               className="h-20 w-20 mx-auto brightness-0 invert opacity-90" />
+            <p className="mt-4 sm:hidden font-display text-xl font-semibold text-cream tracking-wide">
+              Сергій Миргородський
+            </p>
             
           </motion.div>
 
@@ -37,7 +41,9 @@ const HeroSection = () => {
             transition={{ duration: 0.4, delay: 0.3 }}
             className="text-cream/80 text-lg md:text-xl font-medium tracking-widest uppercase mb-4">
             
-            Психолог   
+            <span className="block sm:inline">Психолог онлайн</span>
+            <span className="hidden sm:inline"> · </span>
+            <span className="block sm:inline">українською</span>
           </motion.p>
 
           <h1
@@ -57,7 +63,7 @@ const HeroSection = () => {
               Я працюю на те, щоб ти більше не потребував психолога.
             </p>
             <p className="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              ​
+              Допомагаю з тривогою, вигоранням, стосунками та кризами ідентичності — для клієнтів в Україні та за кордоном.
             </p>
           </motion.div>
 
@@ -69,7 +75,7 @@ const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center">
             
             <Button variant="hero" size="xl" asChild>
-              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на сесію</a>
+              <a href={BOT_URL} target="_blank" rel="noopener noreferrer">Записатися на сесію</a>
             </Button>
             <Button variant="heroOutline" size="xl" asChild>
               <a href="#therapy">Як проходить терапія</a>

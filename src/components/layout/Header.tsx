@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import logo from '@/assets/logo.png';
+import { BOT_URL } from '@/lib/links';
 
 const navItems = [
   { label: 'Головна', href: '/' },
@@ -103,7 +104,7 @@ const Header = () => {
             {/* CTA Button */}
             <div className="hidden lg:block">
               <Button variant="cta" size="default" asChild>
-                <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися</a>
+                <a href={BOT_URL} target="_blank" rel="noopener noreferrer">Записатися</a>
               </Button>
             </div>
 
@@ -165,7 +166,7 @@ const Header = () => {
                   className="mt-6"
                 >
                   <Button variant="cta" size="lg" className="w-full" asChild>
-                    <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
+                    <a href={BOT_URL} target="_blank" rel="noopener noreferrer">Записатися на консультацію</a>
                   </Button>
                 </motion.div>
               </div>

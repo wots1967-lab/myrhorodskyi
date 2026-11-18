@@ -2,6 +2,10 @@ import { useReveal } from '@/hooks/useReveal';
 import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
 import { useCurrency } from '@/hooks/useCurrency';
+import { BOT_URL } from '@/lib/links';
+import { SESSION_MINUTES } from '@/config/pricing';
+
+const PERSONAL_TELEGRAM_URL = 'https://t.me/sigurdpsy';
 
 const ServicesSection = () => {
   const { ref, revealed } = useReveal();
@@ -10,9 +14,10 @@ const ServicesSection = () => {
   const services = [
     {
       title: 'Індивідуальна сесія',
-      description: '50 хвилин, онлайн, один на один. Підходить і для першого знайомства з терапією, і для роботи з конкретним запитом.',
+      description: `${SESSION_MINUTES} хвилин, онлайн, один на один. Підходить і для першого знайомства з терапією, і для роботи з конкретним запитом.`,
       price: prices.consultation,
       cta: 'Обрати',
+      href: BOT_URL,
     },
     {
       badge: 'ПОПУЛЯРНО',
@@ -22,6 +27,7 @@ const ServicesSection = () => {
       price: prices.pack5,
       saving: `перевага пакету — ${prices.pack5saving}`,
       cta: 'Обрати пакет',
+      href: BOT_URL,
     },
     {
       title: 'Пакет «10 сесій»',
@@ -29,12 +35,14 @@ const ServicesSection = () => {
       price: prices.pack10,
       saving: `перевага пакету — ${prices.pack10saving}`,
       cta: 'Обрати пакет',
+      href: BOT_URL,
     },
     {
       title: 'Особисте наставництво',
       description: "Стратегічна робота над конкретними життєвими цілями: кар'єра, стосунки, самореалізація. Для тих, хто знає напрямок, але потребує супроводу на шляху.",
       price: prices.mentorship,
       cta: 'Дізнатися більше',
+      href: PERSONAL_TELEGRAM_URL,
     },
   ];
 
@@ -74,7 +82,7 @@ const ServicesSection = () => {
                 </div>
                 <div className="flex flex-col items-start lg:items-end gap-3 lg:min-w-[180px]">
                   <Button variant="ctaOutline" size="lg" className="w-full lg:w-auto" asChild>
-                    <a href="#contact">{service.cta}</a>
+                    <a href={service.href} target="_blank" rel="noopener noreferrer">{service.cta}</a>
                   </Button>
                 </div>
               </div>

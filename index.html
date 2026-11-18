@@ -16,7 +16,6 @@
 
     <link rel="canonical" href="https://myrhorodskyi.com/" />
     <link rel="alternate" hreflang="uk" href="https://myrhorodskyi.com/" />
-    <link rel="alternate" hreflang="ru" href="https://myrhorodskyi.com/" />
     <link rel="alternate" hreflang="x-default" href="https://myrhorodskyi.com/" />
 
     <meta property="og:site_name" content="Психолог Сергій Миргородський" />
@@ -42,22 +41,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" /></noscript>
-    <link
-      rel="preload"
-      as="image"
-      href="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856-mobile.webp"
-      type="image/webp"
-      fetchpriority="high"
-      media="(max-width: 767px)"
-    />
-    <link
-      rel="preload"
-      as="image"
-      href="/lovable-uploads/acde4692-2fdc-4ae7-aa62-bef757163856.webp"
-      type="image/webp"
-      fetchpriority="high"
-      media="(min-width: 768px)"
-    />
 
     <script type="application/ld+json">
     {
@@ -84,7 +67,7 @@
       "description": "Онлайн психологічне консультування українською. Тривога, панічні атаки, вигорання, депресія, стосунки. CBT, схема-терапія, IFS, юнгіанський аналіз. Для українців в Україні та за кордоном.",
       "url": "https://myrhorodskyi.com",
       "image": "https://myrhorodskyi.com/og-image.jpg",
-      "priceRange": "50€–70€",
+      "priceRange": "{{PRICE_MIN}}€–{{PRICE_MAX}}€",
       "availableLanguage": [
         {"@type": "Language", "name": "Ukrainian", "alternateName": "uk"},
         {"@type": "Language", "name": "Russian", "alternateName": "ru"}
@@ -103,9 +86,9 @@
         "@type": "OfferCatalog",
         "name": "Послуги психолога",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Індивідуальна сесія", "description": "50 хвилин онлайн"}, "priceCurrency": "EUR", "price": "50"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Пакет 5 сесій"}, "priceCurrency": "EUR", "price": "230"},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Пакет 10 сесій"}, "priceCurrency": "EUR", "price": "420"}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Індивідуальна сесія", "description": "{{SESSION_MINUTES}} хвилин онлайн"}, "priceCurrency": "EUR", "price": "{{PRICE_CONSULTATION}}"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Пакет 5 сесій"}, "priceCurrency": "EUR", "price": "{{PRICE_PACK5}}"},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Пакет 10 сесій"}, "priceCurrency": "EUR", "price": "{{PRICE_PACK10}}"}
         ]
       },
       "sameAs": ["https://www.instagram.com/sigurd.psy", "https://t.me/sigurdpsy"]
@@ -145,7 +128,7 @@
         {
           "@type": "Question",
           "name": "Скільки коштує консультація психолога онлайн?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Індивідуальна сесія — 50€ (50 хвилин). Пакет 5 сесій — 230€. Пакет 10 сесій — 420€."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Індивідуальна сесія — {{PRICE_CONSULTATION}}€ ({{SESSION_MINUTES}} хвилин). Пакет 5 сесій — {{PRICE_PACK5}}€. Пакет 10 сесій — {{PRICE_PACK10}}€."}
         }
       ]
     }
