@@ -28,7 +28,7 @@ const HeroSection = () => {
               src={logo}
               alt="Logo"
               className="h-20 w-20 mx-auto brightness-0 invert opacity-90" />
-            <p className="mt-4 sm:hidden font-display text-xl font-semibold text-cream tracking-wide">
+            <p className="mt-3 sm:hidden font-display text-lg text-cream/90 tracking-wide">
               Сергій Миргородський
             </p>
             
@@ -39,11 +39,9 @@ const HeroSection = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.3 }}
-            className="text-cream/80 text-lg md:text-xl font-medium tracking-widest uppercase mb-4">
-            
-            <span className="block sm:inline">Психолог онлайн</span>
-            <span className="hidden sm:inline"> · </span>
-            <span className="block sm:inline">українською</span>
+            className="text-cream/80 text-[13px] sm:text-lg md:text-xl font-medium tracking-[0.16em] sm:tracking-widest uppercase mb-4">
+
+            Психолог онлайн · українською
           </motion.p>
 
           <h1
@@ -62,8 +60,8 @@ const HeroSection = () => {
             <p className="text-cream italic mb-4 text-xl font-serif md:text-2xl">
               Я працюю на те, щоб ти більше не потребував психолога.
             </p>
-            <p className="text-cream/80 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-              Допомагаю з тривогою, вигоранням, стосунками та кризами ідентичності — для клієнтів в Україні та за кордоном.
+            <p className="text-cream/60 text-sm md:text-base tracking-wide max-w-md mx-auto text-balance">
+              Тривога · вигорання<span className="hidden sm:inline"> · </span><br className="sm:hidden" />стосунки · кризи ідентичності
             </p>
           </motion.div>
 
