@@ -1,4 +1,4 @@
-import { MousePointerClick, CalendarCheck, Banknote } from 'lucide-react';
+import { MousePointerClick, ClipboardList, MessageCircle } from 'lucide-react';
 
 const steps = [
   {
@@ -7,14 +7,14 @@ const steps = [
     text: 'Відкриється Telegram-бот.',
   },
   {
-    icon: CalendarCheck,
-    title: 'Обери послугу та час',
-    text: 'Бот допоможе обрати формат і зручний час.',
+    icon: ClipboardList,
+    title: 'Заповни дані',
+    text: 'Вкажи вік і запит (якщо він є), поділися контактами.',
   },
   {
-    icon: Banknote,
-    title: 'Підтверди передоплатою',
-    text: 'Не пізніше ніж за 24 години до сесії.',
+    icon: MessageCircle,
+    title: 'Очікуй мого повідомлення',
+    text: 'Зазвичай відповідаю протягом 48 годин. Я зв’яжуся з тобою, і ми оберемо зручний час.',
   },
 ];
 
