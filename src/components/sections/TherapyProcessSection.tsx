@@ -35,10 +35,10 @@ const TherapyCard = ({ step, index }: { step: typeof steps[0]; index: number }) 
   return (
     <div
       ref={ref}
-      className={`reveal${revealed ? ' revealed' : ''}`}
+      className={`reveal h-full${revealed ? ' revealed' : ''}`}
       style={{ transitionDelay: `${index * 80}ms` }}
     >
-      <div className="group relative rounded-2xl border bg-card/30 p-6 md:p-7 cursor-default transition-all duration-300 overflow-hidden border-border/50 hover:bg-card/70 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/5">
+      <div className="group relative h-full rounded-2xl border bg-card/30 p-6 md:p-7 cursor-default transition-all duration-300 overflow-hidden border-border/50 hover:bg-card/70 hover:border-secondary/30 hover:shadow-lg hover:shadow-secondary/5">
         <span className="absolute top-4 right-5 font-display text-4xl md:text-5xl font-bold select-none leading-none text-secondary/[0.07] group-hover:text-secondary/15 transition-colors duration-300">
           {step.step}
         </span>

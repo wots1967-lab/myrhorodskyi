@@ -40,10 +40,10 @@ const HelpCard = ({ item, index }: { item: typeof helpItems[0]; index: number })
   return (
     <div
       ref={ref}
-      className={`reveal${revealed ? ' revealed' : ''}`}
+      className={`reveal h-full${revealed ? ' revealed' : ''}`}
       style={{ transitionDelay: `${index * 60}ms` }}
     >
-      <div className="group relative rounded-2xl border bg-card/20 p-6 cursor-default overflow-hidden transition-all duration-300 border-border/40 hover:border-secondary/40">
+      <div className="group relative h-full rounded-2xl border bg-card/20 p-6 cursor-default overflow-hidden transition-all duration-300 border-border/40 hover:border-secondary/40">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/[0.06] via-secondary/[0.03] to-transparent rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-100" />
         <div className="relative z-10 mb-5">
           <div className="w-12 h-12 rounded-2xl flex items-center justify-center transition-all duration-300 bg-secondary/10 group-hover:bg-secondary/20 group-hover:scale-[1.08]">
