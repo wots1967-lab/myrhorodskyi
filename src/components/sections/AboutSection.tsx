@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useReveal } from '@/hooks/useReveal';
 import { Button } from '@/components/ui/button';
 import { ArrowDown } from 'lucide-react';
 
 const AboutSection = () => {
   const { ref, revealed } = useReveal();
+  // Фото м'яко проявляється, коли завантажилось (без різкого «вистрибування»)
+  const [photoLoaded, setPhotoLoaded] = useState(false);
 
   return (
     <section id="about" className="section-padding relative z-10">
@@ -16,8 +19,11 @@ const AboutSection = () => {
               {/* Портретний кадр 3:4 з оригіналу 1920×1288: 640 px для телефонів, 966 px для великих екранів */}
               <img
                 alt="Сергій Миргородський — психолог"
-                className="w-full h-full object-cover"
-                loading="lazy"
+                className={`w-full h-full object-cover transition-opacity duration-700 ease-out ${photoLoaded ? 'opacity-100' : 'opacity-0'}`}
+                ref={(img) => { if (img?.complete && img.naturalWidth > 0) setPhotoLoaded(true); }}
+                onLoad={() => setPhotoLoaded(true)}
+                loading="eager"
+                fetchPriority="low"
                 decoding="async"
                 src="/lovable-uploads/acde4692-portrait.webp"
                 srcSet="/lovable-uploads/acde4692-portrait-640.webp 640w, /lovable-uploads/acde4692-portrait.webp 966w"
