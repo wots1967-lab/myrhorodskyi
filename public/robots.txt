@@ -5,4 +5,5 @@ Disallow: /tests/broverman
 Disallow: /tests/beck-depression
 Disallow: /tests/pss10
 Disallow: /tests/dark-triad
+Disallow: /tests/temperament
 Sitemap: https://myrhorodskyi.com/sitemap.xml

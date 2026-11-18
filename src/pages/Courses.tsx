@@ -2,7 +2,8 @@ import { motion } from 'framer-motion';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
-import { BookOpen, Clock, Users } from 'lucide-react';
+import { BookOpen, Clock } from 'lucide-react';
+import { BOT_URL } from '@/lib/links';
 import usePageSEO from '@/hooks/usePageSEO';
 const patternBg = '/pattern-bg.webp';
 
@@ -11,21 +12,18 @@ const placeholderCourses = [
     title: 'Управління стресом',
     description: 'Практичний курс з техніками зменшення тривоги та відновлення балансу',
     duration: '4 тижні',
-    students: '25+',
     price: 'Скоро',
   },
   {
     title: 'Емоційний інтелект',
     description: 'Розвиток навичок розпізнавання та управління емоціями',
     duration: '6 тижнів',
-    students: '30+',
     price: 'Скоро',
   },
   {
     title: 'Здорові відносини',
     description: 'Побудова гармонійних стосунків з оточуючими',
     duration: '5 тижнів',
-    students: '20+',
     price: 'Скоро',
   },
 ];
@@ -93,10 +91,6 @@ const Courses = () => {
                     <Clock size={16} />
                     {course.duration}
                   </span>
-                  <span className="flex items-center gap-1">
-                    <Users size={16} />
-                    {course.students}
-                  </span>
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="font-display text-2xl font-bold text-secondary">
@@ -121,10 +115,10 @@ const Courses = () => {
               Нові курси вже скоро!
             </h3>
             <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-              Ми працюємо над новими навчальними програмами. Залиште свій email, щоб дізнатися першими про запуск.
+              Нові навчальні програми в роботі. Щоб дізнатися першим про запуск, напиши в Telegram-бот.
             </p>
             <Button variant="cta" size="lg" asChild>
-              <a href="https://t.me/SigurdPSYBot?start=64f8747ec7512692c00d1788" target="_blank" rel="noopener noreferrer">Отримати сповіщення</a>
+              <a href={BOT_URL} target="_blank" rel="noopener noreferrer">Дізнатися про запуск</a>
             </Button>
           </motion.div>
         </div>
