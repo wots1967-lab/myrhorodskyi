@@ -251,6 +251,35 @@
   opacity: 1;
 }
 
+/* Тонка лінія між кроками «малюється» (transform, без перерахунку макета) */
+.draw-line-x,
+.draw-line-y {
+  transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s;
+}
+
+.draw-line-x {
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+.draw-line-y {
+  transform: scaleY(0);
+  transform-origin: top center;
+  transition-duration: 0.8s;
+}
+
+.draw-line-x.revealed,
+.draw-line-y.revealed {
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-line-x,
+  .draw-line-y {
+    transition: none;
+  }
+}
+
 /* === Responsive pattern background (mobile vs desktop) === */
 .pattern-bg {
   background-color: hsl(163, 50%, 12%);
