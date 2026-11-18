@@ -34,16 +34,6 @@ const HeroSection = () => {
             
           </motion.div>
 
-          {/* Title */}
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.3 }}
-            className="text-cream/80 text-[13px] sm:text-lg md:text-xl font-medium tracking-[0.16em] sm:tracking-widest uppercase mb-4">
-
-            Психолог онлайн · українською
-          </motion.p>
-
           <h1
             className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-cream mb-6">
             
